@@ -44,6 +44,9 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.searchLabel = new System.Windows.Forms.Label();
             this.actionsPanel.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -53,13 +56,16 @@
             // actionsPanel
             // 
             this.actionsPanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.actionsPanel.Controls.Add(this.searchLabel);
+            this.actionsPanel.Controls.Add(this.searchTextBox);
+            this.actionsPanel.Controls.Add(this.searchButton);
             this.actionsPanel.Controls.Add(this.clearButton);
             this.actionsPanel.Controls.Add(this.filterLabel);
             this.actionsPanel.Controls.Add(this.filterTextBox);
             this.actionsPanel.Controls.Add(this.deleteButton);
             this.actionsPanel.Controls.Add(this.editButton);
             this.actionsPanel.Controls.Add(this.newButton);
-            this.actionsPanel.Location = new System.Drawing.Point(532, 12);
+            this.actionsPanel.Location = new System.Drawing.Point(550, 12);
             this.actionsPanel.Name = "actionsPanel";
             this.actionsPanel.Size = new System.Drawing.Size(438, 250);
             this.actionsPanel.TabIndex = 8;
@@ -67,18 +73,19 @@
             // clearButton
             // 
             this.clearButton.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearButton.Location = new System.Drawing.Point(291, 106);
+            this.clearButton.Location = new System.Drawing.Point(291, 95);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(120, 40);
             this.clearButton.TabIndex = 14;
             this.clearButton.Text = "Limpiar";
             this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // filterLabel
             // 
             this.filterLabel.AutoSize = true;
             this.filterLabel.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filterLabel.Location = new System.Drawing.Point(35, 117);
+            this.filterLabel.Location = new System.Drawing.Point(35, 106);
             this.filterLabel.Name = "filterLabel";
             this.filterLabel.Size = new System.Drawing.Size(51, 19);
             this.filterLabel.TabIndex = 13;
@@ -87,7 +94,7 @@
             // filterTextBox
             // 
             this.filterTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filterTextBox.Location = new System.Drawing.Point(92, 114);
+            this.filterTextBox.Location = new System.Drawing.Point(92, 103);
             this.filterTextBox.Name = "filterTextBox";
             this.filterTextBox.Size = new System.Drawing.Size(193, 27);
             this.filterTextBox.TabIndex = 12;
@@ -101,6 +108,7 @@
             this.deleteButton.TabIndex = 4;
             this.deleteButton.Text = "Eliminar";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // editButton
             // 
@@ -111,6 +119,7 @@
             this.editButton.TabIndex = 3;
             this.editButton.Text = "Editar";
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // newButton
             // 
@@ -121,6 +130,7 @@
             this.newButton.TabIndex = 2;
             this.newButton.Text = "Nuevo";
             this.newButton.UseVisualStyleBackColor = true;
+            this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
             // profilePanel
             // 
@@ -134,7 +144,7 @@
             this.profilePanel.Controls.Add(this.pictureBox);
             this.profilePanel.Location = new System.Drawing.Point(12, 12);
             this.profilePanel.Name = "profilePanel";
-            this.profilePanel.Size = new System.Drawing.Size(493, 250);
+            this.profilePanel.Size = new System.Drawing.Size(519, 250);
             this.profilePanel.TabIndex = 7;
             // 
             // idLabel
@@ -214,14 +224,43 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(958, 357);
+            this.dataGridView1.Size = new System.Drawing.Size(976, 404);
             this.dataGridView1.TabIndex = 6;
+            // 
+            // searchButton
+            // 
+            this.searchButton.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.Location = new System.Drawing.Point(291, 184);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(120, 40);
+            this.searchButton.TabIndex = 15;
+            this.searchButton.Text = "Buscar";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTextBox.Location = new System.Drawing.Point(92, 192);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(193, 27);
+            this.searchTextBox.TabIndex = 16;
+            // 
+            // searchLabel
+            // 
+            this.searchLabel.AutoSize = true;
+            this.searchLabel.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchLabel.Location = new System.Drawing.Point(35, 154);
+            this.searchLabel.Name = "searchLabel";
+            this.searchLabel.Size = new System.Drawing.Size(90, 19);
+            this.searchLabel.TabIndex = 17;
+            this.searchLabel.Text = "Buscar por";
             // 
             // CatalogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 653);
+            this.ClientSize = new System.Drawing.Size(1000, 700);
             this.Controls.Add(this.actionsPanel);
             this.Controls.Add(this.profilePanel);
             this.Controls.Add(this.dataGridView1);
@@ -257,5 +296,8 @@
         private System.Windows.Forms.TextBox filterTextBox;
         private System.Windows.Forms.Label filterLabel;
         private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Label searchLabel;
+        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Button searchButton;
     }
 }

@@ -1,36 +1,37 @@
 # Consigna TP WinForm
- 
-Se necesita una aplicaci�n para la gesti�n de art�culos de un cat�logo de un comercio. La aplicaci�n debe ser gen�rica, es decir, aplicar para cualquier tipo de comercio; y la informaci�n que en ella se cargue ser� consumida luego desde distintos servicios para ser mostradas ya sea en webs, e-commerces, apps mobile, revistas, etc. Esto no es parte del desarrollo, pero s� del contexto en el cual se utilizar� la aplicaci�n a desarrollar.
- 
-Deber� ser un programa de escritorio que contemple la administraci�n de art�culos. Las funcionalidades que deber� tener la aplicaci�n ser�n:
- 
--   Listado de art�culos.
--   B�squeda de art�culos por distintos criterios.
--   Agregar art�culos.
--   Modificar art�culos.
--   Eliminar art�culos.
--   Ver detalle de un art�culo.
- 
-Toda �sta informaci�n deber� ser persistida en una base de datos ya existente (la cual se adjunta).
- 
-Los datos m�nimos con los que deber� contar el art�culo son los siguientes:
- 
--   C�digo de art�culo.
+
+Se necesita una aplicación para la gestión de artículos de un catálogo de un comercio. La aplicación debe ser genérica, es decir, aplicar para cualquier tipo de comercio; y la información que en ella se cargue será consumida luego desde distintos servicios para ser mostrada ya sea en webs, e-commerces, apps mobile, revistas, etc. Esto no es parte del desarrollo, pero sí del contexto en el cual se utilizará la aplicación a desarrollar.
+
+Deberá ser un programa de escritorio que contemple la administración de artículos. Las funcionalidades que deberá tener la aplicación serán:
+
+-   Listado de artículos.
+-   Búsqueda de artículos por distintos criterios.
+-   Agregar artículos.
+-   Modificar artículos.
+-   Eliminar artículos.
+-   Ver detalle de un artículo.
+
+Toda esta información deberá ser persistida en una base de datos ya existente (la cual se adjunta).
+
+Los datos mínimos con los que deberá contar el artículo son los siguientes:
+
+-   Código de artículo.
 -   Nombre.
--   Descripci�n.
+-   Descripción.
 -   Marca (seleccionable de una lista desplegable).
--   Categor�a (seleccionable de una lista desplegable.
+-   Categoría (seleccionable de una lista desplegable).
 -   Imagen.
 -   Precio.
- 
-El programa debe permitir administrar las Marcas y Categor�as disponibles en el programa. Adem�s, un producto podr�a llegar a tener una o m�s im�genes, sin un l�mite establecido. Esto debe estar contemplado en la gesti�n del art�culo.
- 
-**Etapa 1:**  Construir las clases necesarias para el modelo de dicha aplicaci�n junto a las ventanas con las que contar� y su navegaci�n.
- 
-**Etapa 2:**  Construir la interacci�n con la base de datos y validaciones correspondiente para dar vida a la funcionalidad.
 
+El programa debe permitir administrar las Marcas y Categorías disponibles en el programa. Además, un producto podría llegar a tener una o más imágenes, sin un límite establecido. Esto debe estar contemplado en la gestión del artículo.
 
-- Iconos Utilizados: Feather Icons
+**Etapa 1:**  Construir las clases necesarias para el modelo de dicha aplicación junto a las ventanas con las que contará y su navegación.
+
+**Etapa 2:**  Construir la interacción con la base de datos y validaciones correspondiente para dar vida a la funcionalidad.
+
+---
+
+- **Iconos Utilizados:** Feather Icons
 [Figma con Iconos](https://www.figma.com/file/SrqzxLyyNF0paaJaEuNFNS/TPWinForm?type=design&node-id=1:2104&mode=design&t=3NzGvJcjVbpzR9XY-1)
 
 ## Paleta de Colores

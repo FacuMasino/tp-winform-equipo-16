@@ -8,6 +8,13 @@ namespace WindowsForms
 {
     internal class Brand
     {
+        //CONSTRUCTORES
+        public Brand ( int Id, string Name)
+        {
+            this.Id = Id;
+            this.Name = Name; }
+        public Brand() { }
+
         private int Id;
         public int BrandId
         {

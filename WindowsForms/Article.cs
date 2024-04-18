@@ -10,6 +10,20 @@ namespace WindowsForms
     internal class Article
     {
 
+        // Constructores
+        public Article ( string ArticleCode, string Name, string Description, decimal Price)
+        {
+            this.ArticleCode = ArticleCode;
+            this.Name = Name;
+            this.Description = Description;
+            this.Price = Price;
+
+        }
+
+        public Article() { }
+
+
+
         private string Code;
         public string ArticleCode
         {

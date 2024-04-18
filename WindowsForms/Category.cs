@@ -10,6 +10,15 @@ namespace WindowsForms
     internal class Category
     {
 
+        //CONSTRUCTORES
+        public Category(int Id, string Name)
+        { this.Id = Id;
+        this.Name = Name; }
+
+        public Category() { }
+            
+            
+            
         private int Id;
         public int CategoryId
         { 

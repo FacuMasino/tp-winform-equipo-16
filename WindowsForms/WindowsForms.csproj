@@ -50,12 +50,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Article.cs" />
+    <Compile Include="Brand.cs" />
     <Compile Include="CatalogForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CatalogForm.Designer.cs">
       <DependentUpon>CatalogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Category.cs" />
     <Compile Include="Extensions\GraphicsExtension.cs" />
     <Compile Include="FormsManager.cs" />
     <Compile Include="MainForm.cs">

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,7 +18,7 @@ namespace WindowsForms
         }
 
         private string Name;
-        public int ArticleName
+        public string ArticleName
         {
             get { return Name; }
             set { Name = value; }
@@ -31,13 +32,15 @@ namespace WindowsForms
             set { Description = value; }
         }
 
-        private float Price;
-        public float ArticlePrice
+        private decimal Price;
+        public decimal ArticlePrice
         {
 
             get { return Price; }
             set { Price = value;  }
         }
+
+        private Brand BrandId;
 
 
         }

@@ -60,6 +60,7 @@
     <Compile Include="Category.cs" />
     <Compile Include="Extensions\GraphicsExtension.cs" />
     <Compile Include="FormsManager.cs" />
+    <Compile Include="Image.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

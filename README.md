@@ -1,63 +1,78 @@
-# tpwinform-prog3
-
-
 # Consigna TP WinForm
  
-Se necesita una aplicación para la gestión de artículos de un catálogo de un comercio. La aplicación debe ser genérica, es decir, aplicar para cualquier tipo de comercio; y la información que en ella se cargue será consumida luego desde distintos servicios para ser mostradas ya sea en webs, e-commerces, apps mobile, revistas, etc. Esto no es parte del desarrollo, pero sí del contexto en el cual se utilizará la aplicación a desarrollar.
+Se necesita una aplicaciï¿½n para la gestiï¿½n de artï¿½culos de un catï¿½logo de un comercio. La aplicaciï¿½n debe ser genï¿½rica, es decir, aplicar para cualquier tipo de comercio; y la informaciï¿½n que en ella se cargue serï¿½ consumida luego desde distintos servicios para ser mostradas ya sea en webs, e-commerces, apps mobile, revistas, etc. Esto no es parte del desarrollo, pero sï¿½ del contexto en el cual se utilizarï¿½ la aplicaciï¿½n a desarrollar.
  
-Deberá ser un programa de escritorio que contemple la administración de artículos. Las funcionalidades que deberá tener la aplicación serán:
+Deberï¿½ ser un programa de escritorio que contemple la administraciï¿½n de artï¿½culos. Las funcionalidades que deberï¿½ tener la aplicaciï¿½n serï¿½n:
  
--   Listado de artículos.
--   Búsqueda de artículos por distintos criterios.
--   Agregar artículos.
--   Modificar artículos.
--   Eliminar artículos.
--   Ver detalle de un artículo.
+-   Listado de artï¿½culos.
+-   Bï¿½squeda de artï¿½culos por distintos criterios.
+-   Agregar artï¿½culos.
+-   Modificar artï¿½culos.
+-   Eliminar artï¿½culos.
+-   Ver detalle de un artï¿½culo.
  
-Toda ésta información deberá ser persistida en una base de datos ya existente (la cual se adjunta).
+Toda ï¿½sta informaciï¿½n deberï¿½ ser persistida en una base de datos ya existente (la cual se adjunta).
  
-Los datos mínimos con los que deberá contar el artículo son los siguientes:
+Los datos mï¿½nimos con los que deberï¿½ contar el artï¿½culo son los siguientes:
  
--   Código de artículo.
+-   Cï¿½digo de artï¿½culo.
 -   Nombre.
--   Descripción.
+-   Descripciï¿½n.
 -   Marca (seleccionable de una lista desplegable).
--   Categoría (seleccionable de una lista desplegable.
+-   Categorï¿½a (seleccionable de una lista desplegable.
 -   Imagen.
 -   Precio.
  
-El programa debe permitir administrar las Marcas y Categorías disponibles en el programa. Además, un producto podría llegar a tener una o más imágenes, sin un límite establecido. Esto debe estar contemplado en la gestión del artículo.
+El programa debe permitir administrar las Marcas y Categorï¿½as disponibles en el programa. Ademï¿½s, un producto podrï¿½a llegar a tener una o mï¿½s imï¿½genes, sin un lï¿½mite establecido. Esto debe estar contemplado en la gestiï¿½n del artï¿½culo.
  
-**Etapa 1:**  Construir las clases necesarias para el modelo de dicha aplicación junto a las ventanas con las que contará y su navegación.
+**Etapa 1:**  Construir las clases necesarias para el modelo de dicha aplicaciï¿½n junto a las ventanas con las que contarï¿½ y su navegaciï¿½n.
  
-**Etapa 2:**  Construir la interacción con la base de datos y validaciones correspondiente para dar vida a la funcionalidad.
+**Etapa 2:**  Construir la interacciï¿½n con la base de datos y validaciones correspondiente para dar vida a la funcionalidad.
 
 
 - Iconos Utilizados: Feather Icons
 [Figma con Iconos](https://www.figma.com/file/SrqzxLyyNF0paaJaEuNFNS/TPWinForm?type=design&node-id=1:2104&mode=design&t=3NzGvJcjVbpzR9XY-1)
 
-### Paleta de Colores
+## Paleta de Colores
 
 - Form BackColor: 244, 245, 250
 - Default Font Color: 87, 89, 91
 
-#### Primary Button 
+### Primary Button 
 - BackColor: 95, 105, 245
 - Border: None
 - ForeColor: White
 
-#### Secondary Button 
+### Secondary Button 
 - BackColor: Transparent
 - Border: 95, 105, 245
 - BorderSize: 2
 - ForeColor: 95, 105, 245
 
-#### Round Panel
+### Round Panel
 - BackColor: White
 - BorderColor: 236, 236, 238
 - BorderWidth: 3
 - Radius: 10
 
-#### TextBox
+### TextBox
 - BorderStyle: FixedSingle
 - BackColor: 246, 247, 251
+
+## Formato y Estilo
+
+Se recomienda seguir estas convenciones para lograr un cÃ³digo legible y consistente que facilite la lectura para todos los desarrolladores del equipo. Esto mejora la detecciÃ³n de errores y la interpretaciÃ³n de las funciones de cada elemento del cÃ³digo.
+
+| Nombre Objeto             | NotaciÃ³n   | Guion Bajo |
+|:--------------------------|:-----------|:----------:|
+| Nombre Namespace          | PascalCase | No         |
+| Nombre Clase              | PascalCase | No         |
+| Nombre Constructor        | PascalCase | No         |
+| Nombre MÃ©todo             | PascalCase | No         |
+| Argumentos de un MÃ©todo   | camelCase  | No         |
+| Variables Locales         | camelCase  | No         |
+| Nombre de Constantes      | PascalCase | No         |
+| Nombre Atributo PÃºblico   | PascalCase | No         |
+| Nombre Atributo Privado   | _camelCase | SÃ­         |
+| Nombre de Propiedades     | PascalCase | No         |
+| Nombre de Enum type       | PascalCase | No         |

@@ -1,62 +1,99 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace WindowsForms
 {
     internal class Article
     {
+        private string _code;
+        private string _name;
+        private decimal _price;
+        private string _description;
+        private Brand _brand;
+        private Category _category;
+
+        // Esta propiedad es "readonly" para que no se pueda reasignar
+        // de nuevo en alguna otra parte de la clase
+        private readonly List<Image> _image = new List<Image>();
 
         // Constructores
-        public Article ( string ArticleCode, string Name, string Description, decimal Price)
+        public Article(
+            string code,
+            string name,
+            string description,
+            decimal price,
+            Brand brand,
+            Category category
+        )
         {
-            this.ArticleCode = ArticleCode;
-            this.Name = Name;
-            this.Description = Description;
-            this.Price = Price;
-
+            this._code = code;
+            this._name = name;
+            this._description = description;
+            this._price = price;
+            Brand = brand;
+            Category = category;
         }
 
         public Article() { }
 
-
-
-        private string Code;
-        public string ArticleCode
+        public string Code
         {
-             get { return Code;  }
-             set { Code = value; }
+            get { return _code; }
+            set { _code = value; }
         }
 
-        private string Name;
-        public string ArticleName
+        public string Name
         {
-            get { return Name; }
-            set { Name = value; }
-         }
-
-
-        private string Description;
-        public string ArticleDescription
+            get { return _name; }
+            set { _name = value; }
+        }
+        public decimal Price
         {
-            get { return Description;  }
-            set { Description = value; }
+            get { return _price; }
+            set { _price = value; }
         }
 
-        private decimal Price;
-        public decimal ArticlePrice
+        public string Description
         {
-
-            get { return Price; }
-            set { Price = value;  }
+            get { return _description; }
+            set { _description = value; }
         }
 
-        private Brand BrandId;
+        public Brand Brand
+        {
+            get { return _brand; }
+            set { _brand = value; }
+        }
 
+        public Category Category
+        {
+            get { return _category; }
+            set { _category = value; }
+        }
 
+        // Devuelve toda la lista de imágenes
+        public List<Image> Images
+        {
+            get { return _image; }
+        }
+
+        // Agregar imagen a la lista
+        public void AddImage(Image image)
+        {
+            _image.Add(image);
+        }
+
+        // Quita una imagen de la lista por ID
+        public bool RemoveImage(int id)
+        {
+            foreach (Image image in _image)
+            {
+                if (image.Id == id)
+                {
+                    _image.Remove(image);
+                    return true;
+                }
+            }
+            return false; // Si no encuentra la imágen devuelve false
         }
     }
-
+}

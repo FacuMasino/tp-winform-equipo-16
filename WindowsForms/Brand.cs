@@ -1,35 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WindowsForms
+﻿namespace WindowsForms
 {
     internal class Brand
     {
+        private int _id;
+        private string _name;
+
         //CONSTRUCTORES
-        public Brand ( int Id, string Name)
+        public Brand(int id, string name)
         {
-            this.Id = Id;
-            this.Name = Name; }
+            this._id = id;
+            this._name = name;
+        }
+
         public Brand() { }
 
-        private int Id;
-        public int BrandId
+        public int Id
         {
-            get { return Id; }
-            set { Id = value; }
+            get { return _id; }
+            set { _id = value; }
         }
 
-
-        private string Name;
-        public string BrandName
+        public string Name
         {
-            get { return Name; }
-            set { Name = value; }
+            get { return _name; }
+            set { _name = value; }
         }
-
-       }
     }
-
+}

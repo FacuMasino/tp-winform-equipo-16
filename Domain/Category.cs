@@ -1,6 +1,6 @@
 ﻿namespace Domain
 {
-    internal class Category
+    public class Category
     {
         private int _id;
         private string _name;

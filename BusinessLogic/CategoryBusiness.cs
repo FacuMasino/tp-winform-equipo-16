@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    internal class CategoryBusiness
+    public class CategoryBusiness
     {
     }
 }

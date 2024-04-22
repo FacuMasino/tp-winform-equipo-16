@@ -1,6 +1,6 @@
 ﻿namespace Domain
 {
-    internal class Image
+    public class Image
     {
         private int _id;
         private string _url;

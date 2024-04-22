@@ -1,6 +1,6 @@
 ﻿namespace Domain
 {
-    internal class Brand
+    public class Brand
     {
         private int _id;
         private string _name;

@@ -2,7 +2,7 @@
 
 namespace Domain
 {
-    internal class Article
+    public class Article
     {
         private string _code;
         private string _name;

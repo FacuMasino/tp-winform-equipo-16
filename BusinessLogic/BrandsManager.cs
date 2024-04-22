@@ -14,7 +14,7 @@ namespace BusinessLogicLayer
 
             try
             {
-                _dataAccess.SetQuery("select Id, Descripcion from Brands");
+                _dataAccess.SetQuery("select Id, Descripcion from Marcas");
                 _dataAccess.ExecuteRead();
 
                 while (_dataAccess.Reader.Read())
@@ -49,7 +49,7 @@ namespace BusinessLogicLayer
 
             try
             {
-                _dataAccess.SetQuery("select Descripcion from Brands where Id = @Id");
+                _dataAccess.SetQuery("select Descripcion from Marcas where Id = @Id");
                 _dataAccess.SetParameter("@Id", id);
                 _dataAccess.ExecuteRead();
 
@@ -79,7 +79,7 @@ namespace BusinessLogicLayer
         {
             try
             {
-                _dataAccess.SetQuery("insert into Brands (Descripcion) values (@Descripcion)");
+                _dataAccess.SetQuery("insert into Marcas (Descripcion) values (@Descripcion)");
                 SetParameters(brand);
                 _dataAccess.ExecuteAction();
             }
@@ -97,7 +97,7 @@ namespace BusinessLogicLayer
         {
             try
             {
-                _dataAccess.SetQuery("update Brands set Descripcion = @Descripcion where Id = @Id");
+                _dataAccess.SetQuery("update Marcas set Descripcion = @Descripcion where Id = @Id");
                 _dataAccess.SetParameter("@Id", brand.Id);
                 SetParameters(brand);
                 _dataAccess.ExecuteAction();
@@ -116,7 +116,7 @@ namespace BusinessLogicLayer
         {
             try
             {
-                _dataAccess.SetQuery("delete from Brands where Id = @Id");
+                _dataAccess.SetQuery("delete from Marcas where Id = @Id");
                 _dataAccess.SetParameter("@Id", brand.Id);
                 _dataAccess.ExecuteAction();
             }
@@ -141,7 +141,7 @@ namespace BusinessLogicLayer
 
             try
             {
-                _dataAccess.SetQuery("select Id from Brands where Descripcion = @Descripcion");
+                _dataAccess.SetQuery("select Id from Marcas where Descripcion = @Descripcion");
                 _dataAccess.SetParameter("@Descripcion", brand.Description);
                 _dataAccess.ExecuteRead();
 

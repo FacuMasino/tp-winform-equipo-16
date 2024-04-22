@@ -14,7 +14,7 @@ namespace BusinessLogicLayer
 
             try
             {
-                _dataAccess.SetQuery("select Id, Descripcion from Categories");
+                _dataAccess.SetQuery("select Id, Descripcion from Categorias");
                 _dataAccess.ExecuteRead();
 
                 while (_dataAccess.Reader.Read())
@@ -49,7 +49,7 @@ namespace BusinessLogicLayer
 
             try
             {
-                _dataAccess.SetQuery("select Descripcion from Categories where Id = @Id");
+                _dataAccess.SetQuery("select Descripcion from Categorias where Id = @Id");
                 _dataAccess.SetParameter("@Id", id);
                 _dataAccess.ExecuteRead();
 
@@ -79,7 +79,7 @@ namespace BusinessLogicLayer
         {
             try
             {
-                _dataAccess.SetQuery("insert into Categories (Descripcion) values (@Descripcion)");
+                _dataAccess.SetQuery("insert into Categorias (Descripcion) values (@Descripcion)");
                 SetParameters(category);
                 _dataAccess.ExecuteAction();
             }
@@ -97,7 +97,7 @@ namespace BusinessLogicLayer
         {
             try
             {
-                _dataAccess.SetQuery("update Categories set Descripcion = @Descripcion where Id = @Id");
+                _dataAccess.SetQuery("update Categorias set Descripcion = @Descripcion where Id = @Id");
                 _dataAccess.SetParameter("@Id", category.Id);
                 SetParameters(category);
                 _dataAccess.ExecuteAction();
@@ -116,7 +116,7 @@ namespace BusinessLogicLayer
         {
             try
             {
-                _dataAccess.SetQuery("delete from Categories where Id = @Id");
+                _dataAccess.SetQuery("delete from Categorias where Id = @Id");
                 _dataAccess.SetParameter("@Id", category.Id);
                 _dataAccess.ExecuteAction();
             }
@@ -141,7 +141,7 @@ namespace BusinessLogicLayer
 
             try
             {
-                _dataAccess.SetQuery("select Id from Categories where Descripcion = @Descripcion");
+                _dataAccess.SetQuery("select Id from Categorias where Descripcion = @Descripcion");
                 _dataAccess.SetParameter("@Descripcion", category.Description);
                 _dataAccess.ExecuteRead();
 

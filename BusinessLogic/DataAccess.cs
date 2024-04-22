@@ -74,7 +74,7 @@ namespace BusinessLogicLayer
         /// <summary>
         /// <c>ExecuteAction</c> ejecuta un comando de escritura.
         /// </summary>
-        public void executeAction()
+        public void ExecuteAction()
         {
             _command.Connection = _connection;
 

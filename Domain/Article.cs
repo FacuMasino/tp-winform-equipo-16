@@ -33,7 +33,13 @@ namespace Domain
             Category = category;
         }
 
-        public Article() { }
+        public Article()
+        {
+            Brand = new Brand();
+            Category = new Category();
+        }
+
+        public int Id { get; set; }
 
         public string Code
         {

@@ -6,11 +6,7 @@ namespace BusinessLogicLayer
 {
     public class ArticlesManager
     {
-        // ATTRIBUTES
-
         private DataAccess _dataAccess = new DataAccess();
-
-        // METHODS
 
         public List<Article> List()
         {
@@ -80,13 +76,13 @@ namespace BusinessLogicLayer
 
             try
             {
-                _dataAccess.SetQuery("select Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio from Articulos where Id = @Id");
+                _dataAccess.SetQuery("select Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio from Articulos where Id = @Id");
                 _dataAccess.SetParameter("@Id", id);
                 _dataAccess.ExecuteRead();
 
                 if (_dataAccess.Reader.Read())
                 {
-                    article.Id = (int)_dataAccess.Reader["Id"];
+                    article.Id = id;
 
                     if (!(_dataAccess.Reader["Codigo"] is DBNull))
                     {
@@ -172,6 +168,26 @@ namespace BusinessLogicLayer
             {
                 _dataAccess.CloseConnection();
             }
+        }
+
+        public void delete(Article article)
+        {
+            try
+            {
+                _dataAccess.SetQuery("delete from Articulos where Id = @Id");
+                _dataAccess.SetParameter("@Id", article.Id);
+                _dataAccess.ExecuteAction();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _dataAccess.CloseConnection();
+            }
+
+            // en caso de que no haya otro article con cierta marca y otro articulo con cierta categoria, eliminarlas aca 
         }
 
         public int GetId(Article article)

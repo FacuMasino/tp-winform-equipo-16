@@ -49,18 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Article.cs" />
-    <Compile Include="Brand.cs" />
     <Compile Include="CatalogForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CatalogForm.Designer.cs">
       <DependentUpon>CatalogForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Category.cs" />
     <Compile Include="Extensions\GraphicsExtension.cs" />
     <Compile Include="FormsManager.cs" />
-    <Compile Include="Image.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +141,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{02165308-c190-4541-bfc8-13e6e9d09710}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{e6a7cf0d-824c-4a5e-82c6-d1fdc2461b51}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

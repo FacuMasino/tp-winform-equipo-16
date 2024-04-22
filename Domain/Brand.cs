@@ -1,18 +1,18 @@
-﻿namespace WindowsForms
+﻿namespace Domain
 {
-    internal class Category
+    internal class Brand
     {
         private int _id;
         private string _name;
 
         //CONSTRUCTORES
-        public Category(int id, string name)
+        public Brand(int id, string name)
         {
             this._id = id;
             this._name = name;
         }
 
-        public Category() { }
+        public Brand() { }
 
         public int Id
         {

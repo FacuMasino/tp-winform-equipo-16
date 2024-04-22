@@ -1,4 +1,4 @@
-﻿namespace WindowsForms
+﻿namespace Domain
 {
     internal class Image
     {

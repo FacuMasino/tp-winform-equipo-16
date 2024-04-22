@@ -5,6 +5,10 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsForms", "WindowsForms\WindowsForms.csproj", "{89607EC1-A804-4708-B5E3-4C5787F8D171}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{E6A7CF0D-824C-4A5E-82C6-D1FDC2461B51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{02165308-C190-4541-BFC8-13E6E9D09710}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{89607EC1-A804-4708-B5E3-4C5787F8D171}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89607EC1-A804-4708-B5E3-4C5787F8D171}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89607EC1-A804-4708-B5E3-4C5787F8D171}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6A7CF0D-824C-4A5E-82C6-D1FDC2461B51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6A7CF0D-824C-4A5E-82C6-D1FDC2461B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6A7CF0D-824C-4A5E-82C6-D1FDC2461B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6A7CF0D-824C-4A5E-82C6-D1FDC2461B51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02165308-C190-4541-BFC8-13E6E9D09710}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02165308-C190-4541-BFC8-13E6E9D09710}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02165308-C190-4541-BFC8-13E6E9D09710}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02165308-C190-4541-BFC8-13E6E9D09710}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

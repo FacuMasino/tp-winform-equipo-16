@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{02165308-C190-4541-BFC8-13E6E9D09710}</ProjectGuid>
+    <ProjectGuid>{2B9A85C1-19BF-47B2-BF7D-C68CBC8D1ADE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BusinessLogic</RootNamespace>
-    <AssemblyName>BusinessLogic</AssemblyName>
+    <RootNamespace>Utilities</RootNamespace>
+    <AssemblyName>Utilities</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,23 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArticlesManager.cs" />
-    <Compile Include="BrandsManager.cs" />
-    <Compile Include="CategoriesManager.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
       <Project>{dfd01853-9c1b-4a7d-8066-47facd4d7599}</Project>
       <Name>DataAccessLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Domain\Domain.csproj">
-      <Project>{e6a7cf0d-824c-4a5e-82c6-d1fdc2461b51}</Project>
-      <Name>Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Utilities\Utilities.csproj">
-      <Project>{2b9a85c1-19bf-47b2-bf7d-c68cbc8d1ade}</Project>
-      <Name>Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

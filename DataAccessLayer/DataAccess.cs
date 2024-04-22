@@ -2,7 +2,7 @@
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace BusinessLogicLayer
+namespace DataAccessLayer
 {
     /// <summary>
     /// Clase que posee los métodos necesarios para acceder a la base de datos.

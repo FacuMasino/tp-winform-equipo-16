@@ -143,9 +143,9 @@
     <Content Include="app_icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+    <ProjectReference Include="..\BusinessLogic\BusinessLogicLayer.csproj">
       <Project>{02165308-c190-4541-bfc8-13e6e9d09710}</Project>
-      <Name>BusinessLogic</Name>
+      <Name>BusinessLogicLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{e6a7cf0d-824c-4a5e-82c6-d1fdc2461b51}</Project>

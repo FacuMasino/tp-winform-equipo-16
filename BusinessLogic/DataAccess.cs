@@ -1,57 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
 
-namespace BusinessLogic
+namespace BusinessLogicLayer
 {
     /// <summary>
-    /// Clase que posee los métodos necesarios para acceder
-    /// a la información de la base de datos
+    /// Clase que posee los métodos necesarios para acceder a la base de datos.
     /// </summary>
     public class DataAccess
     {
-        // Los atributos que son de solo lectura solo pueden ser inicializados o
-        // asignados desde un constructor para evitar ser sobreescritos en un método
-        private readonly SqlConnection _connection;
+        private readonly SqlConnection _connection; // Los atributos que son de solo lectura solo pueden ser inicializados o asignados desde un constructor para evitar ser sobreescritos en un método.
         private SqlCommand _command;
         private SqlDataReader _reader;
+        private string _connectionString;
 
-        /// <value>La propiedad <c>Reader</c> devuelve el resultado luego de ejecutar
-        /// una consulta de lectura</value>
-        public SqlDataReader Reader
-        {
-            get { return _reader; }
-        }
+        /// <value>
+        /// La propiedad <c>Reader</c> devuelve el resultado luego de una consulta de lectura.
+        /// </value>
+        public SqlDataReader Reader { get { return _reader; } }
 
         /// <summary>
-        /// <c>DataAccess</c> Crea una conexión usando la cadena de conexión por defecto
+        /// <c>DataAccess</c> Crea una conexión usando una de las cadenas de conexión de App.config.
         /// </summary>
         public DataAccess()
         {
-            // connectionString por defecto
-            _connection = new SqlConnection(
-                "\"server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true\""
-            );
+            _connectionString = ConfigurationManager.ConnectionStrings["maxi_mac"].ToString(); // Modificar en esta línea el argumento de ConnectionString["ana ó facu ó maxi"] para elegir la base de datos.
+            _connection = new SqlConnection(_connectionString);
             _command = new SqlCommand();
         }
 
         /// <summary>
-        /// <c>DataAccess</c> Crea una conexión usando la cadena pasada por parámetro
+        /// <c>SetQuery</c> establece el comando de consulta.
         /// </summary>
-        /// <param name="connectionString">Cadena de conexión</param>
-        public DataAccess(string connectionString)
-        {
-            _connection = new SqlConnection(connectionString);
-            _command = new SqlCommand();
-        }
-
-        /// <summary>
-        /// <c>SetQuery</c> establece el comando de consulta
-        /// </summary>
-        /// <param name="query">Consulta SQL</param>
+        /// <param name="query">Consulta SQL.</param>
         public void SetQuery(string query)
         {
             _command.CommandType = System.Data.CommandType.Text;
@@ -59,11 +40,22 @@ namespace BusinessLogic
         }
 
         /// <summary>
-        /// <c>ExecuteRead</c> ejecuta un comando y setea al reader con el resultado de la consulta
+        /// Define un parámetro que se puede escribir dentro de un string anteponiendo el operador @.
+        /// </summary>
+        /// <param name="key">Nombre del parámetro.</param>
+        /// <param name="value">Valor que se va a reemplazar por el parámetro al ejecutar una consulta.</param>
+        public void SetParameter(string key, object value)
+        {
+            _command.Parameters.AddWithValue(key, value);
+        }
+
+        /// <summary>
+        /// <c>ExecuteRead</c> ejecuta un comando de lectura y setea al reader con el resultado de la consulta.
         /// </summary>
         public void ExecuteRead()
         {
             _command.Connection = _connection;
+
             try
             {
                 _connection.Open();
@@ -73,16 +65,40 @@ namespace BusinessLogic
             {
                 throw ex;
             }
+            finally
+            {
+                _command.Parameters.Clear();
+            }
         }
 
         /// <summary>
-        /// <c>CloseConnection</c> Cierra la conexión y el lector en caso de haberse utilizado
+        /// <c>ExecuteAction</c> ejecuta un comando de escritura.
+        /// </summary>
+        public void executeAction()
+        {
+            _command.Connection = _connection;
+
+            try
+            {
+                _connection.Open();
+                _command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _command.Parameters.Clear();
+            }
+        }
+
+        /// <summary>
+        /// <c>CloseConnection</c> Cierra la conexión y el lector en caso de haberse utilizado.
         /// </summary>
         public void CloseConnection()
         {
-            // El operador ? comprueba si el atributo es NULL, de ser así
-            // se ejecuta el método Close()
-            _reader?.Close();
+            _reader?.Close(); // El operador ? comprueba que el atributo no sea NULL, y de ser así ejecuta el método Close().
             _connection.Close();
         }
     }

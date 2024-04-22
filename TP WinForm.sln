@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsForms", "WindowsForm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{E6A7CF0D-824C-4A5E-82C6-D1FDC2461B51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{02165308-C190-4541-BFC8-13E6E9D09710}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicLayer", "BusinessLogic\BusinessLogicLayer.csproj", "{02165308-C190-4541-BFC8-13E6E9D09710}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

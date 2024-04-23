@@ -24,10 +24,7 @@ namespace BusinessLogicLayer
 
                     category.Id = (int)_dataAccess.Reader["Id"];
 
-                    if (!(_dataAccess.Reader["Descripcion"] is DBNull))
-                    {
-                        category.Description = (string)_dataAccess.Reader["Descripcion"];
-                    }
+                    category.Description = _dataAccess.Reader["Descripcion"]?.ToString();
 
                     categories.Add(category);
                 }
@@ -58,10 +55,7 @@ namespace BusinessLogicLayer
                 {
                     category.Id = id;
 
-                    if (!(_dataAccess.Reader["Descripcion"] is DBNull))
-                    {
-                        category.Description = (string)_dataAccess.Reader["Descripcion"];
-                    }
+                    category.Description = (string)_dataAccess.Reader["Descripcion"]?.ToString();
                 }
             }
             catch (Exception ex)
@@ -98,7 +92,9 @@ namespace BusinessLogicLayer
         {
             try
             {
-                _dataAccess.SetQuery("update Categorias set Descripcion = @Descripcion where Id = @Id");
+                _dataAccess.SetQuery(
+                    "update Categorias set Descripcion = @Descripcion where Id = @Id"
+                );
                 _dataAccess.SetParameter("@Id", category.Id);
                 SetParameters(category);
                 _dataAccess.ExecuteAction();

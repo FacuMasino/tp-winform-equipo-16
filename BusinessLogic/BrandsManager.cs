@@ -7,7 +7,7 @@ namespace BusinessLogicLayer
 {
     public class BrandsManager
     {
-        private DataAccess _dataAccess = new DataAccess();
+        private readonly DataAccess _dataAccess = new DataAccess();
 
         public List<Brand> List()
         {
@@ -24,10 +24,12 @@ namespace BusinessLogicLayer
 
                     brand.Id = (int)_dataAccess.Reader["Id"];
 
-                    if (!(_dataAccess.Reader["Descripcion"] is DBNull))
-                    {
-                        brand.Description = (string)_dataAccess.Reader["Descripcion"];
-                    }
+                    /*
+                     * Esta forma de escribir el código es igual a utilizar la forma:
+                     * if (!(_dataAccess.Reader["Codigo"] is DBNull)) pero
+                     * Estamos utilizando el operador de acceso condicional a miembros ?.
+                     * Solo accede a la propiedad si el objeto no contiene null */
+                    brand.Description = _dataAccess.Reader["Descripcion"]?.ToString();
 
                     brands.Add(brand);
                 }
@@ -58,10 +60,7 @@ namespace BusinessLogicLayer
                 {
                     brand.Id = id;
 
-                    if (!(_dataAccess.Reader["Descripcion"] is DBNull))
-                    {
-                        brand.Description = (string)_dataAccess.Reader["Descripcion"];
-                    }
+                    brand.Description = _dataAccess.Reader["Descripcion"]?.ToString();
                 }
             }
             catch (Exception ex)

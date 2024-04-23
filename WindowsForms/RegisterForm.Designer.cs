@@ -52,7 +52,7 @@
             // 
             this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(105)))), ((int)(((byte)(245)))));
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Inter Medium", 9.75F, System.Drawing.FontStyle.Bold);
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.saveButton.ForeColor = System.Drawing.Color.White;
             this.saveButton.Image = global::WindowsForms.Properties.Resources.fi_save;
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -60,7 +60,7 @@
             this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(98, 42);
-            this.saveButton.TabIndex = 1;
+            this.saveButton.TabIndex = 0;
             this.saveButton.Text = "Guardar";
             this.saveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveButton.UseVisualStyleBackColor = false;
@@ -77,7 +77,7 @@
             this.roundPanel2.Name = "roundPanel2";
             this.roundPanel2.Radius = 10;
             this.roundPanel2.Size = new System.Drawing.Size(203, 201);
-            this.roundPanel2.TabIndex = 14;
+            this.roundPanel2.TabIndex = 2;
             // 
             // pictureBox
             // 
@@ -108,7 +108,7 @@
             this.roundPanel1.Name = "roundPanel1";
             this.roundPanel1.Radius = 10;
             this.roundPanel1.Size = new System.Drawing.Size(314, 201);
-            this.roundPanel1.TabIndex = 13;
+            this.roundPanel1.TabIndex = 0;
             // 
             // priceTextBox
             // 
@@ -119,54 +119,54 @@
             this.priceTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(160, 23);
-            this.priceTextBox.TabIndex = 11;
+            this.priceTextBox.TabIndex = 4;
             // 
             // descriptionLabel
             // 
             this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Font = new System.Drawing.Font("Inter", 11.25F);
+            this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.descriptionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.descriptionLabel.Location = new System.Drawing.Point(27, 58);
             this.descriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(96, 19);
-            this.descriptionLabel.TabIndex = 3;
+            this.descriptionLabel.Size = new System.Drawing.Size(87, 18);
+            this.descriptionLabel.TabIndex = 1;
             this.descriptionLabel.Text = "Descripción";
             // 
             // priceLabel
             // 
             this.priceLabel.AutoSize = true;
-            this.priceLabel.Font = new System.Drawing.Font("Inter", 11.25F);
+            this.priceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.priceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.priceLabel.Location = new System.Drawing.Point(27, 156);
             this.priceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(56, 19);
-            this.priceLabel.TabIndex = 10;
+            this.priceLabel.Size = new System.Drawing.Size(51, 18);
+            this.priceLabel.TabIndex = 4;
             this.priceLabel.Text = "Precio";
             // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Font = new System.Drawing.Font("Inter", 11.25F);
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.nameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.nameLabel.Location = new System.Drawing.Point(27, 26);
             this.nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(66, 19);
+            this.nameLabel.Size = new System.Drawing.Size(62, 18);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Nombre";
             // 
             // categoryLabel
             // 
             this.categoryLabel.AutoSize = true;
-            this.categoryLabel.Font = new System.Drawing.Font("Inter", 11.25F);
+            this.categoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.categoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.categoryLabel.Location = new System.Drawing.Point(27, 124);
             this.categoryLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(78, 19);
-            this.categoryLabel.TabIndex = 9;
+            this.categoryLabel.Size = new System.Drawing.Size(72, 18);
+            this.categoryLabel.TabIndex = 3;
             this.categoryLabel.Text = "Categoría";
             // 
             // nameTextBox
@@ -178,7 +178,7 @@
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(160, 23);
-            this.nameTextBox.TabIndex = 4;
+            this.nameTextBox.TabIndex = 0;
             // 
             // categoryComboBox
             // 
@@ -189,7 +189,7 @@
             this.categoryComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(160, 24);
-            this.categoryComboBox.TabIndex = 8;
+            this.categoryComboBox.TabIndex = 3;
             // 
             // descriptionTextBox
             // 
@@ -200,18 +200,18 @@
             this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(160, 23);
-            this.descriptionTextBox.TabIndex = 5;
+            this.descriptionTextBox.TabIndex = 1;
             // 
             // brandLabel
             // 
             this.brandLabel.AutoSize = true;
-            this.brandLabel.Font = new System.Drawing.Font("Inter", 11.25F);
+            this.brandLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.brandLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.brandLabel.Location = new System.Drawing.Point(27, 91);
             this.brandLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.brandLabel.Name = "brandLabel";
-            this.brandLabel.Size = new System.Drawing.Size(54, 19);
-            this.brandLabel.TabIndex = 7;
+            this.brandLabel.Size = new System.Drawing.Size(50, 18);
+            this.brandLabel.TabIndex = 2;
             this.brandLabel.Text = "Marca";
             // 
             // brandComboBox
@@ -223,7 +223,7 @@
             this.brandComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.brandComboBox.Name = "brandComboBox";
             this.brandComboBox.Size = new System.Drawing.Size(160, 24);
-            this.brandComboBox.TabIndex = 6;
+            this.brandComboBox.TabIndex = 2;
             // 
             // RegisterForm
             // 

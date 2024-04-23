@@ -33,5 +33,7 @@ namespace WindowsForms
         private void clearButton_Click(object sender, EventArgs e) { }
 
         private void searchButton_Click(object sender, EventArgs e) { }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
     }
 }

@@ -10,7 +10,14 @@ namespace Domain
 
         public override string ToString()
         {
-            return Description;
+            if (Description != null)
+            {
+                return Description;
+            }
+            else
+            {
+                return " ";
+            }
         }
     }
 }

@@ -34,7 +34,14 @@ namespace Domain
 
         public override string ToString()
         {
-            return Name + " " + Code;
+            if (Name != null)
+            {
+                return Name + " " + Code;
+            }
+            else
+            {
+                return " ";
+            }
         }
     }
 }

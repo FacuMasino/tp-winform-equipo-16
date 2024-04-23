@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using BusinessLogicLayer;
 
 namespace WindowsForms
 {
@@ -35,5 +36,11 @@ namespace WindowsForms
         private void searchButton_Click(object sender, EventArgs e) { }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+
+        private void CatalogForm_Load(object sender, EventArgs e)
+        {
+            ArticlesManager articlesManager = new ArticlesManager();
+            ArticlesdataGridView.DataSource = articlesManager.List();
+        }
     }
 }

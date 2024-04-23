@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.SqlClient;
 
 namespace DataAccessLayer
 {
@@ -17,14 +17,17 @@ namespace DataAccessLayer
         /// <value>
         /// La propiedad <c>Reader</c> devuelve el resultado luego de una consulta de lectura.
         /// </value>
-        public SqlDataReader Reader { get { return _reader; } }
+        public SqlDataReader Reader
+        {
+            get { return _reader; }
+        }
 
         /// <summary>
         /// <c>DataAccess</c> Crea una conexión usando una de las cadenas de conexión de App.config.
         /// </summary>
         public DataAccess()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["maxi_mac"].ToString(); // Modificar en esta línea el argumento de ConnectionString["ana ó facu ó maxi"] para elegir la base de datos.
+            _connectionString = ConfigurationManager.ConnectionStrings["ana"].ToString(); // Modificar en esta línea el argumento de ConnectionString["ana ó facu ó maxi"] para elegir la base de datos.
             _connection = new SqlConnection(_connectionString);
             _command = new SqlCommand();
         }

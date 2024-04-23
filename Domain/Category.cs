@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Xml.Linq;
 
 namespace Domain
 {
@@ -10,7 +11,14 @@ namespace Domain
 
         public override string ToString()
         {
-            return Description;
+            if (Description != null)
+            {
+                return Description;
+            }
+            else
+            {
+                return " ";
+            }
         }
     }
 }

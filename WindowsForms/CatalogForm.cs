@@ -25,7 +25,7 @@ namespace WindowsForms
         {
             RegisterForm add = new RegisterForm();
             add.ShowDialog();
-            //refrescardgv ()?;
+            refresh();
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -35,7 +35,21 @@ namespace WindowsForms
 
             RegisterForm edit = new RegisterForm(selected);
             edit.ShowDialog();
-            //refrescardgv  ()?
+            refresh();
+        }
+
+        private void refresh()
+        {
+            ArticlesManager articlesManager = new ArticlesManager();
+
+            try
+            {
+                ArticlesdataGridView.DataSource = articlesManager.List();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void deleteButton_Click(object sender, EventArgs e) { }
@@ -48,8 +62,7 @@ namespace WindowsForms
 
         private void CatalogForm_Load(object sender, EventArgs e)
         {
-            ArticlesManager articlesManager = new ArticlesManager();
-            ArticlesdataGridView.DataSource = articlesManager.List();
+            refresh();
         }
     }
 }

@@ -25,7 +25,7 @@ namespace WindowsForms
         {
             RegisterForm add = new RegisterForm();
             add.ShowDialog();
-            //CARGAR ()?;
+            //refrescardgv ()?;
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace WindowsForms
 
             RegisterForm edit = new RegisterForm(selected);
             edit.ShowDialog();
-            //Cargar ()?
+            //refrescardgv  ()?
         }
 
         private void deleteButton_Click(object sender, EventArgs e) { }

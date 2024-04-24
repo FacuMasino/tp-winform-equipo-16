@@ -9,6 +9,9 @@ namespace WindowsForms
     public partial class RegisterForm : Form
     {
         private Article _article = null;
+        private BrandsManager _brandsManager = new BrandsManager();
+        private CategoriesManager _categoriesManager = new CategoriesManager();
+        private ArticlesManager _articlesManager = new ArticlesManager();
 
         // CONSTRUCT
 
@@ -41,21 +44,24 @@ namespace WindowsForms
                 MessageBox.Show(ex.ToString());
             }
         }*/
-
-        private void RegisterForm_Load(object sender, EventArgs e)
+        private void LoadComboBoxes()
         {
-            BrandsManager _brandsManager = new BrandsManager();
             brandComboBox.DataSource = _brandsManager.List();
             brandComboBox.ValueMember = "Id";
             brandComboBox.DisplayMember = "Description";
 
-            CategoriesManager _categoriesManager = new CategoriesManager();
             categoryComboBox.DataSource = _categoriesManager.List();
             categoryComboBox.ValueMember = "Id";
             categoryComboBox.DisplayMember = "Description";
+        }
 
-            if (_article != null)
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+            LoadComboBoxes();
+
+            if (_article != null) // entra si es art. editado
             {
+                codeTextBox.Text = _article.Code;
                 nameTextBox.Text = _article.Name;
                 descriptionTextBox.Text = _article.Description;
                 priceTextBox.Text = _article.Price.ToString();
@@ -63,31 +69,31 @@ namespace WindowsForms
                 categoryComboBox.SelectedValue = _article.Category.Id;
                 ///agregar imagen
             }
+            else // entra aca si es nuevo
+            {
+                _article = new Article();
+            }
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            ArticlesManager articlesManager = new ArticlesManager();
-
             try
             {
-                if (_article == null)
-                    _article = new Article();
-
+                _article.Code = codeTextBox.Text;
                 _article.Name = nameTextBox.Text;
                 _article.Description = descriptionTextBox.Text;
                 _article.Price = decimal.Parse(priceTextBox.Text);
                 _article.Brand = (Brand)brandComboBox.SelectedItem;
                 _article.Category = (Category)categoryComboBox.SelectedItem;
 
-                if (_article.Code != null)
+                if (_article.Id != 0)
                 {
-                    articlesManager.Edit(_article);
+                    _articlesManager.Edit(_article);
                     MessageBox.Show("Modificado exitosamente");
                 }
                 else
                 {
-                    articlesManager.Add(_article);
+                    _articlesManager.Add(_article);
                     MessageBox.Show("Agregado exitosamente");
                 }
 

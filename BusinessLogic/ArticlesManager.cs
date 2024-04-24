@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using BusinessLogic;
 using DataAccessLayer;
 using Domain;
 using Utilities;
@@ -11,6 +12,7 @@ namespace BusinessLogicLayer
         private DataAccess _dataAccess = new DataAccess();
         private BrandsManager _brandsManager = new BrandsManager();
         private CategoriesManager _categoriesManager = new CategoriesManager();
+        private ImagesManager _iamgesManager = new ImagesManager();
 
         public List<Article> List()
         {
@@ -18,7 +20,9 @@ namespace BusinessLogicLayer
 
             try
             {
-                _dataAccess.SetQuery("select Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio from Articulos");
+                _dataAccess.SetQuery(
+                    "select Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio from Articulos"
+                );
                 _dataAccess.ExecuteRead();
 
                 while (_dataAccess.Reader.Read())
@@ -27,35 +31,19 @@ namespace BusinessLogicLayer
 
                     article.Id = (int)_dataAccess.Reader["Id"];
 
-                    if (!(_dataAccess.Reader["Codigo"] is DBNull))
-                    {
-                        article.Code = (string)_dataAccess.Reader["Codigo"];
-                    }
+                    article.Code = _dataAccess.Reader["Codigo"]?.ToString();
+                    article.Name = _dataAccess.Reader["Nombre"]?.ToString();
+                    article.Description = _dataAccess.Reader["Descripcion"]?.ToString();
 
-                    if (!(_dataAccess.Reader["Nombre"] is DBNull))
-                    {
-                        article.Name = (string)_dataAccess.Reader["Nombre"];
-                    }
+                    /*Acá intenta convertir IdMarca a un int "Nullable" si es null, entonces el operador ?.
+                     * va a evaluar la expresión de la derecha y se queda con article.Brand.Id
+                     * , sino se asigna el IdMarca obtenido */
+                    article.Brand.Id = _dataAccess.Reader["IdMarca"] as int? ?? article.Brand.Id;
+                    article.Category.Id =
+                        _dataAccess.Reader["IdCategoria"] as int? ?? article.Category.Id;
+                    article.Price = _dataAccess.Reader["Precio"] as decimal? ?? article.Price;
 
-                    if (!(_dataAccess.Reader["Descripcion"] is DBNull))
-                    {
-                        article.Description = (string)_dataAccess.Reader["Descripcion"];
-                    }
-
-                    if (!(_dataAccess.Reader["IdMarca"] is DBNull))
-                    {
-                        article.Brand.Id = (int)_dataAccess.Reader["IdMarca"];
-                    }
-
-                    if (!(_dataAccess.Reader["IdCategoria"] is DBNull))
-                    {
-                        article.Category.Id = (int)_dataAccess.Reader["IdCategoria"];
-                    }
-
-                    if (!(_dataAccess.Reader["Precio"] is DBNull))
-                    {
-                        article.Price = (decimal)_dataAccess.Reader["Precio"];
-                    }
+                    article.Images = _iamgesManager.GetArticleImages(article.Id);
 
                     articles.Add(article);
                 }
@@ -84,7 +72,9 @@ namespace BusinessLogicLayer
 
             try
             {
-                _dataAccess.SetQuery("select Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio from Articulos where Id = @Id");
+                _dataAccess.SetQuery(
+                    "select Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio from Articulos where Id = @Id"
+                );
                 _dataAccess.SetParameter("@Id", id);
                 _dataAccess.ExecuteRead();
 
@@ -92,30 +82,12 @@ namespace BusinessLogicLayer
                 {
                     article.Id = id;
 
-                    if (!(_dataAccess.Reader["Codigo"] is DBNull))
-                    {
-                        article.Code = (string)_dataAccess.Reader["Codigo"];
-                    }
-
-                    if (!(_dataAccess.Reader["Nombre"] is DBNull))
-                    {
-                        article.Name = (string)_dataAccess.Reader["Nombre"];
-                    }
-
-                    if (!(_dataAccess.Reader["Descripcion"] is DBNull))
-                    {
-                        article.Description = (string)_dataAccess.Reader["Descripcion"];
-                    }
-
-                    if (!(_dataAccess.Reader["IdMarca"] is DBNull))
-                    {
-                        article.Brand.Id = (int)_dataAccess.Reader["IdMarca"];
-                    }
-
-                    if (!(_dataAccess.Reader["IdCategoria"] is DBNull))
-                    {
-                        article.Category.Id = (int)_dataAccess.Reader["IdCategoria"];
-                    }
+                    article.Code = _dataAccess.Reader["Codigo"]?.ToString();
+                    article.Name = _dataAccess.Reader["Nombre"]?.ToString();
+                    article.Description = _dataAccess.Reader["Descripcion"]?.ToString();
+                    article.Brand.Id = _dataAccess.Reader["IdMarca"] as int? ?? article.Brand.Id;
+                    article.Category.Id =
+                        _dataAccess.Reader["IdCategoria"] as int? ?? article.Category.Id;
 
                     if (!(_dataAccess.Reader["Precio"] is DBNull))
                     {
@@ -145,7 +117,9 @@ namespace BusinessLogicLayer
 
             try
             {
-                _dataAccess.SetQuery("insert into Articulos (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) values (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio)");
+                _dataAccess.SetQuery(
+                    "insert into Articulos (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) values (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio)"
+                );
                 SetParameters(article);
                 _dataAccess.ExecuteAction();
             }
@@ -166,7 +140,9 @@ namespace BusinessLogicLayer
 
             try
             {
-                _dataAccess.SetQuery("update Articulos set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio where Id = @Id");
+                _dataAccess.SetQuery(
+                    "update Articulos set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio where Id = @Id"
+                );
                 _dataAccess.SetParameter("@Id", article.Id);
                 SetParameters(article);
                 _dataAccess.ExecuteAction();

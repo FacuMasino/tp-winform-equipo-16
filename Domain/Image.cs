@@ -11,6 +11,8 @@
             this._url = url;
         }
 
+        public Image() { }
+
         public int Id
         {
             get { return _id; }

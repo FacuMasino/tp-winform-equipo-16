@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Linq.Expressions;
 using System.Windows.Forms;
+using BusinessLogicLayer;
+using Domain;
 
 namespace WindowsForms
 {
     public partial class RegisterForm : Form
     {
+        private Article _article = null;
+
         // CONSTRUCT
 
         public RegisterForm()
@@ -12,13 +17,93 @@ namespace WindowsForms
             InitializeComponent();
         }
 
+        public RegisterForm(Article article)
+        {
+            InitializeComponent();
+            _article = article;
+            Text = "Modificar Articulo";
+        }
+
         // EVENTS
 
-        private void RegisterForm_Load(object sender, EventArgs e) { }
+
+        /*private void RegisterForm_Load(object sender, EventArgs e)
+        {
+            BrandsManager brandsManager = new BrandsManager();
+            CategoriesManager categoriesManager = new CategoriesManager();
+            try
+            {
+                brandComboBox.DataSource = brandsManager.List();
+                categoryComboBox.DataSource = categoriesManager.List();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }*/
+
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+            BrandsManager _brandsManager = new BrandsManager();
+            brandComboBox.DataSource = _brandsManager.List();
+            brandComboBox.ValueMember = "Id";
+            brandComboBox.DisplayMember = "Description";
+
+            CategoriesManager _categoriesManager = new CategoriesManager();
+            categoryComboBox.DataSource = _categoriesManager.List();
+            categoryComboBox.ValueMember = "Id";
+            categoryComboBox.DisplayMember = "Description";
+
+            if (_article != null)
+            {
+                nameTextBox.Text = _article.Name;
+                descriptionTextBox.Text = _article.Description;
+                priceTextBox.Text = _article.Price.ToString();
+                brandComboBox.SelectedValue = _article.Brand.Id;
+                categoryComboBox.SelectedValue = _article.Category.Id;
+                ///agregar imagen
+            }
+        }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            ArticlesManager articlesManager = new ArticlesManager();
+
+            try
+            {
+                if (_article == null)
+                    _article = new Article();
+
+                _article.Name = nameTextBox.Text;
+                _article.Description = descriptionTextBox.Text;
+                _article.Price = decimal.Parse(priceTextBox.Text);
+                _article.Brand = (Brand)brandComboBox.SelectedItem;
+                _article.Category = (Category)categoryComboBox.SelectedItem;
+
+                if (_article.Code != null)
+                {
+                    articlesManager.Edit(_article);
+                    MessageBox.Show("Modificado exitosamente");
+                }
+                else
+                {
+                    articlesManager.Add(_article);
+                    MessageBox.Show("Agregado exitosamente");
+                }
+
+                //IF - Parte imagen
+
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

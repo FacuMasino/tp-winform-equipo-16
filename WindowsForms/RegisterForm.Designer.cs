@@ -43,6 +43,7 @@
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.brandLabel = new System.Windows.Forms.Label();
             this.brandComboBox = new System.Windows.Forms.ComboBox();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.roundPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.roundPanel1.SuspendLayout();
@@ -60,7 +61,7 @@
             this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(98, 42);
-            this.saveButton.TabIndex = 0;
+            this.saveButton.TabIndex = 1;
             this.saveButton.Text = "Guardar";
             this.saveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveButton.UseVisualStyleBackColor = false;
@@ -229,12 +230,29 @@
             this.brandComboBox.Size = new System.Drawing.Size(160, 24);
             this.brandComboBox.TabIndex = 2;
             // 
+            // cancelButton
+            // 
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(105)))), ((int)(((byte)(245)))));
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
+            this.cancelButton.Location = new System.Drawing.Point(334, 229);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(98, 42);
+            this.cancelButton.TabIndex = 0;
+            this.cancelButton.Text = "Cancelar";
+            this.cancelButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(547, 291);
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.roundPanel2);
             this.Controls.Add(this.roundPanel1);
             this.Controls.Add(this.saveButton);
@@ -270,5 +288,6 @@
         private System.Windows.Forms.Label priceLabel;
         private RoundPanel roundPanel1;
         private RoundPanel roundPanel2;
+        private System.Windows.Forms.Button cancelButton;
     }
 }

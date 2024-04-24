@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Security;
 using System.Windows.Forms;
 using BusinessLogicLayer;
+using Domain;
 
 namespace WindowsForms
 {
@@ -21,12 +23,19 @@ namespace WindowsForms
 
         private void newButton_Click(object sender, EventArgs e)
         {
-            _formsManager.loadDialogForm<RegisterForm>();
+            RegisterForm add = new RegisterForm();
+            add.ShowDialog();
+            //CARGAR ()?;
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            _formsManager.loadDialogForm<RegisterForm>();
+            Article selected;
+            selected = (Article)ArticlesdataGridView.CurrentRow.DataBoundItem;
+
+            RegisterForm edit = new RegisterForm(selected);
+            edit.ShowDialog();
+            //Cargar ()?
         }
 
         private void deleteButton_Click(object sender, EventArgs e) { }

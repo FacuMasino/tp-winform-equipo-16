@@ -83,8 +83,8 @@ namespace WindowsForms
                 _article.Name = nameTextBox.Text;
                 _article.Description = descriptionTextBox.Text;
                 _article.Price = decimal.Parse(priceTextBox.Text);
-                _article.Brand = (Brand)brandComboBox.SelectedItem;
-                _article.Category = (Category)categoryComboBox.SelectedItem;
+                _article.Brand.Description = brandComboBox.Text;
+                _article.Category.Description = categoryComboBox.Text;
 
                 if (_article.Id != 0)
                 {

@@ -237,7 +237,7 @@ namespace BusinessLogicLayer
                 _dataAccess.SetParameter("@IdCategoria", article.Category.Id);
             }
 
-            _dataAccess.SetParameter("@Price", article.Price);
+            _dataAccess.SetParameter("@Precio", article.Price);
         }
 
         private void SetBrandId(Article article)

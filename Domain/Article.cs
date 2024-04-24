@@ -26,6 +26,8 @@ namespace Domain
         [DisplayName("Categoría")]
         public Category Category { get; set; }
 
+        public List<Image> Images { get; set; }
+
         public Article()
         {
             Brand = new Brand();

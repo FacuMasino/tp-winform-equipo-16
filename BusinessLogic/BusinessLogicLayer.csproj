@@ -44,6 +44,7 @@
     <Compile Include="ArticlesManager.cs" />
     <Compile Include="BrandsManager.cs" />
     <Compile Include="CategoriesManager.cs" />
+    <Compile Include="ImagesManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

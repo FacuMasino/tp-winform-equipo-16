@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using BusinessLogic;
 using DataAccessLayer;
 using Domain;
 using Utilities;
@@ -11,6 +12,7 @@ namespace BusinessLogicLayer
         private DataAccess _dataAccess = new DataAccess();
         private BrandsManager _brandsManager = new BrandsManager();
         private CategoriesManager _categoriesManager = new CategoriesManager();
+        private ImagesManager _iamgesManager = new ImagesManager();
 
         public List<Article> List()
         {
@@ -40,6 +42,8 @@ namespace BusinessLogicLayer
                     article.Category.Id =
                         _dataAccess.Reader["IdCategoria"] as int? ?? article.Category.Id;
                     article.Price = _dataAccess.Reader["Precio"] as decimal? ?? article.Price;
+
+                    article.Images = _iamgesManager.GetArticleImages(article.Id);
 
                     articles.Add(article);
                 }

@@ -212,32 +212,22 @@ namespace BusinessLogicLayer
 
         private void SetParameters(Article article)
         {
-            if (article.Code != null)
-            {
-                _dataAccess.SetParameter("@Codigo", article.Code);
-            }
+            SetParameterIfNotNull("@Codigo", article.Code);
 
-            if (article.Name != null)
-            {
-                _dataAccess.SetParameter("@Nombre", article.Name);
-            }
-
-            if (article.Description != null)
-            {
-                _dataAccess.SetParameter("@Descripcion", article.Description);
-            }
-
-            if (article.Brand != null)
-            {
-                _dataAccess.SetParameter("@IdMarca", article.Brand.Id);
-            }
-
-            if (article.Category != null)
-            {
-                _dataAccess.SetParameter("@IdCategoria", article.Category.Id);
-            }
+            SetParameterIfNotNull("@Nombre", article.Name);
+            SetParameterIfNotNull("@Descripcion", article.Description);
+            SetParameterIfNotNull("@IdMarca", article.Brand?.Id);
+            SetParameterIfNotNull("@IdCategoria", article.Category?.Id);
 
             _dataAccess.SetParameter("@Precio", article.Price);
+        }
+
+        private void SetParameterIfNotNull(string parameterKey, object value)
+        {
+            if (value != null)
+            {
+                _dataAccess.SetParameter(parameterKey, value);
+            }
         }
 
         private void SetBrandId(Article article)

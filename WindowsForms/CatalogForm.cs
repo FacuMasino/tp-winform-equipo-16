@@ -25,17 +25,17 @@ namespace WindowsForms
 
         // METHODS
 
-        private void setupDataGridView()
+        private void SetupDataGridView()
         {
             if (0 < articlesDataGridView.RowCount)
             {
                 articlesDataGridView.Columns["Id"].Width = 50;
                 articlesDataGridView.Columns["Price"].DisplayIndex = articlesDataGridView.ColumnCount - 1;
-                Functions.fillDataGrid(articlesDataGridView);
+                Functions.FillDataGrid(articlesDataGridView);
             }
         }
 
-        private void validateDataGridView()
+        private void ValidateDataGridView()
         {
             if (0 < articlesDataGridView.RowCount)
             {
@@ -46,12 +46,12 @@ namespace WindowsForms
             {
                 editButton.Enabled = false;
                 deleteButton.Enabled = false;
-                loadPreview();
-                Functions.loadImage(pictureBox, "");
+                LoadPreview();
+                Functions.LoadImage(pictureBox, "");
             }
         }
 
-        private void refreshList()
+        private void RefreshList()
         {
             try
             {
@@ -64,7 +64,7 @@ namespace WindowsForms
             }
         }
 
-        private void applyFilter()
+        private void ApplyFilter()
         {
             string filter = filterTextBox.Text;
 
@@ -85,17 +85,17 @@ namespace WindowsForms
 
             articlesDataGridView.DataSource = null;
             articlesDataGridView.DataSource = _filteredArticles;
-            validateDataGridView();
+            ValidateDataGridView();
             articlesDataGridView.DataBindingComplete += articlesDataGridView_DataBindingComplete;
         }
 
-        private void loadPreview(Article article = null)
+        private void LoadPreview(Article article = null)
         {
             if (article != null)
             {
                 idLabel.Text = "Artículo N⁰ " + article.Id.ToString();
 
-                if (Validations.hasData(article.Name))
+                if (Validations.HasData(article.Name))
                 {
                     nameLabel.Text = article.Name;
                 }
@@ -104,7 +104,7 @@ namespace WindowsForms
                     nameLabel.Text = "";
                 }
 
-                if (Validations.hasData(article.Description))
+                if (Validations.HasData(article.Description))
                 {
                     descriptionLabel.Text = article.Description;
                 }
@@ -115,7 +115,7 @@ namespace WindowsForms
 
                 if (article.Brand!= null)
                 {
-                    brandLabel.Text = article.Brand.ToString();
+                    brandLabel.Text = "Marca: " + article.Brand.ToString();
                 }
                 else
                 {
@@ -124,16 +124,16 @@ namespace WindowsForms
 
                 if (article.Category != null)
                 {
-                    categoryLabel.Text = article.Category.ToString();
+                    categoryLabel.Text = "Categoría: " + article.Category.ToString();
                 }
                 else
                 {
                     categoryLabel.Text = "";
                 }
 
-                if (Validations.hasData(article.Price.ToString()))
+                if (Validations.HasData(article.Price.ToString()))
                 {
-                    priceLabel.Text = article.Price.ToString();
+                    priceLabel.Text = "Precio: " + article.Price.ToString();
                 }
                 else
                 {
@@ -156,8 +156,8 @@ namespace WindowsForms
         private void CatalogForm_Load(object sender, EventArgs e)
         {
             articlesDataGridView.SelectionChanged -= articlesDataGridView_SelectionChanged;
-            refreshList();
-            applyFilter();
+            RefreshList();
+            ApplyFilter();
             articlesDataGridView.SelectionChanged += articlesDataGridView_SelectionChanged;
         }
 
@@ -166,7 +166,7 @@ namespace WindowsForms
             if (articlesDataGridView.CurrentRow != null)
             {
                 _article = (Article)articlesDataGridView.CurrentRow.DataBoundItem;
-                loadPreview(_article);
+                LoadPreview(_article);
 
                 string url = "";
 
@@ -175,29 +175,29 @@ namespace WindowsForms
                     url = _article.Images[0].Url;
                 }
 
-                Functions.loadImage(pictureBox, url);
+                Functions.LoadImage(pictureBox, url);
             }
         }
 
         private void articlesDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            setupDataGridView();
+            SetupDataGridView();
         }
 
         private void newButton_Click(object sender, EventArgs e)
         {
             RegisterForm add = new RegisterForm();
             add.ShowDialog();
-            refreshList();
-            applyFilter();
+            RefreshList();
+            ApplyFilter();
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
             RegisterForm edit = new RegisterForm(_article);
             edit.ShowDialog();
-            refreshList();
-            applyFilter();
+            RefreshList();
+            ApplyFilter();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -209,8 +209,8 @@ namespace WindowsForms
                 if (answer == DialogResult.Yes)
                 {
                     _articlesManager.Delete(_article);
-                    refreshList();
-                    applyFilter();
+                    RefreshList();
+                    ApplyFilter();
                 }
             }
             catch (Exception ex)
@@ -222,12 +222,12 @@ namespace WindowsForms
         private void clearButton_Click(object sender, EventArgs e)
         {
             filterTextBox.Text = "";
-            applyFilter();
+            ApplyFilter();
         }
 
         private void filterTextBox_TextChanged(object sender, EventArgs e)
         {
-            applyFilter();
+            ApplyFilter();
         }
     }
 }

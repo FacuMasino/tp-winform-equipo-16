@@ -30,11 +30,11 @@ namespace WindowsForms
 
         // METHODS
 
-        private bool validateRegister()
+        private bool ValidateRegister()
         {
-            if (!Validations.isNumber(priceTextBox.Text))
+            if (!Validations.IsNumber(priceTextBox.Text))
             {
-                Validations.error("El campo de precio solo admite caracteres numéricos.");
+                Validations.Error("El campo de precio solo admite caracteres numéricos.");
                 return false;
             }
 
@@ -60,7 +60,7 @@ namespace WindowsForms
             categoryComboBox.SelectedIndex = -1;
         }
 
-        private void mapArticle()
+        private void MapArticle()
         {
             codeTextBox.Text = _article.Code;
             nameTextBox.Text = _article.Name;
@@ -78,14 +78,14 @@ namespace WindowsForms
             }
         }
 
-        private void setArticle()
+        private void SetArticle()
         {
             _article.Code = codeTextBox.Text;
             _article.Name = nameTextBox.Text;
             _article.Description = descriptionTextBox.Text;
             _article.Price = decimal.Parse(priceTextBox.Text);
 
-            if (Validations.hasData(brandComboBox.Text))
+            if (Validations.HasData(brandComboBox.Text))
             {
                 _article.Brand.Description = brandComboBox.Text;
             }
@@ -94,7 +94,7 @@ namespace WindowsForms
                 _article.Brand = null; // Esto es una referencia para que el backend no intente agregar algo nulo y se rompan los metodos Add() y Edit() del manager de marcas
             }
 
-            if (Validations.hasData(categoryComboBox.Text))
+            if (Validations.HasData(categoryComboBox.Text))
             {
                 _article.Category.Description = categoryComboBox.Text;
             }
@@ -113,8 +113,8 @@ namespace WindowsForms
 
             if (_article != null) // Editar
             {
-                mapArticle();
-                Functions.loadImage(pictureBox, imageTextBox.Text); // Facu, puse provisoriamente este metodo para que muestre una sola imagen. Borra esto cuando lo leas, Maxi.
+                MapArticle();
+                Functions.LoadImage(pictureBox, imageTextBox.Text); // Facu, puse provisoriamente este metodo para que muestre una sola imagen. Borra esto cuando lo leas, Maxi.
             }
             else // Nuevo
             {
@@ -124,14 +124,14 @@ namespace WindowsForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (!validateRegister())
+            if (!ValidateRegister())
             {
                 return;
             }
 
             try
             {
-                setArticle();
+                SetArticle();
 
                 if (_article.Id != 0)
                 {
@@ -154,7 +154,7 @@ namespace WindowsForms
 
         private void imageTextBox_Leave(object sender, EventArgs e)
         {
-            Functions.loadImage(pictureBox, imageTextBox.Text);
+            Functions.LoadImage(pictureBox, imageTextBox.Text);
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

@@ -6,7 +6,7 @@ namespace Utilities
     {
         // METHODS
 
-        public static bool isNumber(string text)
+        public static bool IsNumber(string text)
         {
             foreach (char c in text)
             {
@@ -19,12 +19,12 @@ namespace Utilities
             return true;
         }
 
-        public static void error(string message)
+        public static void Error(string message)
         {
             MessageBox.Show(message, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public static bool hasData(string text, int minimumLength = 2, int maximumLength = 0)
+        public static bool HasData(string text, int minimumLength = 2, int maximumLength = 0)
         {
             if (string.IsNullOrEmpty(text))
             {

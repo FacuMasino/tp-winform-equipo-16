@@ -7,7 +7,7 @@ namespace Utilities
     {
         // METHODS
 
-        public static void loadImage(PictureBox pictureBox, string imageUrl)
+        public static void LoadImage(PictureBox pictureBox, string imageUrl)
         {
             try
             {
@@ -19,7 +19,7 @@ namespace Utilities
             }
         }
 
-        public static void fillDataGrid(DataGridView dataGridView)
+        public static void FillDataGrid(DataGridView dataGridView)
         {
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;

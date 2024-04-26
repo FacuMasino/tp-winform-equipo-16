@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using BusinessLogicLayer;
 using Domain;
+using Utilities;
 
 namespace WindowsForms
 {
@@ -29,6 +30,19 @@ namespace WindowsForms
 
         // METHODS
 
+        private bool validateRegister()
+        {
+            if (!Validations.isNumber(priceTextBox.Text))
+            {
+                Validations.error("El campo de precio solo admite caracteres numéricos.");
+                return false;
+            }
+
+            // Facu, acá tenés que poner el resto de las validaciones. Borrá esto cuando lo veas xfa. Maxi
+
+            return true;
+        }
+
         private void LoadComboBoxes()
         {
             brandComboBox.DataSource = _brandsManager.List();
@@ -46,6 +60,50 @@ namespace WindowsForms
             categoryComboBox.SelectedIndex = -1;
         }
 
+        private void mapArticle()
+        {
+            codeTextBox.Text = _article.Code;
+            nameTextBox.Text = _article.Name;
+            descriptionTextBox.Text = _article.Description;
+            priceTextBox.Text = _article.Price.ToString();
+
+            if (0 < _article.Brand.Id)
+            {
+                brandComboBox.SelectedValue = _article.Brand.Id;
+            }
+
+            if (0 < _article.Category.Id)
+            {
+                categoryComboBox.SelectedValue = _article.Category.Id;
+            }
+        }
+
+        private void setArticle()
+        {
+            _article.Code = codeTextBox.Text;
+            _article.Name = nameTextBox.Text;
+            _article.Description = descriptionTextBox.Text;
+            _article.Price = decimal.Parse(priceTextBox.Text);
+
+            if (Validations.hasData(brandComboBox.Text))
+            {
+                _article.Brand.Description = brandComboBox.Text;
+            }
+            else
+            {
+                _article.Brand = null; // Esto es una referencia para que el backend no intente agregar algo nulo y se rompan los metodos Add() y Edit() del manager de marcas
+            }
+
+            if (Validations.hasData(categoryComboBox.Text))
+            {
+                _article.Category.Description = categoryComboBox.Text;
+            }
+            else
+            {
+                _article.Category = null; // Esto es una referencia para que el backend no intente agregar algo nulo y se rompan los metodos Add() y Edit() del manager de categorias
+            }
+        }
+
         // EVENTS
 
         private void RegisterForm_Load(object sender, EventArgs e)
@@ -55,13 +113,8 @@ namespace WindowsForms
 
             if (_article != null) // Editar
             {
-                codeTextBox.Text = _article.Code;
-                nameTextBox.Text = _article.Name;
-                descriptionTextBox.Text = _article.Description;
-                priceTextBox.Text = _article.Price.ToString();
-                brandComboBox.SelectedValue = _article.Brand.Id;
-                categoryComboBox.SelectedValue = _article.Category.Id;
-                //agregar imagen
+                mapArticle();
+                Functions.loadImage(pictureBox, imageTextBox.Text); // Facu, puse provisoriamente este metodo para que muestre una sola imagen. Borra esto cuando lo leas, Maxi.
             }
             else // Nuevo
             {
@@ -71,27 +124,25 @@ namespace WindowsForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            if (!validateRegister())
+            {
+                return;
+            }
+
             try
             {
-                _article.Code = codeTextBox.Text;
-                _article.Name = nameTextBox.Text;
-                _article.Description = descriptionTextBox.Text;
-                _article.Price = decimal.Parse(priceTextBox.Text);
-                _article.Brand.Description = brandComboBox.Text;
-                _article.Category.Description = categoryComboBox.Text;
+                setArticle();
 
                 if (_article.Id != 0)
                 {
                     _articlesManager.Edit(_article);
-                    MessageBox.Show("Modificado exitosamente");
+                    MessageBox.Show("Modificado exitosamente.");
                 }
                 else
                 {
                     _articlesManager.Add(_article);
-                    MessageBox.Show("Agregado exitosamente");
+                    MessageBox.Show("Agregado exitosamente.");
                 }
-
-                //IF - Parte imagen
 
                 Close();
             }
@@ -101,11 +152,14 @@ namespace WindowsForms
             }
         }
 
+        private void imageTextBox_Leave(object sender, EventArgs e)
+        {
+            Functions.loadImage(pictureBox, imageTextBox.Text);
+        }
+
         private void cancelButton_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-        private void imageTextBox_Leave(object sender, EventArgs e) { }
     }
 }

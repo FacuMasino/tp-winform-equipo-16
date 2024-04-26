@@ -34,6 +34,7 @@
             this.roundPanel2 = new WindowsForms.RoundPanel();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.roundPanel1 = new WindowsForms.RoundPanel();
+            this.imageTextBox = new System.Windows.Forms.TextBox();
             this.imageLabel = new System.Windows.Forms.Label();
             this.codeTextBox = new System.Windows.Forms.TextBox();
             this.codeLabel = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.brandLabel = new System.Windows.Forms.Label();
             this.brandComboBox = new System.Windows.Forms.ComboBox();
-            this.imageTextBox = new System.Windows.Forms.TextBox();
             this.roundPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.roundPanel1.SuspendLayout();
@@ -61,10 +61,9 @@
             this.saveButton.ForeColor = System.Drawing.Color.White;
             this.saveButton.Image = global::WindowsForms.Properties.Resources.fi_save;
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saveButton.Location = new System.Drawing.Point(387, 274);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(2);
+            this.saveButton.Location = new System.Drawing.Point(768, 435);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(107, 42);
+            this.saveButton.Size = new System.Drawing.Size(160, 65);
             this.saveButton.TabIndex = 0;
             this.saveButton.Text = "Guardar";
             this.saveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -80,10 +79,9 @@
             this.cancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(105)))), ((int)(((byte)(245)))));
             this.cancelButton.Image = global::WindowsForms.Properties.Resources.fi_slash;
             this.cancelButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cancelButton.Location = new System.Drawing.Point(515, 274);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
+            this.cancelButton.Location = new System.Drawing.Point(606, 435);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(104, 42);
+            this.cancelButton.Size = new System.Drawing.Size(156, 65);
             this.cancelButton.TabIndex = 1;
             this.cancelButton.Text = "Cancelar";
             this.cancelButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -97,18 +95,19 @@
             this.roundPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
             this.roundPanel2.BorderWidth = 3F;
             this.roundPanel2.Controls.Add(this.pictureBox);
-            this.roundPanel2.Location = new System.Drawing.Point(12, 12);
+            this.roundPanel2.Location = new System.Drawing.Point(18, 18);
+            this.roundPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.roundPanel2.Name = "roundPanel2";
             this.roundPanel2.Radius = 10;
-            this.roundPanel2.Size = new System.Drawing.Size(257, 257);
+            this.roundPanel2.Size = new System.Drawing.Size(386, 395);
             this.roundPanel2.TabIndex = 2;
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(30, 29);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox.Location = new System.Drawing.Point(45, 45);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(177, 177);
+            this.pictureBox.Size = new System.Drawing.Size(266, 272);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 2;
             this.pictureBox.TabStop = false;
             // 
@@ -132,21 +131,32 @@
             this.roundPanel1.Controls.Add(this.descriptionTextBox);
             this.roundPanel1.Controls.Add(this.brandLabel);
             this.roundPanel1.Controls.Add(this.brandComboBox);
-            this.roundPanel1.Location = new System.Drawing.Point(275, 12);
+            this.roundPanel1.Location = new System.Drawing.Point(412, 18);
+            this.roundPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.roundPanel1.Name = "roundPanel1";
             this.roundPanel1.Radius = 10;
-            this.roundPanel1.Size = new System.Drawing.Size(344, 257);
+            this.roundPanel1.Size = new System.Drawing.Size(516, 395);
             this.roundPanel1.TabIndex = 0;
+            // 
+            // imageTextBox
+            // 
+            this.imageTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
+            this.imageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imageTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imageTextBox.Location = new System.Drawing.Point(200, 331);
+            this.imageTextBox.Name = "imageTextBox";
+            this.imageTextBox.Size = new System.Drawing.Size(239, 31);
+            this.imageTextBox.TabIndex = 6;
+            this.imageTextBox.Leave += new System.EventHandler(this.imageTextBox_Leave);
             // 
             // imageLabel
             // 
             this.imageLabel.AutoSize = true;
             this.imageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.imageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.imageLabel.Location = new System.Drawing.Point(27, 215);
-            this.imageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.imageLabel.Location = new System.Drawing.Point(40, 331);
             this.imageLabel.Name = "imageLabel";
-            this.imageLabel.Size = new System.Drawing.Size(56, 18);
+            this.imageLabel.Size = new System.Drawing.Size(93, 29);
             this.imageLabel.TabIndex = 7;
             this.imageLabel.Text = "Imágen";
             // 
@@ -155,10 +165,9 @@
             this.codeTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.codeTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codeTextBox.Location = new System.Drawing.Point(133, 21);
-            this.codeTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.codeTextBox.Location = new System.Drawing.Point(200, 32);
             this.codeTextBox.Name = "codeTextBox";
-            this.codeTextBox.Size = new System.Drawing.Size(160, 23);
+            this.codeTextBox.Size = new System.Drawing.Size(239, 31);
             this.codeTextBox.TabIndex = 0;
             // 
             // codeLabel
@@ -166,10 +175,9 @@
             this.codeLabel.AutoSize = true;
             this.codeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.codeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.codeLabel.Location = new System.Drawing.Point(27, 24);
-            this.codeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.codeLabel.Location = new System.Drawing.Point(40, 37);
             this.codeLabel.Name = "codeLabel";
-            this.codeLabel.Size = new System.Drawing.Size(56, 18);
+            this.codeLabel.Size = new System.Drawing.Size(92, 29);
             this.codeLabel.TabIndex = 5;
             this.codeLabel.Text = "Código";
             // 
@@ -178,10 +186,9 @@
             this.priceTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.priceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.priceTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceTextBox.Location = new System.Drawing.Point(133, 183);
-            this.priceTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.priceTextBox.Location = new System.Drawing.Point(200, 282);
             this.priceTextBox.Name = "priceTextBox";
-            this.priceTextBox.Size = new System.Drawing.Size(160, 23);
+            this.priceTextBox.Size = new System.Drawing.Size(239, 31);
             this.priceTextBox.TabIndex = 5;
             // 
             // descriptionLabel
@@ -189,10 +196,9 @@
             this.descriptionLabel.AutoSize = true;
             this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.descriptionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.descriptionLabel.Location = new System.Drawing.Point(27, 85);
-            this.descriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.descriptionLabel.Location = new System.Drawing.Point(40, 131);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(87, 18);
+            this.descriptionLabel.Size = new System.Drawing.Size(141, 29);
             this.descriptionLabel.TabIndex = 1;
             this.descriptionLabel.Text = "Descripción";
             // 
@@ -201,10 +207,9 @@
             this.priceLabel.AutoSize = true;
             this.priceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.priceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.priceLabel.Location = new System.Drawing.Point(27, 183);
-            this.priceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.priceLabel.Location = new System.Drawing.Point(40, 282);
             this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(51, 18);
+            this.priceLabel.Size = new System.Drawing.Size(83, 29);
             this.priceLabel.TabIndex = 4;
             this.priceLabel.Text = "Precio";
             // 
@@ -213,10 +218,9 @@
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.nameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.nameLabel.Location = new System.Drawing.Point(27, 53);
-            this.nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nameLabel.Location = new System.Drawing.Point(40, 82);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(62, 18);
+            this.nameLabel.Size = new System.Drawing.Size(101, 29);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Nombre";
             // 
@@ -225,10 +229,9 @@
             this.categoryLabel.AutoSize = true;
             this.categoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.categoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.categoryLabel.Location = new System.Drawing.Point(27, 151);
-            this.categoryLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.categoryLabel.Location = new System.Drawing.Point(40, 232);
             this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(72, 18);
+            this.categoryLabel.Size = new System.Drawing.Size(118, 29);
             this.categoryLabel.TabIndex = 3;
             this.categoryLabel.Text = "Categoría";
             // 
@@ -237,10 +240,9 @@
             this.nameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nameTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTextBox.Location = new System.Drawing.Point(133, 53);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.nameTextBox.Location = new System.Drawing.Point(200, 82);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(160, 23);
+            this.nameTextBox.Size = new System.Drawing.Size(239, 31);
             this.nameTextBox.TabIndex = 1;
             // 
             // categoryComboBox
@@ -250,10 +252,9 @@
             this.categoryComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.categoryComboBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(133, 150);
-            this.categoryComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.categoryComboBox.Location = new System.Drawing.Point(200, 231);
             this.categoryComboBox.Name = "categoryComboBox";
-            this.categoryComboBox.Size = new System.Drawing.Size(160, 24);
+            this.categoryComboBox.Size = new System.Drawing.Size(238, 31);
             this.categoryComboBox.TabIndex = 4;
             // 
             // descriptionTextBox
@@ -261,10 +262,9 @@
             this.descriptionTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.descriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.descriptionTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionTextBox.Location = new System.Drawing.Point(133, 85);
-            this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.descriptionTextBox.Location = new System.Drawing.Point(200, 131);
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(160, 23);
+            this.descriptionTextBox.Size = new System.Drawing.Size(239, 31);
             this.descriptionTextBox.TabIndex = 2;
             // 
             // brandLabel
@@ -272,10 +272,9 @@
             this.brandLabel.AutoSize = true;
             this.brandLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.brandLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.brandLabel.Location = new System.Drawing.Point(27, 118);
-            this.brandLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.brandLabel.Location = new System.Drawing.Point(40, 182);
             this.brandLabel.Name = "brandLabel";
-            this.brandLabel.Size = new System.Drawing.Size(50, 18);
+            this.brandLabel.Size = new System.Drawing.Size(79, 29);
             this.brandLabel.TabIndex = 2;
             this.brandLabel.Text = "Marca";
             // 
@@ -286,37 +285,23 @@
             this.brandComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.brandComboBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.brandComboBox.FormattingEnabled = true;
-            this.brandComboBox.Location = new System.Drawing.Point(133, 117);
-            this.brandComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.brandComboBox.Location = new System.Drawing.Point(200, 180);
             this.brandComboBox.Name = "brandComboBox";
-            this.brandComboBox.Size = new System.Drawing.Size(160, 24);
+            this.brandComboBox.Size = new System.Drawing.Size(238, 31);
             this.brandComboBox.TabIndex = 3;
-            // 
-            // imageTextBox
-            // 
-            this.imageTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
-            this.imageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imageTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imageTextBox.Location = new System.Drawing.Point(133, 215);
-            this.imageTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.imageTextBox.Name = "imageTextBox";
-            this.imageTextBox.Size = new System.Drawing.Size(160, 23);
-            this.imageTextBox.TabIndex = 6;
-            this.imageTextBox.Leave += new System.EventHandler(this.imageTextBox_Leave);
             // 
             // RegisterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(631, 321);
+            this.ClientSize = new System.Drawing.Size(946, 512);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.roundPanel2);
             this.Controls.Add(this.roundPanel1);
             this.Controls.Add(this.saveButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

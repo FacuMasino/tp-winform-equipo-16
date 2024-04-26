@@ -30,9 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             this.saveButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.roundPanel2 = new WindowsForms.RoundPanel();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.roundPanel1 = new WindowsForms.RoundPanel();
+            this.imageLabel = new System.Windows.Forms.Label();
             this.codeTextBox = new System.Windows.Forms.TextBox();
             this.codeLabel = new System.Windows.Forms.Label();
             this.priceTextBox = new System.Windows.Forms.TextBox();
@@ -45,7 +47,7 @@
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.brandLabel = new System.Windows.Forms.Label();
             this.brandComboBox = new System.Windows.Forms.ComboBox();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.imageTextBox = new System.Windows.Forms.TextBox();
             this.roundPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.roundPanel1.SuspendLayout();
@@ -59,15 +61,34 @@
             this.saveButton.ForeColor = System.Drawing.Color.White;
             this.saveButton.Image = global::WindowsForms.Properties.Resources.fi_save;
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saveButton.Location = new System.Drawing.Point(479, 249);
+            this.saveButton.Location = new System.Drawing.Point(387, 274);
             this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(98, 42);
-            this.saveButton.TabIndex = 1;
+            this.saveButton.Size = new System.Drawing.Size(107, 42);
+            this.saveButton.TabIndex = 0;
             this.saveButton.Text = "Guardar";
             this.saveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.BackColor = System.Drawing.Color.Transparent;
+            this.cancelButton.FlatAppearance.BorderSize = 2;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(105)))), ((int)(((byte)(245)))));
+            this.cancelButton.Image = global::WindowsForms.Properties.Resources.fi_slash;
+            this.cancelButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cancelButton.Location = new System.Drawing.Point(515, 274);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(104, 42);
+            this.cancelButton.TabIndex = 1;
+            this.cancelButton.Text = "Cancelar";
+            this.cancelButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // roundPanel2
             // 
@@ -79,12 +100,12 @@
             this.roundPanel2.Location = new System.Drawing.Point(12, 12);
             this.roundPanel2.Name = "roundPanel2";
             this.roundPanel2.Radius = 10;
-            this.roundPanel2.Size = new System.Drawing.Size(221, 222);
+            this.roundPanel2.Size = new System.Drawing.Size(257, 257);
             this.roundPanel2.TabIndex = 2;
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(21, 21);
+            this.pictureBox.Location = new System.Drawing.Point(30, 29);
             this.pictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(177, 177);
@@ -97,6 +118,8 @@
             this.roundPanel1.BackgroundColor = System.Drawing.Color.White;
             this.roundPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
             this.roundPanel1.BorderWidth = 3F;
+            this.roundPanel1.Controls.Add(this.imageTextBox);
+            this.roundPanel1.Controls.Add(this.imageLabel);
             this.roundPanel1.Controls.Add(this.codeTextBox);
             this.roundPanel1.Controls.Add(this.codeLabel);
             this.roundPanel1.Controls.Add(this.priceTextBox);
@@ -109,11 +132,23 @@
             this.roundPanel1.Controls.Add(this.descriptionTextBox);
             this.roundPanel1.Controls.Add(this.brandLabel);
             this.roundPanel1.Controls.Add(this.brandComboBox);
-            this.roundPanel1.Location = new System.Drawing.Point(239, 12);
+            this.roundPanel1.Location = new System.Drawing.Point(275, 12);
             this.roundPanel1.Name = "roundPanel1";
             this.roundPanel1.Radius = 10;
-            this.roundPanel1.Size = new System.Drawing.Size(338, 222);
+            this.roundPanel1.Size = new System.Drawing.Size(344, 257);
             this.roundPanel1.TabIndex = 0;
+            // 
+            // imageLabel
+            // 
+            this.imageLabel.AutoSize = true;
+            this.imageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.imageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.imageLabel.Location = new System.Drawing.Point(27, 215);
+            this.imageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.imageLabel.Name = "imageLabel";
+            this.imageLabel.Size = new System.Drawing.Size(56, 18);
+            this.imageLabel.TabIndex = 7;
+            this.imageLabel.Text = "Imágen";
             // 
             // codeTextBox
             // 
@@ -124,7 +159,7 @@
             this.codeTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.codeTextBox.Name = "codeTextBox";
             this.codeTextBox.Size = new System.Drawing.Size(160, 23);
-            this.codeTextBox.TabIndex = 6;
+            this.codeTextBox.TabIndex = 0;
             // 
             // codeLabel
             // 
@@ -147,7 +182,7 @@
             this.priceTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(160, 23);
-            this.priceTextBox.TabIndex = 4;
+            this.priceTextBox.TabIndex = 5;
             // 
             // descriptionLabel
             // 
@@ -206,7 +241,7 @@
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(160, 23);
-            this.nameTextBox.TabIndex = 0;
+            this.nameTextBox.TabIndex = 1;
             // 
             // categoryComboBox
             // 
@@ -219,7 +254,7 @@
             this.categoryComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(160, 24);
-            this.categoryComboBox.TabIndex = 3;
+            this.categoryComboBox.TabIndex = 4;
             // 
             // descriptionTextBox
             // 
@@ -230,7 +265,7 @@
             this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(160, 23);
-            this.descriptionTextBox.TabIndex = 1;
+            this.descriptionTextBox.TabIndex = 2;
             // 
             // brandLabel
             // 
@@ -255,30 +290,26 @@
             this.brandComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.brandComboBox.Name = "brandComboBox";
             this.brandComboBox.Size = new System.Drawing.Size(160, 24);
-            this.brandComboBox.TabIndex = 2;
+            this.brandComboBox.TabIndex = 3;
             // 
-            // cancelButton
+            // imageTextBox
             // 
-            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(105)))), ((int)(((byte)(245)))));
-            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.ForeColor = System.Drawing.Color.White;
-            this.cancelButton.Location = new System.Drawing.Point(361, 249);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(98, 42);
-            this.cancelButton.TabIndex = 0;
-            this.cancelButton.Text = "Cancelar";
-            this.cancelButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cancelButton.UseVisualStyleBackColor = false;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.imageTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
+            this.imageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imageTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imageTextBox.Location = new System.Drawing.Point(133, 215);
+            this.imageTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.imageTextBox.Name = "imageTextBox";
+            this.imageTextBox.Size = new System.Drawing.Size(160, 23);
+            this.imageTextBox.TabIndex = 6;
+            this.imageTextBox.Leave += new System.EventHandler(this.imageTextBox_Leave);
             // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(594, 307);
+            this.ClientSize = new System.Drawing.Size(631, 321);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.roundPanel2);
             this.Controls.Add(this.roundPanel1);
@@ -318,5 +349,7 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.TextBox codeTextBox;
         private System.Windows.Forms.Label codeLabel;
+        private System.Windows.Forms.Label imageLabel;
+        private System.Windows.Forms.TextBox imageTextBox;
     }
 }

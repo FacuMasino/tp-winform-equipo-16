@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using System.Windows.Forms;
+using BusinessLogic;
 using BusinessLogicLayer;
 using Domain;
 
@@ -12,6 +13,7 @@ namespace WindowsForms
         private BrandsManager _brandsManager = new BrandsManager();
         private CategoriesManager _categoriesManager = new CategoriesManager();
         private ArticlesManager _articlesManager = new ArticlesManager();
+        private ImagesManager _imagesManager = new ImagesManager();
 
         // CONSTRUCT
 
@@ -111,5 +113,7 @@ namespace WindowsForms
         {
             Close();
         }
+
+        private void imageTextBox_Leave(object sender, EventArgs e) { }
     }
 }

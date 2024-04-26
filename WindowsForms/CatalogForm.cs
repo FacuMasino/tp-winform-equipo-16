@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Security;
 using System.Windows.Forms;
 using BusinessLogicLayer;
@@ -11,6 +12,8 @@ namespace WindowsForms
         // ATTRIBUTES
 
         FormsManager _formsManager = new FormsManager();
+        private List<Article> _articlesList = new List<Article>();
+        private List<Article> _filteredArticles = new List<Article>();
 
         // CONSTRUCT
 
@@ -44,7 +47,8 @@ namespace WindowsForms
 
             try
             {
-                ArticlesdataGridView.DataSource = articlesManager.List();
+                _articlesList = articlesManager.List();
+                ArticlesdataGridView.DataSource = _articlesList;
             }
             catch (Exception ex)
             {
@@ -63,6 +67,29 @@ namespace WindowsForms
         private void CatalogForm_Load(object sender, EventArgs e)
         {
             refresh();
+        }
+
+        private void filterTextBox_TextChanged(object sender, EventArgs e)
+        {
+            List<Article> _filteredArticles;
+            string filter = filterTextBox.Text;
+
+            if (filter != " ")
+            {
+                _filteredArticles = _articlesList.FindAll(x =>
+                    x.Name.ToUpper().Contains(filter.ToUpper())
+                    || x.Category.Description.ToUpper().Contains(filter.ToUpper())
+                    || x.Brand.Description.ToUpper().Contains(filter.ToUpper())
+                    || x.Code.ToUpper().Contains(filter.ToUpper())
+                    || x.Description.ToUpper().Contains(filter.ToUpper())
+                );
+            }
+            else
+            {
+                _filteredArticles = _articlesList;
+            }
+
+            ArticlesdataGridView.DataSource = _filteredArticles;
         }
     }
 }

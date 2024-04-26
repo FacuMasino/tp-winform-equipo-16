@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CatalogForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.roundPanel3 = new WindowsForms.RoundPanel();
@@ -40,11 +39,8 @@
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.brandLabel = new System.Windows.Forms.Label();
             this.roundPanel2 = new WindowsForms.RoundPanel();
-            this.searchLabel = new System.Windows.Forms.Label();
             this.newButton = new System.Windows.Forms.Button();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.editButton = new System.Windows.Forms.Button();
-            this.searchButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.filterTextBox = new System.Windows.Forms.TextBox();
@@ -165,11 +161,8 @@
             this.roundPanel2.BackgroundColor = System.Drawing.Color.White;
             this.roundPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
             this.roundPanel2.BorderWidth = 3F;
-            this.roundPanel2.Controls.Add(this.searchLabel);
             this.roundPanel2.Controls.Add(this.newButton);
-            this.roundPanel2.Controls.Add(this.searchTextBox);
             this.roundPanel2.Controls.Add(this.editButton);
-            this.roundPanel2.Controls.Add(this.searchButton);
             this.roundPanel2.Controls.Add(this.deleteButton);
             this.roundPanel2.Controls.Add(this.clearButton);
             this.roundPanel2.Controls.Add(this.filterTextBox);
@@ -179,18 +172,6 @@
             this.roundPanel2.Radius = 10;
             this.roundPanel2.Size = new System.Drawing.Size(348, 201);
             this.roundPanel2.TabIndex = 10;
-            // 
-            // searchLabel
-            // 
-            this.searchLabel.AutoSize = true;
-            this.searchLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.searchLabel.Location = new System.Drawing.Point(22, 122);
-            this.searchLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(81, 18);
-            this.searchLabel.TabIndex = 17;
-            this.searchLabel.Text = "Buscar por";
             // 
             // newButton
             // 
@@ -211,17 +192,6 @@
             this.newButton.UseVisualStyleBackColor = false;
             this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
-            // searchTextBox
-            // 
-            this.searchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
-            this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox.Location = new System.Drawing.Point(76, 150);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(146, 23);
-            this.searchTextBox.TabIndex = 16;
-            // 
             // editButton
             // 
             this.editButton.BackColor = System.Drawing.Color.Transparent;
@@ -232,7 +202,7 @@
             this.editButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(105)))), ((int)(((byte)(245)))));
             this.editButton.Image = global::WindowsForms.Properties.Resources.fi_edit_3_primary;
             this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editButton.Location = new System.Drawing.Point(128, 20);
+            this.editButton.Location = new System.Drawing.Point(137, 20);
             this.editButton.Margin = new System.Windows.Forms.Padding(2);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(94, 42);
@@ -242,24 +212,6 @@
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
-            // searchButton
-            // 
-            this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(105)))), ((int)(((byte)(245)))));
-            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.ForeColor = System.Drawing.Color.White;
-            this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.searchButton.Location = new System.Drawing.Point(230, 138);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(2);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(96, 42);
-            this.searchButton.TabIndex = 15;
-            this.searchButton.Text = "Buscar";
-            this.searchButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.searchButton.UseVisualStyleBackColor = false;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
             // deleteButton
             // 
             this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(105)))), ((int)(((byte)(245)))));
@@ -268,7 +220,7 @@
             this.deleteButton.ForeColor = System.Drawing.Color.White;
             this.deleteButton.Image = global::WindowsForms.Properties.Resources.fi_x;
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButton.Location = new System.Drawing.Point(230, 20);
+            this.deleteButton.Location = new System.Drawing.Point(250, 20);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(96, 42);
@@ -288,7 +240,7 @@
             this.clearButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(105)))), ((int)(((byte)(245)))));
             this.clearButton.Image = global::WindowsForms.Properties.Resources.fluent__broom_20_regular;
             this.clearButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.clearButton.Location = new System.Drawing.Point(232, 79);
+            this.clearButton.Location = new System.Drawing.Point(252, 82);
             this.clearButton.Margin = new System.Windows.Forms.Padding(2);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(94, 42);
@@ -303,11 +255,12 @@
             this.filterTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.filterTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.filterTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filterTextBox.Location = new System.Drawing.Point(76, 85);
+            this.filterTextBox.Location = new System.Drawing.Point(85, 89);
             this.filterTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.filterTextBox.Name = "filterTextBox";
             this.filterTextBox.Size = new System.Drawing.Size(146, 23);
             this.filterTextBox.TabIndex = 12;
+            this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
             // 
             // filterLabel
             // 
@@ -315,7 +268,7 @@
             this.filterLabel.BackColor = System.Drawing.Color.Transparent;
             this.filterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filterLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.filterLabel.Location = new System.Drawing.Point(22, 85);
+            this.filterLabel.Location = new System.Drawing.Point(23, 94);
             this.filterLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.filterLabel.Name = "filterLabel";
             this.filterLabel.Size = new System.Drawing.Size(45, 18);
@@ -425,9 +378,6 @@
         private System.Windows.Forms.TextBox filterTextBox;
         private System.Windows.Forms.Label filterLabel;
         private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Label searchLabel;
-        private System.Windows.Forms.TextBox searchTextBox;
-        private System.Windows.Forms.Button searchButton;
         private RoundPanel roundPanel1;
         private System.Windows.Forms.Label dataGridViewTitle;
         private RoundPanel roundPanel2;

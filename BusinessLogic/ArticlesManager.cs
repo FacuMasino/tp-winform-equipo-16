@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using BusinessLogic;
 using DataAccessLayer;
 using Domain;
@@ -157,7 +158,7 @@ namespace BusinessLogicLayer
             }
         }
 
-        public void delete(Article article)
+        public void Delete(Article article, bool clearBrand = false, bool clearCategory = false)
         {
             try
             {
@@ -175,7 +176,76 @@ namespace BusinessLogicLayer
             }
 
             // Verificar si la marca del articulo no pertenece a ningun otro y en tal caso eliminarla
+            if (clearBrand)
+            {
+                bool brandInUse = IsBrandInUse(article.Brand);
+                Debug.Print($"Verificando si la marca {article.Brand} está en uso => {brandInUse}");
+
+                if (!brandInUse)
+                    _brandsManager.delete(article.Brand);
+            }
             // Verificar si la categoria del articulo no pertenece a ningun otro y en tal caso eliminarla
+            if (clearCategory)
+            {
+                bool categoryInUse = IsCategoryInUse(article.Category);
+                Debug.Print(
+                    $"Verificando si la categoría {article.Category} está en uso => {categoryInUse}"
+                );
+                if (!categoryInUse)
+                    _categoriesManager.delete(article.Category);
+            }
+        }
+
+        private bool IsBrandInUse(Brand brand)
+        {
+            try
+            {
+                _dataAccess.SetQuery(
+                    "select COUNT(*) as Total from Articulos where IdMarca = @BrandId"
+                );
+                _dataAccess.SetParameter("@BrandId", brand.Id);
+                _dataAccess.ExecuteRead();
+
+                if (_dataAccess.Reader.Read())
+                {
+                    int total = (int)_dataAccess.Reader["Total"];
+                    return total > 0; // Si hay articulos que usan la marca, devuelve true
+                }
+                throw new Exception(); // Ir al bloque catch si no se puede leer
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(
+                    $"Ocurrió un error al verificar si la marca {brand?.Description} existe.",
+                    ex
+                );
+            }
+        }
+
+        private bool IsCategoryInUse(Category category)
+        {
+            try
+            {
+                _dataAccess.SetQuery(
+                    "select COUNT(*) as Total from Articulos where IdCategoria = @CategoryId"
+                );
+                _dataAccess.SetParameter("@CategoryId", category.Id);
+                _dataAccess.ExecuteRead();
+
+                if (_dataAccess.Reader.Read())
+                {
+                    int total = (int)_dataAccess.Reader["Total"];
+                    return total > 0; // Si hay articulos que usan la categoria, devuelve true
+                }
+                throw new Exception(); // Ir al bloque catch si no se puede leer
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(
+                    $"Ocurrió un error al verificar si la categoría {category?.Description} existe.",
+                    ex
+                );
+            }
         }
 
         public int GetId(Article article)

@@ -18,6 +18,11 @@ namespace WindowsForms
 
         // EVENTS
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            _formsManager.loadParentForm<CatalogForm>(this);
+        }
+
         private void catalogToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _formsManager.loadParentForm<CatalogForm>(this);

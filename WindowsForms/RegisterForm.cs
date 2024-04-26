@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq.Expressions;
 using System.Windows.Forms;
-using BusinessLogic;
 using BusinessLogicLayer;
 using Domain;
 
@@ -29,23 +27,8 @@ namespace WindowsForms
             Text = "Modificar Articulo";
         }
 
-        // EVENTS
+        // METHODS
 
-
-        /*private void RegisterForm_Load(object sender, EventArgs e)
-        {
-            BrandsManager brandsManager = new BrandsManager();
-            CategoriesManager categoriesManager = new CategoriesManager();
-            try
-            {
-                brandComboBox.DataSource = brandsManager.List();
-                categoryComboBox.DataSource = categoriesManager.List();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }*/
         private void LoadComboBoxes()
         {
             brandComboBox.DataSource = _brandsManager.List();
@@ -57,11 +40,20 @@ namespace WindowsForms
             categoryComboBox.DisplayMember = "Description";
         }
 
+        private void ClearComboBoxes()
+        {
+            brandComboBox.SelectedIndex = -1;
+            categoryComboBox.SelectedIndex = -1;
+        }
+
+        // EVENTS
+
         private void RegisterForm_Load(object sender, EventArgs e)
         {
             LoadComboBoxes();
+            ClearComboBoxes();
 
-            if (_article != null) // entra si es art. editado
+            if (_article != null) // Editar
             {
                 codeTextBox.Text = _article.Code;
                 nameTextBox.Text = _article.Name;
@@ -69,9 +61,9 @@ namespace WindowsForms
                 priceTextBox.Text = _article.Price.ToString();
                 brandComboBox.SelectedValue = _article.Brand.Id;
                 categoryComboBox.SelectedValue = _article.Category.Id;
-                ///agregar imagen
+                //agregar imagen
             }
-            else // entra aca si es nuevo
+            else // Nuevo
             {
                 _article = new Article();
             }

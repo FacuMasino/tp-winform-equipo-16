@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DataAccessLayer;
 using Domain;
 
-namespace BusinessLogic
+namespace BusinessLogicLayer
 {
     public class ImagesManager
     {

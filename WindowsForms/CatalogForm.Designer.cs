@@ -46,13 +46,12 @@
             this.filterTextBox = new System.Windows.Forms.TextBox();
             this.filterLabel = new System.Windows.Forms.Label();
             this.roundPanel1 = new WindowsForms.RoundPanel();
-            this.dataGridViewTitle = new System.Windows.Forms.Label();
-            this.ArticlesdataGridView = new System.Windows.Forms.DataGridView();
+            this.articlesDataGridView = new System.Windows.Forms.DataGridView();
             this.roundPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.roundPanel2.SuspendLayout();
             this.roundPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ArticlesdataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.articlesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // roundPanel3
@@ -68,10 +67,11 @@
             this.roundPanel3.Controls.Add(this.categoryLabel);
             this.roundPanel3.Controls.Add(this.descriptionLabel);
             this.roundPanel3.Controls.Add(this.brandLabel);
-            this.roundPanel3.Location = new System.Drawing.Point(12, 10);
+            this.roundPanel3.Location = new System.Drawing.Point(18, 15);
+            this.roundPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.roundPanel3.Name = "roundPanel3";
             this.roundPanel3.Radius = 10;
-            this.roundPanel3.Size = new System.Drawing.Size(418, 201);
+            this.roundPanel3.Size = new System.Drawing.Size(627, 309);
             this.roundPanel3.TabIndex = 11;
             // 
             // idLabel
@@ -79,19 +79,18 @@
             this.idLabel.AutoSize = true;
             this.idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.idLabel.Location = new System.Drawing.Point(184, 19);
-            this.idLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.idLabel.Location = new System.Drawing.Point(306, 28);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(22, 18);
+            this.idLabel.Size = new System.Drawing.Size(36, 29);
             this.idLabel.TabIndex = 16;
             this.idLabel.Text = "ID";
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(19, 17);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox.Location = new System.Drawing.Point(28, 28);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(150, 164);
+            this.pictureBox.Size = new System.Drawing.Size(249, 249);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 3;
             this.pictureBox.TabStop = false;
             // 
@@ -100,10 +99,9 @@
             this.priceLabel.AutoSize = true;
             this.priceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.priceLabel.Location = new System.Drawing.Point(184, 164);
-            this.priceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.priceLabel.Location = new System.Drawing.Point(306, 248);
             this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(51, 18);
+            this.priceLabel.Size = new System.Drawing.Size(83, 29);
             this.priceLabel.TabIndex = 15;
             this.priceLabel.Text = "Precio";
             // 
@@ -112,10 +110,9 @@
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.nameLabel.Location = new System.Drawing.Point(184, 48);
-            this.nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nameLabel.Location = new System.Drawing.Point(306, 72);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(62, 18);
+            this.nameLabel.Size = new System.Drawing.Size(101, 29);
             this.nameLabel.TabIndex = 11;
             this.nameLabel.Text = "Nombre";
             // 
@@ -124,10 +121,9 @@
             this.categoryLabel.AutoSize = true;
             this.categoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.categoryLabel.Location = new System.Drawing.Point(184, 135);
-            this.categoryLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.categoryLabel.Location = new System.Drawing.Point(306, 204);
             this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(72, 18);
+            this.categoryLabel.Size = new System.Drawing.Size(118, 29);
             this.categoryLabel.TabIndex = 14;
             this.categoryLabel.Text = "Categoría";
             // 
@@ -136,10 +132,9 @@
             this.descriptionLabel.AutoSize = true;
             this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.descriptionLabel.Location = new System.Drawing.Point(184, 77);
-            this.descriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.descriptionLabel.Location = new System.Drawing.Point(306, 116);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(87, 18);
+            this.descriptionLabel.Size = new System.Drawing.Size(141, 29);
             this.descriptionLabel.TabIndex = 12;
             this.descriptionLabel.Text = "Descripción";
             // 
@@ -148,10 +143,9 @@
             this.brandLabel.AutoSize = true;
             this.brandLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.brandLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.brandLabel.Location = new System.Drawing.Point(184, 106);
-            this.brandLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.brandLabel.Location = new System.Drawing.Point(306, 160);
             this.brandLabel.Name = "brandLabel";
-            this.brandLabel.Size = new System.Drawing.Size(50, 18);
+            this.brandLabel.Size = new System.Drawing.Size(79, 29);
             this.brandLabel.TabIndex = 13;
             this.brandLabel.Text = "Marca";
             // 
@@ -167,10 +161,11 @@
             this.roundPanel2.Controls.Add(this.clearButton);
             this.roundPanel2.Controls.Add(this.filterTextBox);
             this.roundPanel2.Controls.Add(this.filterLabel);
-            this.roundPanel2.Location = new System.Drawing.Point(436, 10);
+            this.roundPanel2.Location = new System.Drawing.Point(654, 15);
+            this.roundPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.roundPanel2.Name = "roundPanel2";
             this.roundPanel2.Radius = 10;
-            this.roundPanel2.Size = new System.Drawing.Size(348, 201);
+            this.roundPanel2.Size = new System.Drawing.Size(522, 309);
             this.roundPanel2.TabIndex = 10;
             // 
             // newButton
@@ -182,10 +177,9 @@
             this.newButton.ForeColor = System.Drawing.Color.White;
             this.newButton.Image = global::WindowsForms.Properties.Resources.fi_plus;
             this.newButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.newButton.Location = new System.Drawing.Point(26, 20);
-            this.newButton.Margin = new System.Windows.Forms.Padding(2);
+            this.newButton.Location = new System.Drawing.Point(34, 67);
             this.newButton.Name = "newButton";
-            this.newButton.Size = new System.Drawing.Size(96, 42);
+            this.newButton.Size = new System.Drawing.Size(144, 65);
             this.newButton.TabIndex = 2;
             this.newButton.Text = "Nuevo";
             this.newButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -202,10 +196,9 @@
             this.editButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(105)))), ((int)(((byte)(245)))));
             this.editButton.Image = global::WindowsForms.Properties.Resources.fi_edit_3_primary;
             this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editButton.Location = new System.Drawing.Point(137, 20);
-            this.editButton.Margin = new System.Windows.Forms.Padding(2);
+            this.editButton.Location = new System.Drawing.Point(189, 67);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(94, 42);
+            this.editButton.Size = new System.Drawing.Size(144, 65);
             this.editButton.TabIndex = 3;
             this.editButton.Text = "Editar";
             this.editButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -220,10 +213,9 @@
             this.deleteButton.ForeColor = System.Drawing.Color.White;
             this.deleteButton.Image = global::WindowsForms.Properties.Resources.fi_x;
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButton.Location = new System.Drawing.Point(250, 20);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
+            this.deleteButton.Location = new System.Drawing.Point(344, 67);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(96, 42);
+            this.deleteButton.Size = new System.Drawing.Size(144, 65);
             this.deleteButton.TabIndex = 4;
             this.deleteButton.Text = "Eliminar";
             this.deleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -240,10 +232,9 @@
             this.clearButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(105)))), ((int)(((byte)(245)))));
             this.clearButton.Image = global::WindowsForms.Properties.Resources.fluent__broom_20_regular;
             this.clearButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.clearButton.Location = new System.Drawing.Point(252, 82);
-            this.clearButton.Margin = new System.Windows.Forms.Padding(2);
+            this.clearButton.Location = new System.Drawing.Point(344, 182);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(94, 42);
+            this.clearButton.Size = new System.Drawing.Size(144, 65);
             this.clearButton.TabIndex = 14;
             this.clearButton.Text = "Limpiar";
             this.clearButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -255,10 +246,9 @@
             this.filterTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.filterTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.filterTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filterTextBox.Location = new System.Drawing.Point(85, 89);
-            this.filterTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.filterTextBox.Location = new System.Drawing.Point(145, 201);
             this.filterTextBox.Name = "filterTextBox";
-            this.filterTextBox.Size = new System.Drawing.Size(146, 23);
+            this.filterTextBox.Size = new System.Drawing.Size(184, 31);
             this.filterTextBox.TabIndex = 12;
             this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
             // 
@@ -268,12 +258,11 @@
             this.filterLabel.BackColor = System.Drawing.Color.Transparent;
             this.filterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filterLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.filterLabel.Location = new System.Drawing.Point(23, 94);
-            this.filterLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.filterLabel.Location = new System.Drawing.Point(53, 199);
             this.filterLabel.Name = "filterLabel";
-            this.filterLabel.Size = new System.Drawing.Size(45, 18);
+            this.filterLabel.Size = new System.Drawing.Size(68, 29);
             this.filterLabel.TabIndex = 13;
-            this.filterLabel.Text = "Filtrar";
+            this.filterLabel.Text = "Filtro";
             // 
             // roundPanel1
             // 
@@ -281,31 +270,19 @@
             this.roundPanel1.BackgroundColor = System.Drawing.Color.White;
             this.roundPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
             this.roundPanel1.BorderWidth = 3F;
-            this.roundPanel1.Controls.Add(this.dataGridViewTitle);
-            this.roundPanel1.Controls.Add(this.ArticlesdataGridView);
-            this.roundPanel1.Location = new System.Drawing.Point(12, 218);
+            this.roundPanel1.Controls.Add(this.articlesDataGridView);
+            this.roundPanel1.Location = new System.Drawing.Point(18, 335);
+            this.roundPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.roundPanel1.Name = "roundPanel1";
             this.roundPanel1.Radius = 10;
-            this.roundPanel1.Size = new System.Drawing.Size(772, 346);
+            this.roundPanel1.Size = new System.Drawing.Size(1158, 532);
             this.roundPanel1.TabIndex = 9;
             // 
-            // dataGridViewTitle
+            // articlesDataGridView
             // 
-            this.dataGridViewTitle.AutoSize = true;
-            this.dataGridViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.dataGridViewTitle.Location = new System.Drawing.Point(15, 15);
-            this.dataGridViewTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.dataGridViewTitle.Name = "dataGridViewTitle";
-            this.dataGridViewTitle.Size = new System.Drawing.Size(147, 18);
-            this.dataGridViewTitle.TabIndex = 15;
-            this.dataGridViewTitle.Text = "Listado de productos";
-            // 
-            // ArticlesdataGridView
-            // 
-            this.ArticlesdataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ArticlesdataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.ArticlesdataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.articlesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.articlesDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.articlesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -313,8 +290,8 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ArticlesdataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.ArticlesdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.articlesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.articlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -322,31 +299,30 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(211)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(68)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ArticlesdataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ArticlesdataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.ArticlesdataGridView.GridColor = System.Drawing.Color.Silver;
-            this.ArticlesdataGridView.Location = new System.Drawing.Point(19, 47);
-            this.ArticlesdataGridView.Margin = new System.Windows.Forms.Padding(2);
-            this.ArticlesdataGridView.MultiSelect = false;
-            this.ArticlesdataGridView.Name = "ArticlesdataGridView";
-            this.ArticlesdataGridView.RowHeadersWidth = 51;
-            this.ArticlesdataGridView.RowTemplate.Height = 24;
-            this.ArticlesdataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ArticlesdataGridView.Size = new System.Drawing.Size(731, 285);
-            this.ArticlesdataGridView.TabIndex = 6;
-            this.ArticlesdataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.articlesDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.articlesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.articlesDataGridView.GridColor = System.Drawing.Color.Silver;
+            this.articlesDataGridView.Location = new System.Drawing.Point(31, 22);
+            this.articlesDataGridView.MultiSelect = false;
+            this.articlesDataGridView.Name = "articlesDataGridView";
+            this.articlesDataGridView.RowHeadersWidth = 51;
+            this.articlesDataGridView.RowTemplate.Height = 24;
+            this.articlesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.articlesDataGridView.Size = new System.Drawing.Size(1096, 488);
+            this.articlesDataGridView.TabIndex = 6;
+            this.articlesDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.articlesDataGridView_DataBindingComplete);
+            this.articlesDataGridView.SelectionChanged += new System.EventHandler(this.articlesDataGridView_SelectionChanged);
             // 
             // CatalogForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(797, 576);
+            this.ClientSize = new System.Drawing.Size(1196, 886);
             this.Controls.Add(this.roundPanel3);
             this.Controls.Add(this.roundPanel2);
             this.Controls.Add(this.roundPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CatalogForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Catálogo";
@@ -357,8 +333,7 @@
             this.roundPanel2.ResumeLayout(false);
             this.roundPanel2.PerformLayout();
             this.roundPanel1.ResumeLayout(false);
-            this.roundPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ArticlesdataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.articlesDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -368,7 +343,7 @@
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button newButton;
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.DataGridView ArticlesdataGridView;
+        private System.Windows.Forms.DataGridView articlesDataGridView;
         private System.Windows.Forms.Label priceLabel;
         private System.Windows.Forms.Label categoryLabel;
         private System.Windows.Forms.Label brandLabel;
@@ -379,7 +354,6 @@
         private System.Windows.Forms.Label filterLabel;
         private System.Windows.Forms.Button clearButton;
         private RoundPanel roundPanel1;
-        private System.Windows.Forms.Label dataGridViewTitle;
         private RoundPanel roundPanel2;
         private RoundPanel roundPanel3;
     }

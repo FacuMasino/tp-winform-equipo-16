@@ -62,7 +62,6 @@
       <DependentUpon>CatalogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\GraphicsExtension.cs" />
-    <Compile Include="FormsManager.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +165,10 @@
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{e6a7cf0d-824c-4a5e-82c6-d1fdc2461b51}</Project>
       <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{2b9a85c1-19bf-47b2-bf7d-c68cbc8d1ade}</Project>
+      <Name>Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

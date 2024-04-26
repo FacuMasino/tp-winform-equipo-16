@@ -33,17 +33,5 @@ namespace Domain
             Brand = new Brand();
             Category = new Category();
         }
-
-        public override string ToString()
-        {
-            if (Name != null)
-            {
-                return Name + " " + Code;
-            }
-            else
-            {
-                return " ";
-            }
-        }
     }
 }

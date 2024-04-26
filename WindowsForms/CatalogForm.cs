@@ -72,8 +72,8 @@ namespace WindowsForms
             {
                 _filteredArticles = _articlesList.FindAll(x =>
                     x.Name.ToUpper().Contains(filter.ToUpper())
-                    || x.Category.Description.ToUpper().Contains(filter.ToUpper())
-                    || x.Brand.Description.ToUpper().Contains(filter.ToUpper())
+                    || x.Category.ToString().ToUpper().Contains(filter.ToUpper())
+                    || x.Brand.ToString().ToUpper().Contains(filter.ToUpper())
                     || x.Code.ToUpper().Contains(filter.ToUpper())
                     || x.Description.ToUpper().Contains(filter.ToUpper())
                 );

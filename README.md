@@ -1,5 +1,9 @@
 # TP WinForm - Grupo 16
 
+![607shots_so](https://github.com/FacuMasino/tp-winform-equipo-16/assets/13455216/50d79bcd-6bc5-4ff9-94bd-21c93588c1b4)
+
+![809shots_so](https://github.com/FacuMasino/tp-winform-equipo-16/assets/13455216/edd57ed9-3a67-4ad4-969c-fdec6c09f88e)
+
 ---
 
 - **Iconos Utilizados:** Feather Icons

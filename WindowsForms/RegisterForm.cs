@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using BusinessLogicLayer;
 using Domain;
@@ -13,6 +14,7 @@ namespace WindowsForms
         private CategoriesManager _categoriesManager = new CategoriesManager();
         private ArticlesManager _articlesManager = new ArticlesManager();
         private ImagesManager _imagesManager = new ImagesManager();
+        private List<InputWrapper> _inputsValidation = new List<InputWrapper>();
 
         // CONSTRUCT
 
@@ -30,15 +32,27 @@ namespace WindowsForms
 
         // METHODS
 
+        private void CreateValidationsList()
+        {
+            _inputsValidation.Add(new InputWrapper(codeTextBox, typeof(string), 2, 50));
+            _inputsValidation.Add(new InputWrapper(nameTextBox, typeof(string), 2, 50));
+            _inputsValidation.Add(new InputWrapper(descriptionTextBox, typeof(string), 2, 150));
+            _inputsValidation.Add(new InputWrapper(priceTextBox, typeof(decimal)));
+            _inputsValidation.Add(new InputWrapper(imageTextBox, typeof(string), 2));
+        }
+
         private bool ValidateRegister()
         {
-            if (!Validations.IsNumber(priceTextBox.Text))
+            /*if (!Validations.IsNumber(priceTextBox.Text))
             {
                 Validations.Error("El campo de precio solo admite caracteres numéricos.");
                 return false;
+            }*/
+            if (!Validations.CheckAllInputs(_inputsValidation))
+            {
+                Validations.Error("Por favor verifique que los campos ingresados sean correctos.");
+                return false;
             }
-
-            // Facu, acá tenés que poner el resto de las validaciones. Borrá esto cuando lo veas xfa. Maxi
 
             return true;
         }
@@ -110,6 +124,7 @@ namespace WindowsForms
         {
             LoadComboBoxes();
             ClearComboBoxes();
+            CreateValidationsList();
 
             if (_article != null) // Editar
             {

@@ -149,6 +149,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app_icon.ico" />
+    <None Include="resources\fi_trash-2.png" />
+    <None Include="resources\fi_chevron-right-white.png" />
+    <None Include="resources\fi_chevron-left-white.png" />
+    <None Include="resources\fi_chevron-right.png" />
+    <None Include="resources\fi_chevron-left.png" />
     <None Include="resources\fi_slash.png" />
     <None Include="resources\MaxiProfilePicRounded.jpg" />
     <None Include="resources\FacuProfilePicRounded.jpg" />

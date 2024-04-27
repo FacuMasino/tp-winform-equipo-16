@@ -121,20 +121,32 @@
   <data name="fi_edit-3_primary" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\fi_edit-3_primary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fi_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\fi_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fluent--broom-20-regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\fluent--broom-20-regular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fi_slash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\fi_slash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MaxiProfilePicRounded" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\MaxiProfilePicRounded.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LinkedIn_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\LinkedIn_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fluent--broom-20-regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\fluent--broom-20-regular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="fi_edit-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\fi_edit-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fi_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\fi_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fi_chevron-left-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\fi_chevron-left-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bg_image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\bg_image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fi_chevron-right-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\fi_chevron-right-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fi_search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\fi_search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -144,6 +156,9 @@
   </data>
   <data name="Icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Icon1.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fi_chevron-right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\fi_chevron-right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fi_x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\fi_x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,10 +175,10 @@
   <data name="FacuProfilePicRounded" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\FacuProfilePicRounded.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MaxiProfilePicRounded" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\MaxiProfilePicRounded.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fi_chevron-left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\fi_chevron-left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fi_slash" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\fi_slash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fi_trash-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\fi_trash-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

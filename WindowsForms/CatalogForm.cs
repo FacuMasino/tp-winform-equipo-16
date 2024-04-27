@@ -30,7 +30,8 @@ namespace WindowsForms
             if (0 < articlesDataGridView.RowCount)
             {
                 articlesDataGridView.Columns["Id"].Width = 50;
-                articlesDataGridView.Columns["Price"].DisplayIndex = articlesDataGridView.ColumnCount - 1;
+                articlesDataGridView.Columns["Price"].DisplayIndex =
+                    articlesDataGridView.ColumnCount - 1;
                 Functions.FillDataGrid(articlesDataGridView);
             }
         }
@@ -56,6 +57,22 @@ namespace WindowsForms
             try
             {
                 _articlesList = _articlesManager.List();
+                if (HasInvalidArticles(_articlesList) && !chkShowInvalids.Checked)
+                {
+                    MessageBox.Show(
+                        "Se encontraron artículos con información inválida! \n"
+                            + "Para dejar de ver este mensaje por favor edítelos tildando la opción: 'Mostrar artículos inválidos'.",
+                        "Acciones requeridas",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    // filtrar los inválidos
+                    _articlesList = _articlesList.FindAll(x => IsValidArticle(x));
+                }
+                if (HasInvalidArticles(_articlesList) && chkShowInvalids.Checked)
+                {
+                    _articlesList = _articlesList.FindAll(x => !IsValidArticle(x));
+                }
                 articlesDataGridView.DataSource = _articlesList;
             }
             catch (Exception ex)
@@ -64,18 +81,54 @@ namespace WindowsForms
             }
         }
 
+        private bool HasInvalidArticles(List<Article> articles)
+        {
+            int invalids = 0;
+            foreach (Article article in articles)
+            {
+                if (
+                    !Validations.HasData(article.Name)
+                    || !Validations.HasData(article.Price.ToString())
+                    || article.Images.Count == 0
+                    || !Validations.HasData(article.Brand.ToString())
+                    || !Validations.HasData(article.Category.ToString())
+                )
+                {
+                    invalids++;
+                }
+            }
+            return (invalids > 0);
+        }
+
+        private bool IsValidArticle(Article article)
+        {
+            if (
+                !Validations.HasData(article.Name)
+                || !Validations.HasData(article.Price.ToString())
+                || article.Images.Count == 0
+                || !Validations.HasData(article.Brand.ToString())
+                || !Validations.HasData(article.Category.ToString())
+            )
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private void ApplyFilter()
         {
             string filter = filterTextBox.Text;
 
             if (2 < filter.Length)
             {
-                _filteredArticles = _articlesList.FindAll(x =>
-                    x.Name.ToUpper().Contains(filter.ToUpper())
-                    || x.Category.ToString().ToUpper().Contains(filter.ToUpper())
-                    || x.Brand.ToString().ToUpper().Contains(filter.ToUpper())
-                    || x.Code.ToUpper().Contains(filter.ToUpper())
-                    || x.Description.ToUpper().Contains(filter.ToUpper())
+                _filteredArticles = _articlesList.FindAll(
+                    x =>
+                        x.Name.ToUpper().Contains(filter.ToUpper())
+                        || x.Category.ToString().ToUpper().Contains(filter.ToUpper())
+                        || x.Brand.ToString().ToUpper().Contains(filter.ToUpper())
+                        || x.Code.ToUpper().Contains(filter.ToUpper())
+                        || x.Description.ToUpper().Contains(filter.ToUpper())
                 );
             }
             else
@@ -113,7 +166,7 @@ namespace WindowsForms
                     descriptionLabel.Text = "";
                 }
 
-                if (article.Brand!= null)
+                if (article.Brand != null)
                 {
                     brandLabel.Text = "Marca: " + article.Brand.ToString();
                 }
@@ -179,7 +232,10 @@ namespace WindowsForms
             }
         }
 
-        private void articlesDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private void articlesDataGridView_DataBindingComplete(
+            object sender,
+            DataGridViewBindingCompleteEventArgs e
+        )
         {
             SetupDataGridView();
         }
@@ -204,7 +260,12 @@ namespace WindowsForms
         {
             try
             {
-                DialogResult answer = MessageBox.Show("Esta acción no puede deshacerse. ¿Está seguro que desea continuar?", "Eliminar registro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult answer = MessageBox.Show(
+                    "Esta acción no puede deshacerse. ¿Está seguro que desea continuar?",
+                    "Eliminar registro",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
 
                 if (answer == DialogResult.Yes)
                 {
@@ -228,6 +289,11 @@ namespace WindowsForms
         private void filterTextBox_TextChanged(object sender, EventArgs e)
         {
             ApplyFilter();
+        }
+
+        private void chkShowInvalids_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshList();
         }
     }
 }

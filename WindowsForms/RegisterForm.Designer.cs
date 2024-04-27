@@ -34,6 +34,9 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.tlpValidations = new System.Windows.Forms.ToolTip(this.components);
             this.roundPanel2 = new WindowsForms.RoundPanel();
+            this.deleteImgButton = new System.Windows.Forms.Button();
+            this.nextImgButton = new System.Windows.Forms.Button();
+            this.prevImgButton = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.roundPanel1 = new WindowsForms.RoundPanel();
             this.imageTextBox = new System.Windows.Forms.TextBox();
@@ -64,7 +67,7 @@
             this.saveButton.Image = global::WindowsForms.Properties.Resources.fi_save;
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.saveButton.Location = new System.Drawing.Point(512, 283);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(107, 42);
             this.saveButton.TabIndex = 0;
@@ -83,7 +86,7 @@
             this.cancelButton.Image = global::WindowsForms.Properties.Resources.fi_slash;
             this.cancelButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cancelButton.Location = new System.Drawing.Point(404, 283);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(104, 42);
             this.cancelButton.TabIndex = 1;
@@ -105,12 +108,63 @@
             this.roundPanel2.BackgroundColor = System.Drawing.Color.White;
             this.roundPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
             this.roundPanel2.BorderWidth = 3F;
+            this.roundPanel2.Controls.Add(this.deleteImgButton);
+            this.roundPanel2.Controls.Add(this.nextImgButton);
+            this.roundPanel2.Controls.Add(this.prevImgButton);
             this.roundPanel2.Controls.Add(this.pictureBox);
             this.roundPanel2.Location = new System.Drawing.Point(12, 12);
             this.roundPanel2.Name = "roundPanel2";
             this.roundPanel2.Radius = 10;
             this.roundPanel2.Size = new System.Drawing.Size(257, 257);
             this.roundPanel2.TabIndex = 2;
+            // 
+            // deleteImgButton
+            // 
+            this.deleteImgButton.BackColor = System.Drawing.Color.Transparent;
+            this.deleteImgButton.FlatAppearance.BorderSize = 2;
+            this.deleteImgButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteImgButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteImgButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(105)))), ((int)(((byte)(245)))));
+            this.deleteImgButton.Image = global::WindowsForms.Properties.Resources.fi_trash_2;
+            this.deleteImgButton.Location = new System.Drawing.Point(108, 207);
+            this.deleteImgButton.Margin = new System.Windows.Forms.Padding(2);
+            this.deleteImgButton.Name = "deleteImgButton";
+            this.deleteImgButton.Size = new System.Drawing.Size(38, 38);
+            this.deleteImgButton.TabIndex = 5;
+            this.deleteImgButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.deleteImgButton.UseVisualStyleBackColor = false;
+            // 
+            // nextImgButton
+            // 
+            this.nextImgButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(105)))), ((int)(((byte)(245)))));
+            this.nextImgButton.FlatAppearance.BorderSize = 2;
+            this.nextImgButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nextImgButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nextImgButton.ForeColor = System.Drawing.Color.White;
+            this.nextImgButton.Image = global::WindowsForms.Properties.Resources.fi_chevron_right_white;
+            this.nextImgButton.Location = new System.Drawing.Point(175, 205);
+            this.nextImgButton.Margin = new System.Windows.Forms.Padding(2);
+            this.nextImgButton.Name = "nextImgButton";
+            this.nextImgButton.Size = new System.Drawing.Size(40, 40);
+            this.nextImgButton.TabIndex = 4;
+            this.nextImgButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.nextImgButton.UseVisualStyleBackColor = false;
+            // 
+            // prevImgButton
+            // 
+            this.prevImgButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(105)))), ((int)(((byte)(245)))));
+            this.prevImgButton.FlatAppearance.BorderSize = 2;
+            this.prevImgButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.prevImgButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prevImgButton.ForeColor = System.Drawing.Color.White;
+            this.prevImgButton.Image = global::WindowsForms.Properties.Resources.fi_chevron_left_white;
+            this.prevImgButton.Location = new System.Drawing.Point(39, 205);
+            this.prevImgButton.Margin = new System.Windows.Forms.Padding(2);
+            this.prevImgButton.Name = "prevImgButton";
+            this.prevImgButton.Size = new System.Drawing.Size(40, 40);
+            this.prevImgButton.TabIndex = 3;
+            this.prevImgButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.prevImgButton.UseVisualStyleBackColor = false;
             // 
             // pictureBox
             // 
@@ -338,7 +392,7 @@
             this.Controls.Add(this.saveButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -374,5 +428,8 @@
         private System.Windows.Forms.Label imageLabel;
         private System.Windows.Forms.TextBox imageTextBox;
         private System.Windows.Forms.ToolTip tlpValidations;
+        private System.Windows.Forms.Button prevImgButton;
+        private System.Windows.Forms.Button nextImgButton;
+        private System.Windows.Forms.Button deleteImgButton;
     }
 }

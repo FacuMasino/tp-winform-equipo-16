@@ -122,13 +122,12 @@ namespace WindowsForms
 
             if (2 < filter.Length)
             {
-                _filteredArticles = _articlesList.FindAll(
-                    x =>
-                        x.Name.ToUpper().Contains(filter.ToUpper())
-                        || x.Category.ToString().ToUpper().Contains(filter.ToUpper())
-                        || x.Brand.ToString().ToUpper().Contains(filter.ToUpper())
-                        || x.Code.ToUpper().Contains(filter.ToUpper())
-                        || x.Description.ToUpper().Contains(filter.ToUpper())
+                _filteredArticles = _articlesList.FindAll(x =>
+                    x.Name.ToUpper().Contains(filter.ToUpper())
+                    || x.Category.ToString().ToUpper().Contains(filter.ToUpper())
+                    || x.Brand.ToString().ToUpper().Contains(filter.ToUpper())
+                    || x.Code.ToUpper().Contains(filter.ToUpper())
+                    || x.Description.ToUpper().Contains(filter.ToUpper())
                 );
             }
             else
@@ -258,10 +257,16 @@ namespace WindowsForms
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            string msg = "Esta acción no puede deshacerse. ¿Está seguro que desea continuar?";
+            if (chkDeleteUnused.Checked)
+            {
+                msg +=
+                    "\n Importante: Si la marca y categoría no pertenecen a ningún otro artículo también se eliminarán.";
+            }
             try
             {
                 DialogResult answer = MessageBox.Show(
-                    "Esta acción no puede deshacerse. ¿Está seguro que desea continuar?",
+                    msg,
                     "Eliminar registro",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning
@@ -269,7 +274,11 @@ namespace WindowsForms
 
                 if (answer == DialogResult.Yes)
                 {
-                    _articlesManager.Delete(_article);
+                    _articlesManager.Delete(
+                        _article,
+                        chkDeleteUnused.Checked,
+                        chkDeleteUnused.Checked
+                    );
                     RefreshList();
                     ApplyFilter();
                 }

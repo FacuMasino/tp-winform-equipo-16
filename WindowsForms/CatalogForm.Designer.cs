@@ -50,6 +50,7 @@
             this.filterLabel = new System.Windows.Forms.Label();
             this.roundPanel1 = new WindowsForms.RoundPanel();
             this.articlesDataGridView = new System.Windows.Forms.DataGridView();
+            this.chkDeleteUnused = new System.Windows.Forms.CheckBox();
             this.roundPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.roundPanel2.SuspendLayout();
@@ -118,7 +119,7 @@
             this.idLabel.Location = new System.Drawing.Point(204, 18);
             this.idLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(24, 19);
+            this.idLabel.Size = new System.Drawing.Size(23, 18);
             this.idLabel.TabIndex = 16;
             this.idLabel.Text = "ID";
             // 
@@ -141,7 +142,7 @@
             this.priceLabel.Location = new System.Drawing.Point(204, 161);
             this.priceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(56, 19);
+            this.priceLabel.Size = new System.Drawing.Size(54, 18);
             this.priceLabel.TabIndex = 15;
             this.priceLabel.Text = "Precio";
             // 
@@ -153,7 +154,7 @@
             this.nameLabel.Location = new System.Drawing.Point(204, 47);
             this.nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(66, 19);
+            this.nameLabel.Size = new System.Drawing.Size(65, 18);
             this.nameLabel.TabIndex = 11;
             this.nameLabel.Text = "Nombre";
             // 
@@ -165,7 +166,7 @@
             this.categoryLabel.Location = new System.Drawing.Point(204, 133);
             this.categoryLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(78, 19);
+            this.categoryLabel.Size = new System.Drawing.Size(77, 18);
             this.categoryLabel.TabIndex = 14;
             this.categoryLabel.Text = "Categoría";
             // 
@@ -177,7 +178,7 @@
             this.descriptionLabel.Location = new System.Drawing.Point(204, 75);
             this.descriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(96, 19);
+            this.descriptionLabel.Size = new System.Drawing.Size(93, 18);
             this.descriptionLabel.TabIndex = 12;
             this.descriptionLabel.Text = "Descripción";
             // 
@@ -189,7 +190,7 @@
             this.brandLabel.Location = new System.Drawing.Point(204, 104);
             this.brandLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.brandLabel.Name = "brandLabel";
-            this.brandLabel.Size = new System.Drawing.Size(54, 19);
+            this.brandLabel.Size = new System.Drawing.Size(51, 18);
             this.brandLabel.TabIndex = 13;
             this.brandLabel.Text = "Marca";
             // 
@@ -199,6 +200,7 @@
             this.roundPanel2.BackgroundColor = System.Drawing.Color.White;
             this.roundPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
             this.roundPanel2.BorderWidth = 3F;
+            this.roundPanel2.Controls.Add(this.chkDeleteUnused);
             this.roundPanel2.Controls.Add(this.chkShowInvalids);
             this.roundPanel2.Controls.Add(this.newButton);
             this.roundPanel2.Controls.Add(this.editButton);
@@ -217,9 +219,9 @@
             this.chkShowInvalids.AutoSize = true;
             this.chkShowInvalids.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkShowInvalids.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkShowInvalids.Location = new System.Drawing.Point(23, 167);
+            this.chkShowInvalids.Location = new System.Drawing.Point(23, 134);
             this.chkShowInvalids.Name = "chkShowInvalids";
-            this.chkShowInvalids.Size = new System.Drawing.Size(185, 20);
+            this.chkShowInvalids.Size = new System.Drawing.Size(178, 20);
             this.chkShowInvalids.TabIndex = 15;
             this.chkShowInvalids.Text = "Mostrar artículos inválidos";
             this.chkShowInvalids.UseVisualStyleBackColor = true;
@@ -234,7 +236,7 @@
             this.newButton.ForeColor = System.Drawing.Color.White;
             this.newButton.Image = global::WindowsForms.Properties.Resources.fi_plus;
             this.newButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.newButton.Location = new System.Drawing.Point(23, 44);
+            this.newButton.Location = new System.Drawing.Point(23, 18);
             this.newButton.Margin = new System.Windows.Forms.Padding(2);
             this.newButton.Name = "newButton";
             this.newButton.Size = new System.Drawing.Size(96, 42);
@@ -254,7 +256,7 @@
             this.editButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(105)))), ((int)(((byte)(245)))));
             this.editButton.Image = global::WindowsForms.Properties.Resources.fi_edit_3_primary;
             this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editButton.Location = new System.Drawing.Point(126, 44);
+            this.editButton.Location = new System.Drawing.Point(126, 18);
             this.editButton.Margin = new System.Windows.Forms.Padding(2);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(96, 42);
@@ -272,7 +274,7 @@
             this.deleteButton.ForeColor = System.Drawing.Color.White;
             this.deleteButton.Image = global::WindowsForms.Properties.Resources.fi_x;
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButton.Location = new System.Drawing.Point(229, 44);
+            this.deleteButton.Location = new System.Drawing.Point(229, 18);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(96, 42);
@@ -292,7 +294,7 @@
             this.clearButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(105)))), ((int)(((byte)(245)))));
             this.clearButton.Image = global::WindowsForms.Properties.Resources.fluent__broom_20_regular;
             this.clearButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.clearButton.Location = new System.Drawing.Point(229, 115);
+            this.clearButton.Location = new System.Drawing.Point(229, 89);
             this.clearButton.Margin = new System.Windows.Forms.Padding(2);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(96, 42);
@@ -307,7 +309,7 @@
             this.filterTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.filterTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.filterTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filterTextBox.Location = new System.Drawing.Point(23, 128);
+            this.filterTextBox.Location = new System.Drawing.Point(23, 102);
             this.filterTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.filterTextBox.Name = "filterTextBox";
             this.filterTextBox.Size = new System.Drawing.Size(184, 23);
@@ -320,10 +322,10 @@
             this.filterLabel.BackColor = System.Drawing.Color.Transparent;
             this.filterLabel.Font = new System.Drawing.Font("Inter", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filterLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.filterLabel.Location = new System.Drawing.Point(20, 104);
+            this.filterLabel.Location = new System.Drawing.Point(20, 78);
             this.filterLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.filterLabel.Name = "filterLabel";
-            this.filterLabel.Size = new System.Drawing.Size(119, 19);
+            this.filterLabel.Size = new System.Drawing.Size(106, 18);
             this.filterLabel.TabIndex = 13;
             this.filterLabel.Text = "Filtrar Artículos";
             // 
@@ -376,6 +378,18 @@
             this.articlesDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.articlesDataGridView_DataBindingComplete);
             this.articlesDataGridView.SelectionChanged += new System.EventHandler(this.articlesDataGridView_SelectionChanged);
             // 
+            // chkDeleteUnused
+            // 
+            this.chkDeleteUnused.AutoSize = true;
+            this.chkDeleteUnused.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkDeleteUnused.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkDeleteUnused.Location = new System.Drawing.Point(23, 161);
+            this.chkDeleteUnused.Name = "chkDeleteUnused";
+            this.chkDeleteUnused.Size = new System.Drawing.Size(262, 20);
+            this.chkDeleteUnused.TabIndex = 16;
+            this.chkDeleteUnused.Text = "Eliminar marcas y categorías en desuso";
+            this.chkDeleteUnused.UseVisualStyleBackColor = true;
+            // 
             // CatalogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -423,5 +437,6 @@
         private System.Windows.Forms.Button nextImgButton;
         private System.Windows.Forms.Button prevImgButton;
         private System.Windows.Forms.CheckBox chkShowInvalids;
+        private System.Windows.Forms.CheckBox chkDeleteUnused;
     }
 }

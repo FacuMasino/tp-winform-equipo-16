@@ -103,23 +103,25 @@ namespace Utilities
             int invalids = 0;
             foreach (InputWrapper inputWrapper in inputs)
             {
-                // Si tiene entrada invalida, suma 1 al contador
-                invalids += PaintIfInvalid(inputWrapper) ? 1 : 0;
+                // Si tiene entrada invalida, suma 1 al contador y pintar rojo
+                if (!IsGoodInput(inputWrapper))
+                {
+                    invalids++;
+                    PaintBadInput(inputWrapper.TextBox);
+                }
             }
             return (invalids == 0); // si no hay inválidos, retorna true
         }
 
-        private static bool PaintIfInvalid(InputWrapper input)
+        public static bool IsGoodInput(InputWrapper input)
         {
-            Debug.Print(input.InputType.ToString());
             switch (input.InputType.ToString())
             {
                 case "System.String":
                     if (!HasData(input.TextBox.Text, input.MinLength, input.MaxLength))
                     {
                         Debug.Print($"Campo Invalido: {input.TextBox.Name}");
-                        PaintBadInput(input.TextBox);
-                        return true;
+                        return false;
                     }
                     break;
                 case "System.Decimal":
@@ -131,15 +133,14 @@ namespace Utilities
                     )
                     {
                         Debug.Print($"Campo Invalido: {input.TextBox.Name}");
-                        PaintBadInput(input.TextBox);
-                        return true;
+                        return false;
                     }
                     break;
             }
-            return false;
+            return true;
         }
 
-        private static void PaintBadInput(TextBox txtBox)
+        public static void PaintBadInput(TextBox txtBox)
         {
             // Asincrónicamente cambia el color y espera 4 segundos
             // Para volverlo a la normalidad

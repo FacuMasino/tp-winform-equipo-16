@@ -38,7 +38,7 @@ namespace WindowsForms
             _inputsValidation.Add(new InputWrapper(nameTextBox, typeof(string), 2, 50));
             _inputsValidation.Add(new InputWrapper(descriptionTextBox, typeof(string), 2, 150));
             _inputsValidation.Add(new InputWrapper(priceTextBox, typeof(decimal)));
-            _inputsValidation.Add(new InputWrapper(imageTextBox, typeof(string), 2));
+            _inputsValidation.Add(new InputWrapper(imageTextBox, typeof(string), 6, 1000));
         }
 
         private bool ValidateRegister()
@@ -118,6 +118,19 @@ namespace WindowsForms
             }
         }
 
+        private void ShowTooltip(Control control, string msg)
+        {
+            tlpValidations.Show(msg, this, Width - 100, control.Location.Y - 30, 5000);
+        }
+
+        private bool ValidateInput(TextBox txtBox)
+        {
+            InputWrapper input = _inputsValidation.Find(x => txtBox.Equals(x.TextBox));
+            if (!Validations.IsGoodInput(input))
+                return false;
+            return true;
+        }
+
         // EVENTS
 
         private void RegisterForm_Load(object sender, EventArgs e)
@@ -169,12 +182,63 @@ namespace WindowsForms
 
         private void imageTextBox_Leave(object sender, EventArgs e)
         {
+            if (!ValidateInput(imageTextBox))
+            {
+                Validations.PaintBadInput(imageTextBox);
+                ShowTooltip(
+                    imageTextBox,
+                    "La URL de la imagen debe contener entre 6 y 1000 caracteres."
+                );
+                return;
+            }
             Functions.LoadImage(pictureBox, imageTextBox.Text);
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void codeTextBox_Leave(object sender, EventArgs e)
+        {
+            if (!ValidateInput(codeTextBox))
+            {
+                Validations.PaintBadInput(codeTextBox);
+                ShowTooltip(codeTextBox, "El código debe contener entre 2 y 50 caracteres.");
+            }
+        }
+
+        private void nameTextBox_Leave(object sender, EventArgs e)
+        {
+            if (!ValidateInput(nameTextBox))
+            {
+                Validations.PaintBadInput(nameTextBox);
+                ShowTooltip(nameTextBox, "El nombre debe contener entre 2 y 50 caracteres.");
+            }
+        }
+
+        private void descriptionTextBox_Leave(object sender, EventArgs e)
+        {
+            if (!ValidateInput(descriptionTextBox))
+            {
+                Validations.PaintBadInput(descriptionTextBox);
+                ShowTooltip(
+                    descriptionTextBox,
+                    "La descripción debe contener entre 2 y 150 caracteres."
+                );
+            }
+        }
+
+        private void priceTextBox_Leave(object sender, EventArgs e)
+        {
+            if (!ValidateInput(priceTextBox))
+            {
+                Validations.PaintBadInput(priceTextBox);
+                ShowTooltip(
+                    priceTextBox,
+                    "El precio debe contener solo números enteros o decimales"
+                );
+            }
         }
     }
 }

@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.tlpValidations = new System.Windows.Forms.ToolTip(this.components);
             this.roundPanel2 = new WindowsForms.RoundPanel();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.roundPanel1 = new WindowsForms.RoundPanel();
@@ -49,7 +50,6 @@
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.brandLabel = new System.Windows.Forms.Label();
             this.brandComboBox = new System.Windows.Forms.ComboBox();
-            this.tlpValidations = new System.Windows.Forms.ToolTip(this.components);
             this.roundPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.roundPanel1.SuspendLayout();
@@ -92,6 +92,13 @@
             this.cancelButton.UseVisualStyleBackColor = false;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // tlpValidations
+            // 
+            this.tlpValidations.AutomaticDelay = 0;
+            this.tlpValidations.IsBalloon = true;
+            this.tlpValidations.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
+            this.tlpValidations.ToolTipTitle = "Verifique el campo";
+            // 
             // roundPanel2
             // 
             this.roundPanel2.BackColor = System.Drawing.Color.Transparent;
@@ -108,7 +115,7 @@
             // pictureBox
             // 
             this.pictureBox.Location = new System.Drawing.Point(30, 29);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(177, 177);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -147,7 +154,7 @@
             this.imageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.imageTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.imageTextBox.Location = new System.Drawing.Point(133, 215);
-            this.imageTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imageTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.imageTextBox.Name = "imageTextBox";
             this.imageTextBox.Size = new System.Drawing.Size(160, 23);
             this.imageTextBox.TabIndex = 6;
@@ -171,10 +178,11 @@
             this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.codeTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.codeTextBox.Location = new System.Drawing.Point(133, 21);
-            this.codeTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.codeTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.codeTextBox.Name = "codeTextBox";
             this.codeTextBox.Size = new System.Drawing.Size(160, 23);
             this.codeTextBox.TabIndex = 0;
+            this.codeTextBox.Leave += new System.EventHandler(this.codeTextBox_Leave);
             // 
             // codeLabel
             // 
@@ -194,10 +202,11 @@
             this.priceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.priceTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priceTextBox.Location = new System.Drawing.Point(133, 183);
-            this.priceTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.priceTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(160, 23);
             this.priceTextBox.TabIndex = 5;
+            this.priceTextBox.Leave += new System.EventHandler(this.priceTextBox_Leave);
             // 
             // descriptionLabel
             // 
@@ -253,10 +262,11 @@
             this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nameTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameTextBox.Location = new System.Drawing.Point(133, 53);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(160, 23);
             this.nameTextBox.TabIndex = 1;
+            this.nameTextBox.Leave += new System.EventHandler(this.nameTextBox_Leave);
             // 
             // categoryComboBox
             // 
@@ -266,7 +276,7 @@
             this.categoryComboBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryComboBox.FormattingEnabled = true;
             this.categoryComboBox.Location = new System.Drawing.Point(133, 150);
-            this.categoryComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.categoryComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(160, 24);
             this.categoryComboBox.TabIndex = 4;
@@ -277,10 +287,11 @@
             this.descriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.descriptionTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionTextBox.Location = new System.Drawing.Point(133, 85);
-            this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(160, 23);
             this.descriptionTextBox.TabIndex = 2;
+            this.descriptionTextBox.Leave += new System.EventHandler(this.descriptionTextBox_Leave);
             // 
             // brandLabel
             // 
@@ -302,7 +313,7 @@
             this.brandComboBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.brandComboBox.FormattingEnabled = true;
             this.brandComboBox.Location = new System.Drawing.Point(133, 117);
-            this.brandComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.brandComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.brandComboBox.Name = "brandComboBox";
             this.brandComboBox.Size = new System.Drawing.Size(160, 24);
             this.brandComboBox.TabIndex = 3;

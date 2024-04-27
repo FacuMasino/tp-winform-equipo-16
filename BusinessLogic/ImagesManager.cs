@@ -61,6 +61,30 @@ namespace BusinessLogicLayer
             }
         }
 
+        public void Add(List<Image> images, int articleId)
+        {
+            try
+            {
+                foreach (Image image in images)
+                {
+                    _dataAccess.SetQuery(
+                        "insert into imagenes(IdArticulo, ImagenUrl) values (@articleId, @imageUrl)"
+                    );
+                    _dataAccess.SetParameter("@articleId", articleId);
+                    _dataAccess.SetParameter("@imageUrl", image.Url);
+                    _dataAccess.ExecuteAction();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _dataAccess.CloseConnection();
+            }
+        }
+
         public void Edit(Image image)
         {
             try
@@ -96,6 +120,38 @@ namespace BusinessLogicLayer
             {
                 _dataAccess.CloseConnection();
             }
+        }
+
+        public int GetId(Image image)
+        {
+            if (image == null)
+            {
+                return 0;
+            }
+
+            int id = 0;
+
+            try
+            {
+                _dataAccess.SetQuery("select Id from imagenes where ImagenUrl = @ImageUrl");
+                _dataAccess.SetParameter("@ImageUrl", image.Url);
+                _dataAccess.ExecuteRead();
+
+                if (_dataAccess.Reader.Read())
+                {
+                    id = (int)_dataAccess.Reader["Id"];
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _dataAccess.CloseConnection();
+            }
+
+            return id;
         }
     }
 }

@@ -75,6 +75,30 @@ namespace DataAccessLayer
         }
 
         /// <summary>
+        /// <c>ExecuteRead</c> ejecuta un comando que devuelve un unico valor numérico.
+        /// </summary>
+        public Int32 ExecuteScalar()
+        {
+            Int32 result;
+            _command.Connection = _connection;
+
+            try
+            {
+                _connection.Open();
+                result = (Int32)_command.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _command.Parameters.Clear();
+            }
+            return result;
+        }
+
+        /// <summary>
         /// <c>ExecuteAction</c> ejecuta un comando de escritura.
         /// </summary>
         public void ExecuteAction()

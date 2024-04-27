@@ -32,6 +32,7 @@ namespace Domain
         {
             Brand = new Brand();
             Category = new Category();
+            Images = new List<Image>();
         }
     }
 }

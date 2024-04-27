@@ -16,6 +16,7 @@ namespace WindowsForms
         private ArticlesManager _articlesManager = new ArticlesManager();
         private ImagesManager _imagesManager = new ImagesManager();
         private List<InputWrapper> _inputsValidation = new List<InputWrapper>();
+        private List<Image> _articleImages = new List<Image>();
 
         // CONSTRUCT
 
@@ -83,6 +84,7 @@ namespace WindowsForms
             nameTextBox.Text = _article.Name;
             descriptionTextBox.Text = _article.Description;
             priceTextBox.Text = _article.Price.ToString();
+            imageTextBox.Text = _article.Images[0]?.Url;
 
             if (0 < _article.Brand.Id)
             {
@@ -101,6 +103,19 @@ namespace WindowsForms
             _article.Name = nameTextBox.Text;
             _article.Description = descriptionTextBox.Text;
             _article.Price = decimal.Parse(priceTextBox.Text);
+
+            // IMPORTANTE:
+            // Cambiar esto cuando se de funcionalidad a agregar multiples imagenes
+            if (_article.Images.Count > 0)
+            {
+                _article.Images[0].Url = imageTextBox.Text;
+            }
+            else
+            {
+                Image auxImg = new Image();
+                auxImg.Url = imageTextBox.Text;
+                _article.Images.Add(auxImg);
+            }
 
             if (Validations.HasData(brandComboBox.Text))
             {

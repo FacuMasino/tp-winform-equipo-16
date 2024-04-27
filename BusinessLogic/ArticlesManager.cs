@@ -12,7 +12,7 @@ namespace BusinessLogicLayer
         private DataAccess _dataAccess = new DataAccess();
         private BrandsManager _brandsManager = new BrandsManager();
         private CategoriesManager _categoriesManager = new CategoriesManager();
-        private ImagesManager _iamgesManager = new ImagesManager();
+        private ImagesManager _imagesManager = new ImagesManager();
 
         public List<Article> List()
         {
@@ -43,7 +43,7 @@ namespace BusinessLogicLayer
                         _dataAccess.Reader["IdCategoria"] as int? ?? article.Category.Id;
                     article.Price = _dataAccess.Reader["Precio"] as decimal? ?? article.Price;
 
-                    article.Images = _iamgesManager.GetArticleImages(article.Id);
+                    article.Images = _imagesManager.GetArticleImages(article.Id);
 
                     articles.Add(article);
                 }
@@ -93,6 +93,8 @@ namespace BusinessLogicLayer
                     {
                         article.Price = (decimal)_dataAccess.Reader["Precio"];
                     }
+
+                    article.Images = _imagesManager.GetArticleImages(article.Id);
                 }
             }
             catch (Exception ex)
@@ -122,6 +124,7 @@ namespace BusinessLogicLayer
                 );
                 SetParameters(article);
                 _dataAccess.ExecuteAction();
+                SetImages(article); // Las imagenes se agregan luego de agregar el articulo ya que van con le id del mismo asociadas
             }
             catch (Exception ex)
             {
@@ -137,6 +140,7 @@ namespace BusinessLogicLayer
         {
             SetBrandId(article);
             SetCategoryId(article);
+            SetImages(article);
 
             try
             {
@@ -203,14 +207,7 @@ namespace BusinessLogicLayer
                     "select COUNT(*) as Total from Articulos where IdMarca = @BrandId"
                 );
                 _dataAccess.SetParameter("@BrandId", brand.Id);
-                _dataAccess.ExecuteRead();
-
-                if (_dataAccess.Reader.Read())
-                {
-                    int total = (int)_dataAccess.Reader["Total"];
-                    return total > 0; // Si hay articulos que usan la marca, devuelve true
-                }
-                throw new Exception(); // Ir al bloque catch si no se puede leer
+                return _dataAccess.ExecuteScalar() > 0;
             }
             catch (Exception ex)
             {
@@ -218,6 +215,10 @@ namespace BusinessLogicLayer
                     $"Ocurrió un error al verificar si la marca {brand?.Description} existe.",
                     ex
                 );
+            }
+            finally
+            {
+                _dataAccess.CloseConnection();
             }
         }
 
@@ -229,14 +230,7 @@ namespace BusinessLogicLayer
                     "select COUNT(*) as Total from Articulos where IdCategoria = @CategoryId"
                 );
                 _dataAccess.SetParameter("@CategoryId", category.Id);
-                _dataAccess.ExecuteRead();
-
-                if (_dataAccess.Reader.Read())
-                {
-                    int total = (int)_dataAccess.Reader["Total"];
-                    return total > 0; // Si hay articulos que usan la categoria, devuelve true
-                }
-                throw new Exception(); // Ir al bloque catch si no se puede leer
+                return _dataAccess.ExecuteScalar() > 0;
             }
             catch (Exception ex)
             {
@@ -244,6 +238,10 @@ namespace BusinessLogicLayer
                     $"Ocurrió un error al verificar si la categoría {category?.Description} existe.",
                     ex
                 );
+            }
+            finally
+            {
+                _dataAccess.CloseConnection();
             }
         }
 
@@ -330,7 +328,28 @@ namespace BusinessLogicLayer
                 }
                 else
                 {
-                    article.Brand.Id = dbCategoryId;
+                    article.Category.Id = dbCategoryId;
+                }
+            }
+        }
+
+        private void SetImages(Article article)
+        {
+            int articleId = article.Id == 0 ? Helper.GetLastId("Articulos") : article.Id; // si es un articulo nuevo, se obtiene el id nuevo
+            foreach (var image in article.Images)
+            {
+                if (image != null)
+                {
+                    if (image.Id == 0) // si es una imagen nueva, se agrega y obtiene id
+                    {
+                        _imagesManager.Add(image, articleId);
+                        image.Id = Helper.GetLastId("imagenes");
+                        Debug.Print("imagen: " + image.Id.ToString());
+                    }
+                    else // sino se edita solamente
+                    {
+                        _imagesManager.Edit(image);
+                    }
                 }
             }
         }

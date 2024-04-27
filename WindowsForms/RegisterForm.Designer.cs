@@ -114,7 +114,7 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(30, 29);
+            this.pictureBox.Location = new System.Drawing.Point(39, 24);
             this.pictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(177, 177);
@@ -153,7 +153,7 @@
             this.imageTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.imageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.imageTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imageTextBox.Location = new System.Drawing.Point(133, 215);
+            this.imageTextBox.Location = new System.Drawing.Point(133, 212);
             this.imageTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.imageTextBox.Name = "imageTextBox";
             this.imageTextBox.Size = new System.Drawing.Size(160, 23);
@@ -177,11 +177,12 @@
             this.codeTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.codeTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codeTextBox.Location = new System.Drawing.Point(133, 21);
+            this.codeTextBox.Location = new System.Drawing.Point(133, 24);
             this.codeTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.codeTextBox.Name = "codeTextBox";
             this.codeTextBox.Size = new System.Drawing.Size(160, 23);
             this.codeTextBox.TabIndex = 0;
+            this.codeTextBox.TextChanged += new System.EventHandler(this.codeTextBox_TextChanged);
             this.codeTextBox.Leave += new System.EventHandler(this.codeTextBox_Leave);
             // 
             // codeLabel
@@ -201,11 +202,12 @@
             this.priceTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.priceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.priceTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceTextBox.Location = new System.Drawing.Point(133, 183);
+            this.priceTextBox.Location = new System.Drawing.Point(133, 181);
             this.priceTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(160, 23);
             this.priceTextBox.TabIndex = 5;
+            this.priceTextBox.TextChanged += new System.EventHandler(this.priceTextBox_TextChanged);
             this.priceTextBox.Leave += new System.EventHandler(this.priceTextBox_Leave);
             // 
             // descriptionLabel
@@ -261,11 +263,12 @@
             this.nameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nameTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTextBox.Location = new System.Drawing.Point(133, 53);
+            this.nameTextBox.Location = new System.Drawing.Point(133, 55);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(160, 23);
             this.nameTextBox.TabIndex = 1;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             this.nameTextBox.Leave += new System.EventHandler(this.nameTextBox_Leave);
             // 
             // categoryComboBox
@@ -275,22 +278,25 @@
             this.categoryComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.categoryComboBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(133, 150);
+            this.categoryComboBox.Location = new System.Drawing.Point(133, 149);
             this.categoryComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(160, 24);
             this.categoryComboBox.TabIndex = 4;
+            this.categoryComboBox.TextChanged += new System.EventHandler(this.categoryComboBox_TextChanged);
+            this.categoryComboBox.Leave += new System.EventHandler(this.categoryComboBox_Leave);
             // 
             // descriptionTextBox
             // 
             this.descriptionTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.descriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.descriptionTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionTextBox.Location = new System.Drawing.Point(133, 85);
+            this.descriptionTextBox.Location = new System.Drawing.Point(133, 86);
             this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(160, 23);
             this.descriptionTextBox.TabIndex = 2;
+            this.descriptionTextBox.TextChanged += new System.EventHandler(this.descriptionTextBox_TextChanged);
             this.descriptionTextBox.Leave += new System.EventHandler(this.descriptionTextBox_Leave);
             // 
             // brandLabel
@@ -317,6 +323,8 @@
             this.brandComboBox.Name = "brandComboBox";
             this.brandComboBox.Size = new System.Drawing.Size(160, 24);
             this.brandComboBox.TabIndex = 3;
+            this.brandComboBox.TextChanged += new System.EventHandler(this.brandComboBox_TextChanged);
+            this.brandComboBox.Leave += new System.EventHandler(this.brandComboBox_Leave);
             // 
             // RegisterForm
             // 

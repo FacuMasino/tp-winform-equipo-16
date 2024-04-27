@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 using BusinessLogicLayer;
 using Domain;
@@ -37,7 +38,9 @@ namespace WindowsForms
             _inputsValidation.Add(new InputWrapper(codeTextBox, typeof(string), 2, 50));
             _inputsValidation.Add(new InputWrapper(nameTextBox, typeof(string), 2, 50));
             _inputsValidation.Add(new InputWrapper(descriptionTextBox, typeof(string), 2, 150));
-            _inputsValidation.Add(new InputWrapper(priceTextBox, typeof(decimal)));
+            _inputsValidation.Add(new InputWrapper(brandComboBox, typeof(string), 1));
+            _inputsValidation.Add(new InputWrapper(categoryComboBox, typeof(string), 1));
+            _inputsValidation.Add(new InputWrapper(priceTextBox, typeof(decimal), 1));
             _inputsValidation.Add(new InputWrapper(imageTextBox, typeof(string), 6, 1000));
         }
 
@@ -123,12 +126,35 @@ namespace WindowsForms
             tlpValidations.Show(msg, this, Width - 100, control.Location.Y - 30, 5000);
         }
 
-        private bool ValidateInput(TextBox txtBox)
+        private bool ValidateInput(Control control)
         {
-            InputWrapper input = _inputsValidation.Find(x => txtBox.Equals(x.TextBox));
+            if (_inputsValidation.Count == 0)
+                return false; // Todavia no se carga la lista de inputs
+            InputWrapper input = _inputsValidation.Find(x => control.Equals(x.Control));
             if (!Validations.IsGoodInput(input))
                 return false;
             return true;
+        }
+
+        private void EnableNextInput(Control actualControl)
+        {
+            int inputIndex = _inputsValidation.FindIndex(x => x.Control.Equals(actualControl));
+            Debug.Print($"input actual: {_inputsValidation[inputIndex].Control.Name}");
+            Debug.Print($"input siguiente: {_inputsValidation[inputIndex + 1].Control.Name}");
+            if (!_inputsValidation[inputIndex + 1].Control.Enabled)
+            {
+                _inputsValidation[inputIndex + 1].Control.Enabled = true;
+            }
+        }
+
+        private void DisableControlInputs()
+        {
+            foreach (InputWrapper input in _inputsValidation)
+            {
+                if (input.Control.Equals(codeTextBox))
+                    continue;
+                input.Control.Enabled = false;
+            }
         }
 
         // EVENTS
@@ -146,6 +172,7 @@ namespace WindowsForms
             }
             else // Nuevo
             {
+                DisableControlInputs();
                 _article = new Article();
             }
         }
@@ -239,6 +266,66 @@ namespace WindowsForms
                     "El precio debe contener solo números enteros o decimales"
                 );
             }
+        }
+
+        private void codeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (ValidateInput(codeTextBox))
+                EnableNextInput(codeTextBox);
+        }
+
+        private void nameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (ValidateInput(nameTextBox))
+                EnableNextInput(nameTextBox);
+        }
+
+        private void descriptionTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (ValidateInput(descriptionTextBox))
+                EnableNextInput(descriptionTextBox);
+        }
+
+        private void priceTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (ValidateInput(priceTextBox))
+                EnableNextInput(priceTextBox);
+        }
+
+        private void brandComboBox_Leave(object sender, EventArgs e)
+        {
+            if (!ValidateInput(brandComboBox))
+            {
+                Validations.PaintBadInput(brandComboBox);
+                ShowTooltip(
+                    brandComboBox,
+                    "Debe seleccionar una Marca de la lista o ingresar una nueva"
+                );
+            }
+        }
+
+        private void brandComboBox_TextChanged(object sender, EventArgs e)
+        {
+            if (ValidateInput(brandComboBox))
+                EnableNextInput(brandComboBox);
+        }
+
+        private void categoryComboBox_Leave(object sender, EventArgs e)
+        {
+            if (!ValidateInput(categoryComboBox))
+            {
+                Validations.PaintBadInput(categoryComboBox);
+                ShowTooltip(
+                    categoryComboBox,
+                    "Debe seleccionar una Categoría de la lista o ingresar una nueva"
+                );
+            }
+        }
+
+        private void categoryComboBox_TextChanged(object sender, EventArgs e)
+        {
+            if (ValidateInput(categoryComboBox))
+                EnableNextInput(categoryComboBox);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Utilities
         // METHODS
 
         public static Color ErrorColor = Color.FromArgb(249, 178, 173); // Color para errores
+        public static Color NormalColor = Color.FromArgb(246, 247, 251);
 
         public static bool IsNumber(string text)
         {
@@ -107,7 +108,7 @@ namespace Utilities
                 if (!IsGoodInput(inputWrapper))
                 {
                     invalids++;
-                    PaintBadInput(inputWrapper.TextBox);
+                    PaintBadInput(inputWrapper.Control);
                 }
             }
             return (invalids == 0); // si no hay inválidos, retorna true
@@ -118,21 +119,21 @@ namespace Utilities
             switch (input.InputType.ToString())
             {
                 case "System.String":
-                    if (!HasData(input.TextBox.Text, input.MinLength, input.MaxLength))
+                    if (!HasData(input.Control.Text, input.MinLength, input.MaxLength))
                     {
-                        Debug.Print($"Campo Invalido: {input.TextBox.Name}");
+                        Debug.Print($"Campo Invalido: {input.Control.Name}");
                         return false;
                     }
                     break;
                 case "System.Decimal":
                     // Si se ingresa un nro fuera de rango, decimal.TryParse va a dar false
                     if (
-                        !HasData(input.TextBox.Text, input.MinLength)
-                        || !IsDecimal(input.TextBox.Text)
-                        || !decimal.TryParse(input.TextBox.Text, out decimal num)
+                        !HasData(input.Control.Text, input.MinLength)
+                        || !IsDecimal(input.Control.Text)
+                        || !decimal.TryParse(input.Control.Text, out decimal num)
                     )
                     {
-                        Debug.Print($"Campo Invalido: {input.TextBox.Name}");
+                        Debug.Print($"Campo Invalido: {input.Control.Name}");
                         return false;
                     }
                     break;
@@ -140,17 +141,40 @@ namespace Utilities
             return true;
         }
 
-        public static void PaintBadInput(TextBox txtBox)
+        public static void PaintBadInput(Control control)
         {
+            if (!control.Enabled)
+                return; // si no está habilitado no pintar
             // Asincrónicamente cambia el color y espera 4 segundos
             // Para volverlo a la normalidad
             Task.Run(async () =>
             {
-                Color prevColor = txtBox.BackColor;
-                txtBox.BackColor = ErrorColor;
+                ChangeCtrlColorFromTask(control, ErrorColor);
                 await Task.Delay(4000);
-                txtBox.BackColor = prevColor;
+                ChangeCtrlColorFromTask(control, NormalColor);
             });
+        }
+
+        /// <summary>
+        /// <para>Esta función permite cambiar el BackColor de un control desde un hilo de una tarea
+        /// Async pero sin salir del hilo principal del Windows Form, de otra forma se crearía
+        /// un hilo paralelo y al tratar de cambiarse el atributo arrojaría una excepción</para>
+        /// <see href=" https://learn.microsoft.com/es-es/dotnet/api/system.windows.forms.control.invoke?view=windowsdesktop-8.0">+info</see>
+        /// </summary>
+        /// <param name="control">Control al cual se le va a cambiar el color de fondo</param>
+        /// <param name="color">Color</param>
+        private static void ChangeCtrlColorFromTask(Control control, Color color)
+        {
+            control.Invoke(
+                (
+                    new MethodInvoker(
+                        delegate
+                        {
+                            control.BackColor = color;
+                        }
+                    )
+                )
+            );
         }
     }
 }

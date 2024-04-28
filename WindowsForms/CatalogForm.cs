@@ -122,12 +122,13 @@ namespace WindowsForms
 
             if (2 < filter.Length)
             {
-                _filteredArticles = _articlesList.FindAll(x =>
-                    x.Name.ToUpper().Contains(filter.ToUpper())
-                    || x.Category.ToString().ToUpper().Contains(filter.ToUpper())
-                    || x.Brand.ToString().ToUpper().Contains(filter.ToUpper())
-                    || x.Code.ToUpper().Contains(filter.ToUpper())
-                    || x.Description.ToUpper().Contains(filter.ToUpper())
+                _filteredArticles = _articlesList.FindAll(
+                    x =>
+                        x.Name.ToUpper().Contains(filter.ToUpper())
+                        || x.Category.ToString().ToUpper().Contains(filter.ToUpper())
+                        || x.Brand.ToString().ToUpper().Contains(filter.ToUpper())
+                        || x.Code.ToUpper().Contains(filter.ToUpper())
+                        || x.Description.ToUpper().Contains(filter.ToUpper())
                 );
             }
             else
@@ -145,7 +146,7 @@ namespace WindowsForms
         {
             if (article != null)
             {
-                idLabel.Text = "Artículo N⁰ " + article.Id.ToString();
+                idLabel.Text = $"Artículo N⁰ {article.Id}";
 
                 if (Validations.HasData(article.Name))
                 {
@@ -167,7 +168,7 @@ namespace WindowsForms
 
                 if (article.Brand != null)
                 {
-                    brandLabel.Text = "Marca: " + article.Brand.ToString();
+                    brandLabel.Text = $"Marca: {article.Brand}";
                 }
                 else
                 {
@@ -176,7 +177,7 @@ namespace WindowsForms
 
                 if (article.Category != null)
                 {
-                    categoryLabel.Text = "Categoría: " + article.Category.ToString();
+                    categoryLabel.Text = $"Categoría: {article.Category}";
                 }
                 else
                 {
@@ -185,7 +186,7 @@ namespace WindowsForms
 
                 if (Validations.HasData(article.Price.ToString()))
                 {
-                    priceLabel.Text = "Precio: " + article.Price.ToString();
+                    priceLabel.Text = $"Precio: {article.Price}";
                 }
                 else
                 {

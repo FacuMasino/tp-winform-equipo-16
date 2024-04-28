@@ -41,8 +41,8 @@ namespace WindowsForms
             _inputsValidation.Add(new InputWrapper(descriptionTextBox, typeof(string), 2, 150));
             _inputsValidation.Add(new InputWrapper(brandComboBox, typeof(string), 1));
             _inputsValidation.Add(new InputWrapper(categoryComboBox, typeof(string), 1));
-            _inputsValidation.Add(new InputWrapper(priceTextBox, typeof(decimal), 1));
             _inputsValidation.Add(new InputWrapper(imageTextBox, typeof(string), 6, 1000));
+            _inputsValidation.Add(new InputWrapper(priceTextBox, typeof(decimal), 1));
         }
 
         private bool ValidateRegister()
@@ -301,11 +301,7 @@ namespace WindowsForms
                 EnableNextInput(descriptionTextBox);
         }
 
-        private void priceTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (ValidateInput(priceTextBox))
-                EnableNextInput(priceTextBox);
-        }
+        private void priceTextBox_TextChanged(object sender, EventArgs e) { }
 
         private void brandComboBox_Leave(object sender, EventArgs e)
         {
@@ -341,6 +337,12 @@ namespace WindowsForms
         {
             if (ValidateInput(categoryComboBox))
                 EnableNextInput(categoryComboBox);
+        }
+
+        private void imageTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (ValidateInput(imageTextBox))
+                EnableNextInput(imageTextBox);
         }
     }
 }

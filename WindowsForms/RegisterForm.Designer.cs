@@ -207,11 +207,12 @@
             this.imageTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.imageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.imageTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imageTextBox.Location = new System.Drawing.Point(133, 212);
+            this.imageTextBox.Location = new System.Drawing.Point(133, 181);
             this.imageTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.imageTextBox.Name = "imageTextBox";
             this.imageTextBox.Size = new System.Drawing.Size(160, 23);
             this.imageTextBox.TabIndex = 6;
+            this.imageTextBox.TextChanged += new System.EventHandler(this.imageTextBox_TextChanged);
             this.imageTextBox.Leave += new System.EventHandler(this.imageTextBox_Leave);
             // 
             // imageLabel
@@ -219,7 +220,7 @@
             this.imageLabel.AutoSize = true;
             this.imageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.imageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.imageLabel.Location = new System.Drawing.Point(27, 215);
+            this.imageLabel.Location = new System.Drawing.Point(27, 181);
             this.imageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.imageLabel.Name = "imageLabel";
             this.imageLabel.Size = new System.Drawing.Size(56, 18);
@@ -256,7 +257,7 @@
             this.priceTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.priceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.priceTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceTextBox.Location = new System.Drawing.Point(133, 181);
+            this.priceTextBox.Location = new System.Drawing.Point(133, 212);
             this.priceTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(160, 23);
@@ -281,7 +282,7 @@
             this.priceLabel.AutoSize = true;
             this.priceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.priceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.priceLabel.Location = new System.Drawing.Point(27, 183);
+            this.priceLabel.Location = new System.Drawing.Point(27, 212);
             this.priceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.priceLabel.Name = "priceLabel";
             this.priceLabel.Size = new System.Drawing.Size(51, 18);

@@ -33,5 +33,19 @@ namespace WindowsForms
             AboutForm aboutForm = new AboutForm();
             aboutForm.ShowDialog();
         }
+
+        private void brandsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BrandCategoryEditForm brandsEditForm = new BrandCategoryEditForm();
+            brandsEditForm.LoadBrands();
+            brandsEditForm.ShowDialog();
+        }
+
+        private void categoriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BrandCategoryEditForm categoriesEditForm = new BrandCategoryEditForm();
+            categoriesEditForm.LoadCategories();
+            categoriesEditForm.ShowDialog();
+        }
     }
 }

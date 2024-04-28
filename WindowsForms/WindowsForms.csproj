@@ -55,6 +55,12 @@
     <Compile Include="AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BrandCategoryEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrandCategoryEditForm.Designer.cs">
+      <DependentUpon>BrandCategoryEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CatalogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     </Compile>
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BrandCategoryEditForm.resx">
+      <DependentUpon>BrandCategoryEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CatalogForm.resx">
       <DependentUpon>CatalogForm.cs</DependentUpon>

@@ -33,6 +33,7 @@ namespace WindowsForms
                 articlesDataGridView.Columns["Price"].DisplayIndex =
                     articlesDataGridView.ColumnCount - 1;
                 Functions.FillDataGrid(articlesDataGridView);
+                Functions.HighlightInvalidsDGV(articlesDataGridView);
             }
         }
 
@@ -68,10 +69,6 @@ namespace WindowsForms
                     );
                     // filtrar los inválidos
                     _articlesList = _articlesList.FindAll(x => IsValidArticle(x));
-                }
-                if (HasInvalidArticles(_articlesList) && chkShowInvalids.Checked)
-                {
-                    _articlesList = _articlesList.FindAll(x => !IsValidArticle(x));
                 }
                 articlesDataGridView.DataSource = _articlesList;
             }
@@ -160,6 +157,7 @@ namespace WindowsForms
                 if (Validations.HasData(article.Description))
                 {
                     descriptionLabel.Text = article.Description;
+                    ttpInfo.SetToolTip(descriptionLabel, article.Description); // Esto permite ver la descripción completa al pasar el mouse por encima
                 }
                 else
                 {

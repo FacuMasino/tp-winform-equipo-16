@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.roundPanel3 = new WindowsForms.RoundPanel();
             this.nextImgButton = new System.Windows.Forms.Button();
             this.prevImgButton = new System.Windows.Forms.Button();
@@ -41,6 +42,7 @@
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.brandLabel = new System.Windows.Forms.Label();
             this.roundPanel2 = new WindowsForms.RoundPanel();
+            this.chkDeleteUnused = new System.Windows.Forms.CheckBox();
             this.chkShowInvalids = new System.Windows.Forms.CheckBox();
             this.newButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
@@ -50,7 +52,7 @@
             this.filterLabel = new System.Windows.Forms.Label();
             this.roundPanel1 = new WindowsForms.RoundPanel();
             this.articlesDataGridView = new System.Windows.Forms.DataGridView();
-            this.chkDeleteUnused = new System.Windows.Forms.CheckBox();
+            this.ttpInfo = new System.Windows.Forms.ToolTip(this.components);
             this.roundPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.roundPanel2.SuspendLayout();
@@ -119,7 +121,7 @@
             this.idLabel.Location = new System.Drawing.Point(204, 18);
             this.idLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(23, 18);
+            this.idLabel.Size = new System.Drawing.Size(24, 19);
             this.idLabel.TabIndex = 16;
             this.idLabel.Text = "ID";
             // 
@@ -142,7 +144,7 @@
             this.priceLabel.Location = new System.Drawing.Point(204, 161);
             this.priceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(54, 18);
+            this.priceLabel.Size = new System.Drawing.Size(56, 19);
             this.priceLabel.TabIndex = 15;
             this.priceLabel.Text = "Precio";
             // 
@@ -154,7 +156,7 @@
             this.nameLabel.Location = new System.Drawing.Point(204, 47);
             this.nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(65, 18);
+            this.nameLabel.Size = new System.Drawing.Size(66, 19);
             this.nameLabel.TabIndex = 11;
             this.nameLabel.Text = "Nombre";
             // 
@@ -166,19 +168,19 @@
             this.categoryLabel.Location = new System.Drawing.Point(204, 133);
             this.categoryLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(77, 18);
+            this.categoryLabel.Size = new System.Drawing.Size(78, 19);
             this.categoryLabel.TabIndex = 14;
             this.categoryLabel.Text = "Categoría";
             // 
             // descriptionLabel
             // 
-            this.descriptionLabel.AutoSize = true;
+            this.descriptionLabel.AutoEllipsis = true;
             this.descriptionLabel.Font = new System.Drawing.Font("Inter", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.descriptionLabel.Location = new System.Drawing.Point(204, 75);
             this.descriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(93, 18);
+            this.descriptionLabel.Size = new System.Drawing.Size(197, 19);
             this.descriptionLabel.TabIndex = 12;
             this.descriptionLabel.Text = "Descripción";
             // 
@@ -190,7 +192,7 @@
             this.brandLabel.Location = new System.Drawing.Point(204, 104);
             this.brandLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.brandLabel.Name = "brandLabel";
-            this.brandLabel.Size = new System.Drawing.Size(51, 18);
+            this.brandLabel.Size = new System.Drawing.Size(54, 19);
             this.brandLabel.TabIndex = 13;
             this.brandLabel.Text = "Marca";
             // 
@@ -214,6 +216,21 @@
             this.roundPanel2.Size = new System.Drawing.Size(348, 201);
             this.roundPanel2.TabIndex = 10;
             // 
+            // chkDeleteUnused
+            // 
+            this.chkDeleteUnused.AutoSize = true;
+            this.chkDeleteUnused.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkDeleteUnused.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkDeleteUnused.Location = new System.Drawing.Point(23, 161);
+            this.chkDeleteUnused.Name = "chkDeleteUnused";
+            this.chkDeleteUnused.Size = new System.Drawing.Size(268, 20);
+            this.chkDeleteUnused.TabIndex = 16;
+            this.chkDeleteUnused.Text = "Eliminar marcas y categorías en desuso";
+            this.ttpInfo.SetToolTip(this.chkDeleteUnused, "Si selecciona esta opción, luego de eliminar un Artículo\r\nse verificará si la Mar" +
+        "ca y Categoría está siendo utilizada por \r\notro Artículo y de no ser así se elim" +
+        "inará de la base de datos.");
+            this.chkDeleteUnused.UseVisualStyleBackColor = true;
+            // 
             // chkShowInvalids
             // 
             this.chkShowInvalids.AutoSize = true;
@@ -221,9 +238,11 @@
             this.chkShowInvalids.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkShowInvalids.Location = new System.Drawing.Point(23, 134);
             this.chkShowInvalids.Name = "chkShowInvalids";
-            this.chkShowInvalids.Size = new System.Drawing.Size(178, 20);
+            this.chkShowInvalids.Size = new System.Drawing.Size(185, 20);
             this.chkShowInvalids.TabIndex = 15;
             this.chkShowInvalids.Text = "Mostrar artículos inválidos";
+            this.ttpInfo.SetToolTip(this.chkShowInvalids, "Seleccione esta opción para ver los Artículos con\r\ninformación incompleta y corre" +
+        "girlos.");
             this.chkShowInvalids.UseVisualStyleBackColor = true;
             this.chkShowInvalids.CheckedChanged += new System.EventHandler(this.chkShowInvalids_CheckedChanged);
             // 
@@ -325,7 +344,7 @@
             this.filterLabel.Location = new System.Drawing.Point(20, 78);
             this.filterLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.filterLabel.Name = "filterLabel";
-            this.filterLabel.Size = new System.Drawing.Size(106, 18);
+            this.filterLabel.Size = new System.Drawing.Size(119, 19);
             this.filterLabel.TabIndex = 13;
             this.filterLabel.Text = "Filtrar Artículos";
             // 
@@ -347,23 +366,23 @@
             this.articlesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.articlesDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.articlesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.articlesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.articlesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.articlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(112)))), ((int)(((byte)(121)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(211)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(68)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.articlesDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(112)))), ((int)(((byte)(121)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(211)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(68)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.articlesDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             this.articlesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.articlesDataGridView.GridColor = System.Drawing.Color.Silver;
             this.articlesDataGridView.Location = new System.Drawing.Point(21, 14);
@@ -378,17 +397,12 @@
             this.articlesDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.articlesDataGridView_DataBindingComplete);
             this.articlesDataGridView.SelectionChanged += new System.EventHandler(this.articlesDataGridView_SelectionChanged);
             // 
-            // chkDeleteUnused
+            // ttpInfo
             // 
-            this.chkDeleteUnused.AutoSize = true;
-            this.chkDeleteUnused.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkDeleteUnused.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkDeleteUnused.Location = new System.Drawing.Point(23, 161);
-            this.chkDeleteUnused.Name = "chkDeleteUnused";
-            this.chkDeleteUnused.Size = new System.Drawing.Size(262, 20);
-            this.chkDeleteUnused.TabIndex = 16;
-            this.chkDeleteUnused.Text = "Eliminar marcas y categorías en desuso";
-            this.chkDeleteUnused.UseVisualStyleBackColor = true;
+            this.ttpInfo.AutoPopDelay = 5000;
+            this.ttpInfo.InitialDelay = 700;
+            this.ttpInfo.IsBalloon = true;
+            this.ttpInfo.ReshowDelay = 200;
             // 
             // CatalogForm
             // 
@@ -438,5 +452,6 @@
         private System.Windows.Forms.Button prevImgButton;
         private System.Windows.Forms.CheckBox chkShowInvalids;
         private System.Windows.Forms.CheckBox chkDeleteUnused;
+        private System.Windows.Forms.ToolTip ttpInfo;
     }
 }

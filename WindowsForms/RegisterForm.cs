@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Reflection;
 using System.Windows.Forms;
 using BusinessLogicLayer;
 using Domain;
@@ -35,6 +36,7 @@ namespace WindowsForms
             InitializeComponent();
             _article = article;
             Text = "Modificar Articulo";
+            _images.AddRange(article.Images);
         }
 
         // METHODS
@@ -83,18 +85,32 @@ namespace WindowsForms
             categoryComboBox.SelectedIndex = -1;
         }
 
-        private void mapImage()
+        private void MapImage()
         {
-            imageTextBox.Text = _article.Images[_imageIndex]?.Url;
+            imageTextBox.Text = _images[_imageIndex].Url;
+        }
+
+        private void TextBoxToArray()
+        {
+            _images[_imageIndex].Id = _article.Images[_imageIndex].Id;
+            _images[_imageIndex].Url = imageTextBox.Text;
+        }
+
+        private void setImages()
+        {
+            for (int i = 0; i < _images.Count; i++)
+            {
+                _article.Images[i].Url = _images[i].Url;
+            }
         }
 
         private void MapArticle()
         {
+            MapImage();
             codeTextBox.Text = _article.Code;
             nameTextBox.Text = _article.Name;
             descriptionTextBox.Text = _article.Description;
             priceTextBox.Text = _article.Price.ToString();
-            mapImage();
 
             if (0 < _article.Brand.Id)
             {
@@ -109,23 +125,11 @@ namespace WindowsForms
 
         private void SetArticle()
         {
+            setImages();
             _article.Code = codeTextBox.Text;
             _article.Name = nameTextBox.Text;
             _article.Description = descriptionTextBox.Text;
             _article.Price = decimal.Parse(priceTextBox.Text);
-
-            // IMPORTANTE:
-            // Cambiar esto cuando se de funcionalidad a agregar multiples imagenes
-            if (_article.Images.Count > 0)
-            {
-                _article.Images[0].Url = imageTextBox.Text;
-            }
-            else
-            {
-                Image auxImg = new Image();
-                auxImg.Url = imageTextBox.Text;
-                _article.Images.Add(auxImg);
-            }
 
             if (Validations.HasData(brandComboBox.Text))
             {
@@ -246,6 +250,11 @@ namespace WindowsForms
                     _brandsManager.PurgeBrand(oldBrand);
                     _categoriesManager.PurgeCategory(oldCategory);
 
+                    foreach (Image image in _article.Images)
+                    {
+                        _imagesManager.Edit(image);
+                    }
+
                     MessageBox.Show("Modificado exitosamente.");
                 }
                 else
@@ -274,6 +283,7 @@ namespace WindowsForms
                 return;
             }
 
+            TextBoxToArray();
             Functions.LoadImage(pictureBox, imageTextBox.Text);
         }
 
@@ -390,9 +400,13 @@ namespace WindowsForms
         {
             if (0 < _imageIndex)
             {
+                if (_imageIndex < _article.Images.Count)
+                {
+                    TextBoxToArray();
+                }
+
                 _imageIndex --;
-                label1.Text = _imageIndex.ToString(); //borrar y borrar compoennte
-                mapImage();
+                MapImage();
                 Functions.LoadImage(pictureBox, imageTextBox.Text);
             }
         }
@@ -403,12 +417,12 @@ namespace WindowsForms
 
             if (_imageIndex < imagesAmount)
             {
+                TextBoxToArray();
                 _imageIndex ++;
-                label1.Text = _imageIndex.ToString(); //borrar comp[onente
 
                 if (_imageIndex != imagesAmount)
                 {
-                    mapImage();
+                    MapImage();
                     Functions.LoadImage(pictureBox, imageTextBox.Text);
                 }
                 else

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using DataAccessLayer;
 using Domain;
 
@@ -112,7 +113,7 @@ namespace BusinessLogicLayer
             }
         }
 
-        public void delete(Brand brand)
+        public void Delete(Brand brand)
         {
             try
             {
@@ -160,6 +161,43 @@ namespace BusinessLogicLayer
             }
 
             return id;
+        }
+
+        /// <summary>
+        /// Verifica si la marca del artículo no pertenece a ningun otro y en tal caso la elimina.
+        /// </summary>
+        public void PurgeBrand(Brand brand)
+        {
+            bool brandInUse = BrandIsInUse(brand);
+            Debug.Print($"Verificando si la marca {brand} está en uso => {brandInUse}");
+
+            if (!brandInUse)
+            {
+                Delete(brand);
+            }
+        }
+
+        private bool BrandIsInUse(Brand brand)
+        {
+            try
+            {
+                _dataAccess.SetQuery(
+                    "select COUNT(*) as Total from Articulos where IdMarca = @BrandId"
+                );
+                _dataAccess.SetParameter("@BrandId", brand.Id);
+                return _dataAccess.ExecuteScalar() > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(
+                    $"Ocurrió un error al verificar si la marca {brand?.Description} existe.",
+                    ex
+                );
+            }
+            finally
+            {
+                _dataAccess.CloseConnection();
+            }
         }
 
         private void SetParameters(Brand brand)

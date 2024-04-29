@@ -23,6 +23,10 @@ namespace WindowsForms
         public RegisterForm()
         {
             InitializeComponent();
+            brandCheckBox.Visible = false;
+            categoryCheckBox.Visible = false;
+            brandComboBox.Width = codeTextBox.Width;
+            categoryComboBox.Width = codeTextBox.Width;
         }
 
         public RegisterForm(Article article)
@@ -205,6 +209,18 @@ namespace WindowsForms
 
                 if (_article.Id != 0)
                 {
+                    if (brandCheckBox.Checked)
+                    {
+                        _brandsManager.Edit(_article.Brand);
+                        _brandsManager.PurgeBrand(_article.Brand);
+                    }
+
+                    if (categoryCheckBox.Checked)
+                    {
+                        _categoriesManager.Edit(_article.Category);
+                        _categoriesManager.PurgeCategory(_article.Category);
+                    }
+
                     _articlesManager.Edit(_article);
                     MessageBox.Show("Modificado exitosamente.");
                 }

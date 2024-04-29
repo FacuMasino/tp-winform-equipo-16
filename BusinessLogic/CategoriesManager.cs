@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using DataAccessLayer;
 using Domain;
 
@@ -109,7 +110,7 @@ namespace BusinessLogicLayer
             }
         }
 
-        public void delete(Category category)
+        public void Delete(Category category)
         {
             try
             {
@@ -120,6 +121,45 @@ namespace BusinessLogicLayer
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                _dataAccess.CloseConnection();
+            }
+        }
+
+        /// <summary>
+        /// Verifica si la categoria del artículo no pertenece a ningun otro y en tal caso la elimina.
+        /// </summary>
+        public void PurgeCategory(Category category)
+        {
+            bool categoryInUse = CategoryIsInUse(category);
+            Debug.Print(
+                $"Verificando si la categoría {category} está en uso => {categoryInUse}"
+            );
+
+            if (!categoryInUse)
+            {
+                Delete(category);
+            }
+        }
+
+        private bool CategoryIsInUse(Category category)
+        {
+            try
+            {
+                _dataAccess.SetQuery(
+                    "select COUNT(*) as Total from Articulos where IdCategoria = @CategoryId"
+                );
+                _dataAccess.SetParameter("@CategoryId", category.Id);
+                return _dataAccess.ExecuteScalar() > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(
+                    $"Ocurrió un error al verificar si la categoría {category?.Description} existe.",
+                    ex
+                );
             }
             finally
             {

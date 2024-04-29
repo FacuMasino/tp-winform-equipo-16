@@ -161,7 +161,7 @@ namespace BusinessLogicLayer
             }
         }
 
-        public void Delete(Article article, bool clearBrand = false, bool clearCategory = false)
+        public void Delete(Article article, bool purgeBrand = false, bool purgeCategory = false)
         {
             try
             {
@@ -178,70 +178,14 @@ namespace BusinessLogicLayer
                 _dataAccess.CloseConnection();
             }
 
-            // Verificar si la marca del articulo no pertenece a ningun otro y en tal caso eliminarla
-            if (clearBrand)
+            if (purgeBrand)
             {
-                bool brandInUse = IsBrandInUse(article.Brand);
-                Debug.Print($"Verificando si la marca {article.Brand} está en uso => {brandInUse}");
+                _brandsManager.PurgeBrand(article.Brand);
+            }
 
-                if (!brandInUse)
-                    _brandsManager.delete(article.Brand);
-            }
-            // Verificar si la categoria del articulo no pertenece a ningun otro y en tal caso eliminarla
-            if (clearCategory)
+            if (purgeCategory)
             {
-                bool categoryInUse = IsCategoryInUse(article.Category);
-                Debug.Print(
-                    $"Verificando si la categoría {article.Category} está en uso => {categoryInUse}"
-                );
-                if (!categoryInUse)
-                    _categoriesManager.delete(article.Category);
-            }
-        }
-
-        private bool IsBrandInUse(Brand brand)
-        {
-            try
-            {
-                _dataAccess.SetQuery(
-                    "select COUNT(*) as Total from Articulos where IdMarca = @BrandId"
-                );
-                _dataAccess.SetParameter("@BrandId", brand.Id);
-                return _dataAccess.ExecuteScalar() > 0;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(
-                    $"Ocurrió un error al verificar si la marca {brand?.Description} existe.",
-                    ex
-                );
-            }
-            finally
-            {
-                _dataAccess.CloseConnection();
-            }
-        }
-
-        private bool IsCategoryInUse(Category category)
-        {
-            try
-            {
-                _dataAccess.SetQuery(
-                    "select COUNT(*) as Total from Articulos where IdCategoria = @CategoryId"
-                );
-                _dataAccess.SetParameter("@CategoryId", category.Id);
-                return _dataAccess.ExecuteScalar() > 0;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(
-                    $"Ocurrió un error al verificar si la categoría {category?.Description} existe.",
-                    ex
-                );
-            }
-            finally
-            {
-                _dataAccess.CloseConnection();
+                _categoriesManager.PurgeCategory(article.Category);
             }
         }
 

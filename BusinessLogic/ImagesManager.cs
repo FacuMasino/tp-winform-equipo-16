@@ -9,7 +9,7 @@ namespace BusinessLogicLayer
     {
         private readonly DataAccess _dataAccess = new DataAccess();
 
-        public List<Image> GetArticleImages(int articleId)
+        public List<Image> List(int articleId)
         {
             List<Image> images = new List<Image>();
 

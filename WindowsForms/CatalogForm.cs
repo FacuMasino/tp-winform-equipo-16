@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 using BusinessLogicLayer;
 using Domain;
@@ -15,6 +16,9 @@ namespace WindowsForms
         private ArticlesManager _articlesManager = new ArticlesManager();
         private List<Article> _articlesList = new List<Article>();
         private List<Article> _filteredArticles = new List<Article>();
+        private ImagesManager _imagesManager = new ImagesManager();
+        private List<Image> _images = new List<Image>();
+        private int _imageIndex = 0;
 
         // CONSTRUCT
 
@@ -31,7 +35,7 @@ namespace WindowsForms
             {
                 articlesDataGridView.Columns["Id"].Width = 50;
                 articlesDataGridView.Columns["Price"].DisplayIndex =
-                    articlesDataGridView.ColumnCount - 1;
+                articlesDataGridView.ColumnCount - 1;
                 Functions.FillDataGrid(articlesDataGridView);
                 Functions.HighlightInvalidsDGV(articlesDataGridView);
             }
@@ -228,6 +232,8 @@ namespace WindowsForms
 
                 Functions.LoadImage(pictureBox, url);
             }
+
+            _imageIndex = 0;
         }
 
         private void articlesDataGridView_DataBindingComplete(
@@ -302,6 +308,24 @@ namespace WindowsForms
         private void chkShowInvalids_CheckedChanged(object sender, EventArgs e)
         {
             RefreshList();
+        }
+
+        private void prevImgButton_Click(object sender, EventArgs e)
+        {
+            if (0 < _imageIndex)
+            {
+                _imageIndex--;
+                Functions.LoadImage(pictureBox, _article.Images[_imageIndex].Url);
+            }
+        }
+
+        private void nextImgButton_Click(object sender, EventArgs e)
+        {
+            if (_imageIndex < _article.Images.Count - 1)
+            {
+                _imageIndex++;
+                Functions.LoadImage(pictureBox, _article.Images[_imageIndex].Url);
+            }
         }
     }
 }

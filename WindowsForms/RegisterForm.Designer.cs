@@ -34,14 +34,14 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.tlpValidations = new System.Windows.Forms.ToolTip(this.components);
             this.componentsToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.categoryCheckBox = new System.Windows.Forms.CheckBox();
+            this.brandCheckBox = new System.Windows.Forms.CheckBox();
             this.roundPanel2 = new WindowsForms.RoundPanel();
             this.deleteImgButton = new System.Windows.Forms.Button();
             this.nextImgButton = new System.Windows.Forms.Button();
             this.prevImgButton = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.roundPanel1 = new WindowsForms.RoundPanel();
-            this.categoryCheckBox = new System.Windows.Forms.CheckBox();
-            this.brandCheckBox = new System.Windows.Forms.CheckBox();
             this.imageTextBox = new System.Windows.Forms.TextBox();
             this.imageLabel = new System.Windows.Forms.Label();
             this.codeTextBox = new System.Windows.Forms.TextBox();
@@ -56,6 +56,7 @@
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.brandLabel = new System.Windows.Forms.Label();
             this.brandComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.roundPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.roundPanel1.SuspendLayout();
@@ -103,6 +104,28 @@
             this.tlpValidations.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
             this.tlpValidations.ToolTipTitle = "Verifique el campo";
             // 
+            // categoryCheckBox
+            // 
+            this.categoryCheckBox.AutoSize = true;
+            this.categoryCheckBox.Location = new System.Drawing.Point(443, 234);
+            this.categoryCheckBox.Name = "categoryCheckBox";
+            this.categoryCheckBox.Size = new System.Drawing.Size(99, 24);
+            this.categoryCheckBox.TabIndex = 9;
+            this.categoryCheckBox.Text = "En todos";
+            this.componentsToolTip.SetToolTip(this.categoryCheckBox, "Editar esta categoría en todos los artículos que la tengan.");
+            this.categoryCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // brandCheckBox
+            // 
+            this.brandCheckBox.AutoSize = true;
+            this.brandCheckBox.Location = new System.Drawing.Point(443, 185);
+            this.brandCheckBox.Name = "brandCheckBox";
+            this.brandCheckBox.Size = new System.Drawing.Size(99, 24);
+            this.brandCheckBox.TabIndex = 8;
+            this.brandCheckBox.Text = "En todos";
+            this.componentsToolTip.SetToolTip(this.brandCheckBox, "Editar esta marca en todos los artículos que la tengan.");
+            this.brandCheckBox.UseVisualStyleBackColor = true;
+            // 
             // roundPanel2
             // 
             this.roundPanel2.BackColor = System.Drawing.Color.Transparent;
@@ -149,6 +172,7 @@
             this.nextImgButton.TabIndex = 4;
             this.nextImgButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.nextImgButton.UseVisualStyleBackColor = false;
+            this.nextImgButton.Click += new System.EventHandler(this.nextImgButton_Click);
             // 
             // prevImgButton
             // 
@@ -164,6 +188,7 @@
             this.prevImgButton.TabIndex = 3;
             this.prevImgButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.prevImgButton.UseVisualStyleBackColor = false;
+            this.prevImgButton.Click += new System.EventHandler(this.prevImgButton_Click);
             // 
             // pictureBox
             // 
@@ -202,28 +227,6 @@
             this.roundPanel1.Radius = 10;
             this.roundPanel1.Size = new System.Drawing.Size(590, 395);
             this.roundPanel1.TabIndex = 0;
-            // 
-            // categoryCheckBox
-            // 
-            this.categoryCheckBox.AutoSize = true;
-            this.categoryCheckBox.Location = new System.Drawing.Point(443, 234);
-            this.categoryCheckBox.Name = "categoryCheckBox";
-            this.categoryCheckBox.Size = new System.Drawing.Size(99, 24);
-            this.categoryCheckBox.TabIndex = 9;
-            this.categoryCheckBox.Text = "En todos";
-            this.componentsToolTip.SetToolTip(this.categoryCheckBox, "Editar esta categoría en todos los artículos que la tengan.");
-            this.categoryCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // brandCheckBox
-            // 
-            this.brandCheckBox.AutoSize = true;
-            this.brandCheckBox.Location = new System.Drawing.Point(443, 185);
-            this.brandCheckBox.Name = "brandCheckBox";
-            this.brandCheckBox.Size = new System.Drawing.Size(99, 24);
-            this.brandCheckBox.TabIndex = 8;
-            this.brandCheckBox.Text = "En todos";
-            this.componentsToolTip.SetToolTip(this.brandCheckBox, "Editar esta marca en todos los artículos que la tengan.");
-            this.brandCheckBox.UseVisualStyleBackColor = true;
             // 
             // imageTextBox
             // 
@@ -390,12 +393,22 @@
             this.brandComboBox.TextChanged += new System.EventHandler(this.brandComboBox_TextChanged);
             this.brandComboBox.Leave += new System.EventHandler(this.brandComboBox_Leave);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(396, 446);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "label1";
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1015, 512);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.roundPanel2);
             this.Controls.Add(this.roundPanel1);
@@ -412,6 +425,7 @@
             this.roundPanel1.ResumeLayout(false);
             this.roundPanel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -443,5 +457,6 @@
         private System.Windows.Forms.CheckBox categoryCheckBox;
         private System.Windows.Forms.CheckBox brandCheckBox;
         private System.Windows.Forms.ToolTip componentsToolTip;
+        private System.Windows.Forms.Label label1;
     }
 }

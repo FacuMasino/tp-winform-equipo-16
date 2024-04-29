@@ -43,7 +43,7 @@ namespace BusinessLogicLayer
                         _dataAccess.Reader["IdCategoria"] as int? ?? article.Category.Id;
                     article.Price = _dataAccess.Reader["Precio"] as decimal? ?? article.Price;
 
-                    article.Images = _imagesManager.GetArticleImages(article.Id);
+                    article.Images = _imagesManager.List(article.Id);
 
                     articles.Add(article);
                 }
@@ -94,7 +94,7 @@ namespace BusinessLogicLayer
                         article.Price = (decimal)_dataAccess.Reader["Precio"];
                     }
 
-                    article.Images = _imagesManager.GetArticleImages(article.Id);
+                    article.Images = _imagesManager.List(article.Id);
                 }
             }
             catch (Exception ex)

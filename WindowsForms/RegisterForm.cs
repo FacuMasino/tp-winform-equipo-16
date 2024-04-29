@@ -14,9 +14,10 @@ namespace WindowsForms
         private BrandsManager _brandsManager = new BrandsManager();
         private CategoriesManager _categoriesManager = new CategoriesManager();
         private ArticlesManager _articlesManager = new ArticlesManager();
-        private ImagesManager _imagesManager = new ImagesManager();
         private List<InputWrapper> _inputsValidation = new List<InputWrapper>();
-        private List<Image> _articleImages = new List<Image>();
+        private ImagesManager _imagesManager = new ImagesManager();
+        private List<Image> _images = new List<Image>();
+        private int _imageIndex = 0;
 
         // CONSTRUCT
 
@@ -82,13 +83,18 @@ namespace WindowsForms
             categoryComboBox.SelectedIndex = -1;
         }
 
+        private void mapImage()
+        {
+            imageTextBox.Text = _article.Images[_imageIndex]?.Url;
+        }
+
         private void MapArticle()
         {
             codeTextBox.Text = _article.Code;
             nameTextBox.Text = _article.Name;
             descriptionTextBox.Text = _article.Description;
             priceTextBox.Text = _article.Price.ToString();
-            imageTextBox.Text = _article.Images[0]?.Url;
+            mapImage();
 
             if (0 < _article.Brand.Id)
             {
@@ -127,7 +133,7 @@ namespace WindowsForms
             }
             else
             {
-                _article.Brand = null; // Esto es una referencia para que el backend no intente agregar algo nulo y se rompan los metodos Add() y Edit() del manager de marcas
+                _article.Brand = null;
             }
 
             if (Validations.HasData(categoryComboBox.Text))
@@ -136,7 +142,7 @@ namespace WindowsForms
             }
             else
             {
-                _article.Category = null; // Esto es una referencia para que el backend no intente agregar algo nulo y se rompan los metodos Add() y Edit() del manager de categorias
+                _article.Category = null;
             }
         }
 
@@ -148,10 +154,17 @@ namespace WindowsForms
         private bool ValidateInput(Control control)
         {
             if (_inputsValidation.Count == 0)
+            {
                 return false; // Todavia no se carga la lista de inputs
+            }
+
             InputWrapper input = _inputsValidation.Find(x => control.Equals(x.Control));
+
             if (!Validations.IsGoodInput(input))
+            {
                 return false;
+            }
+
             return true;
         }
 
@@ -160,6 +173,7 @@ namespace WindowsForms
             int inputIndex = _inputsValidation.FindIndex(x => x.Control.Equals(actualControl));
             Debug.Print($"input actual: {_inputsValidation[inputIndex].Control.Name}");
             Debug.Print($"input siguiente: {_inputsValidation[inputIndex + 1].Control.Name}");
+
             if (!_inputsValidation[inputIndex + 1].Control.Enabled)
             {
                 _inputsValidation[inputIndex + 1].Control.Enabled = true;
@@ -171,7 +185,10 @@ namespace WindowsForms
             foreach (InputWrapper input in _inputsValidation)
             {
                 if (input.Control.Equals(codeTextBox))
+                {
                     continue;
+                }
+
                 input.Control.Enabled = false;
             }
         }
@@ -187,7 +204,7 @@ namespace WindowsForms
             if (_article != null) // Editar
             {
                 MapArticle();
-                Functions.LoadImage(pictureBox, imageTextBox.Text); // Facu, puse provisoriamente este metodo para que muestre una sola imagen. Borra esto cuando lo leas, Maxi.
+                Functions.LoadImage(pictureBox, imageTextBox.Text);
             }
             else // Nuevo
             {
@@ -209,19 +226,26 @@ namespace WindowsForms
 
                 if (_article.Id != 0)
                 {
+                    Brand oldBrand = new Brand();
+                    oldBrand.Id = _article.Brand.Id;
+
+                    Category oldCategory = new Category();
+                    oldCategory.Id = _article.Category.Id;
+
                     if (brandCheckBox.Checked)
                     {
                         _brandsManager.Edit(_article.Brand);
-                        _brandsManager.PurgeBrand(_article.Brand);
                     }
 
                     if (categoryCheckBox.Checked)
                     {
                         _categoriesManager.Edit(_article.Category);
-                        _categoriesManager.PurgeCategory(_article.Category);
                     }
 
                     _articlesManager.Edit(_article);
+                    _brandsManager.PurgeBrand(oldBrand);
+                    _categoriesManager.PurgeCategory(oldCategory);
+
                     MessageBox.Show("Modificado exitosamente.");
                 }
                 else
@@ -249,6 +273,7 @@ namespace WindowsForms
                 );
                 return;
             }
+
             Functions.LoadImage(pictureBox, imageTextBox.Text);
         }
 
@@ -359,6 +384,39 @@ namespace WindowsForms
         {
             if (ValidateInput(imageTextBox))
                 EnableNextInput(imageTextBox);
+        }
+
+        private void prevImgButton_Click(object sender, EventArgs e)
+        {
+            if (0 < _imageIndex)
+            {
+                _imageIndex --;
+                label1.Text = _imageIndex.ToString(); //borrar y borrar compoennte
+                mapImage();
+                Functions.LoadImage(pictureBox, imageTextBox.Text);
+            }
+        }
+
+        private void nextImgButton_Click(object sender, EventArgs e)
+        {
+            int imagesAmount = _article.Images.Count;
+
+            if (_imageIndex < imagesAmount)
+            {
+                _imageIndex ++;
+                label1.Text = _imageIndex.ToString(); //borrar comp[onente
+
+                if (_imageIndex != imagesAmount)
+                {
+                    mapImage();
+                    Functions.LoadImage(pictureBox, imageTextBox.Text);
+                }
+                else
+                {
+                    imageTextBox.Text = "";
+                    Functions.LoadImage(pictureBox, "https://scontent.faep24-1.fna.fbcdn.net/v/t39.30808-6/300048077_475711724563828_9035779901907420679_n.png?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=FJ0M5nhZ1wMQ7kNvgHMN7nf&_nc_ht=scontent.faep24-1.fna&oh=00_AfAwqHQEqupbkK5sc0H8yUgCAWI__tkqnt9lsZix48LHcA&oe=6634F4F0");
+                }
+            }
         }
     }
 }

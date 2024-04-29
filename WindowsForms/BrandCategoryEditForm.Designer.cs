@@ -158,6 +158,7 @@
             this.saveButton.Text = "Guardar";
             this.saveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // BrandCategoryEditForm
             // 
@@ -174,6 +175,7 @@
             this.Name = "BrandCategoryEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar";
+            this.Load += new System.EventHandler(this.BrandCategoryEditForm_Load);
             this.rpInputs.ResumeLayout(false);
             this.rpInputs.PerformLayout();
             this.ResumeLayout(false);

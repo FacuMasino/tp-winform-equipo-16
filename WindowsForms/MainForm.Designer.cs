@@ -32,9 +32,6 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.catalogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ediciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.brandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -46,7 +43,6 @@
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.ediciónToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -70,30 +66,6 @@
             this.catalogToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.catalogToolStripMenuItem.Text = "Catálogo";
             this.catalogToolStripMenuItem.Click += new System.EventHandler(this.catalogToolStripMenuItem_Click);
-            // 
-            // ediciónToolStripMenuItem
-            // 
-            this.ediciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.brandsToolStripMenuItem,
-            this.categoriesToolStripMenuItem});
-            this.ediciónToolStripMenuItem.Name = "ediciónToolStripMenuItem";
-            this.ediciónToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.ediciónToolStripMenuItem.Text = "Edición";
-            // 
-            // brandsToolStripMenuItem
-            // 
-            this.brandsToolStripMenuItem.Name = "brandsToolStripMenuItem";
-            this.brandsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.brandsToolStripMenuItem.Text = "Marcas";
-            this.brandsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.brandsToolStripMenuItem.Click += new System.EventHandler(this.brandsToolStripMenuItem_Click);
-            // 
-            // categoriesToolStripMenuItem
-            // 
-            this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.categoriesToolStripMenuItem.Text = "Categorías";
-            this.categoriesToolStripMenuItem.Click += new System.EventHandler(this.categoriesToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -136,9 +108,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem catalogToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ediciónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem brandsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem categoriesToolStripMenuItem;
     }
 }
 

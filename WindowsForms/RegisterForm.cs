@@ -95,10 +95,16 @@ namespace WindowsForms
 
         private void setImages()
         {
-            if (_article.Images.Count > 0)
+            if (0 < _article.Images.Count)
             {
                 for (int i = 0; i < _images.Count; i++)
                 {
+                    if (_images.Count != _article.Images.Count && i == _images.Count - 1)
+                    {
+                        Image aux = new Image();
+                        _article.Images.Add(aux);
+                    }
+
                     _article.Images[i].Url = _images[i].Url;
                 }
             }
@@ -107,6 +113,11 @@ namespace WindowsForms
                 Image auxImg = new Image();
                 auxImg.Url = imageTextBox.Text;
                 _article.Images.Add(auxImg);
+            }
+
+            if (_article.Images.Count < _images.Count)
+            {
+                _article.Images.Add(_images[_article.Images.Count]);
             }
         }
 
@@ -258,7 +269,14 @@ namespace WindowsForms
 
                     foreach (Image image in _article.Images)
                     {
-                        _imagesManager.Edit(image);
+                        if (0 < image.Id)
+                        {
+                            _imagesManager.Edit(image);
+                        }
+                        else
+                        {
+                            _imagesManager.Add(image, _article.Id);
+                        }
                     }
 
                     MessageBox.Show("Modificado exitosamente.");
@@ -289,8 +307,18 @@ namespace WindowsForms
                 return;
             }
 
-            TextBoxToArray();
             Functions.LoadImage(pictureBox, imageTextBox.Text);
+
+            if (_imageIndex < _article.Images.Count)
+            {
+                TextBoxToArray();
+            }
+            
+            if (_imageIndex == _article.Images.Count && Validations.HasData(imageTextBox.Text))
+            {
+                _images.Add(new Image());
+                _images[_imageIndex].Url = imageTextBox.Text;
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -358,8 +386,6 @@ namespace WindowsForms
                 EnableNextInput(descriptionTextBox);
         }
 
-        private void priceTextBox_TextChanged(object sender, EventArgs e) { }
-
         private void brandComboBox_Leave(object sender, EventArgs e)
         {
             if (!ValidateInput(brandComboBox))
@@ -412,7 +438,9 @@ namespace WindowsForms
                 }
 
                 _imageIndex --;
+
                 MapImage();
+
                 Functions.LoadImage(pictureBox, imageTextBox.Text);
             }
         }
@@ -433,8 +461,16 @@ namespace WindowsForms
                 }
                 else
                 {
-                    imageTextBox.Text = "";
-                    Functions.LoadImage(pictureBox, "https://scontent.faep24-1.fna.fbcdn.net/v/t39.30808-6/300048077_475711724563828_9035779901907420679_n.png?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=FJ0M5nhZ1wMQ7kNvgHMN7nf&_nc_ht=scontent.faep24-1.fna&oh=00_AfAwqHQEqupbkK5sc0H8yUgCAWI__tkqnt9lsZix48LHcA&oe=6634F4F0");
+                    if (_images.Count == _article.Images.Count)
+                    {
+                        imageTextBox.Text = "";
+                        Functions.LoadImage(pictureBox, "https://scontent.faep24-1.fna.fbcdn.net/v/t39.30808-6/300048077_475711724563828_9035779901907420679_n.png?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=FJ0M5nhZ1wMQ7kNvgHMN7nf&_nc_ht=scontent.faep24-1.fna&oh=00_AfAwqHQEqupbkK5sc0H8yUgCAWI__tkqnt9lsZix48LHcA&oe=6634F4F0");
+                    }
+                    else
+                    {
+                        MapImage();
+                        Functions.LoadImage(pictureBox, imageTextBox.Text);
+                    }
                 }
             }
         }

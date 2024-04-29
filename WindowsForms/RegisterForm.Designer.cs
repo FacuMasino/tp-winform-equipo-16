@@ -282,7 +282,6 @@
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(340, 31);
             this.priceTextBox.TabIndex = 5;
-            this.priceTextBox.TextChanged += new System.EventHandler(this.priceTextBox_TextChanged);
             this.priceTextBox.Leave += new System.EventHandler(this.priceTextBox_Leave);
             // 
             // descriptionLabel

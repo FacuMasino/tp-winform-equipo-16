@@ -34,14 +34,14 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.tlpValidations = new System.Windows.Forms.ToolTip(this.components);
             this.componentsToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.categoryCheckBox = new System.Windows.Forms.CheckBox();
+            this.brandCheckBox = new System.Windows.Forms.CheckBox();
             this.roundPanel2 = new WindowsForms.RoundPanel();
             this.deleteImgButton = new System.Windows.Forms.Button();
             this.nextImgButton = new System.Windows.Forms.Button();
             this.prevImgButton = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.roundPanel1 = new WindowsForms.RoundPanel();
-            this.categoryCheckBox = new System.Windows.Forms.CheckBox();
-            this.brandCheckBox = new System.Windows.Forms.CheckBox();
             this.imageTextBox = new System.Windows.Forms.TextBox();
             this.imageLabel = new System.Windows.Forms.Label();
             this.codeTextBox = new System.Windows.Forms.TextBox();
@@ -103,6 +103,28 @@
             this.tlpValidations.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
             this.tlpValidations.ToolTipTitle = "Verifique el campo";
             // 
+            // categoryCheckBox
+            // 
+            this.categoryCheckBox.AutoSize = true;
+            this.categoryCheckBox.Location = new System.Drawing.Point(443, 234);
+            this.categoryCheckBox.Name = "categoryCheckBox";
+            this.categoryCheckBox.Size = new System.Drawing.Size(99, 24);
+            this.categoryCheckBox.TabIndex = 9;
+            this.categoryCheckBox.Text = "En todos";
+            this.componentsToolTip.SetToolTip(this.categoryCheckBox, "Editar esta categoría en todos los artículos que la tengan.");
+            this.categoryCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // brandCheckBox
+            // 
+            this.brandCheckBox.AutoSize = true;
+            this.brandCheckBox.Location = new System.Drawing.Point(443, 185);
+            this.brandCheckBox.Name = "brandCheckBox";
+            this.brandCheckBox.Size = new System.Drawing.Size(99, 24);
+            this.brandCheckBox.TabIndex = 8;
+            this.brandCheckBox.Text = "En todos";
+            this.componentsToolTip.SetToolTip(this.brandCheckBox, "Editar esta marca en todos los artículos que la tengan.");
+            this.brandCheckBox.UseVisualStyleBackColor = true;
+            // 
             // roundPanel2
             // 
             this.roundPanel2.BackColor = System.Drawing.Color.Transparent;
@@ -134,6 +156,7 @@
             this.deleteImgButton.TabIndex = 5;
             this.deleteImgButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.deleteImgButton.UseVisualStyleBackColor = false;
+            this.deleteImgButton.Click += new System.EventHandler(this.deleteImgButton_Click);
             // 
             // nextImgButton
             // 
@@ -204,28 +227,6 @@
             this.roundPanel1.Radius = 10;
             this.roundPanel1.Size = new System.Drawing.Size(590, 395);
             this.roundPanel1.TabIndex = 0;
-            // 
-            // categoryCheckBox
-            // 
-            this.categoryCheckBox.AutoSize = true;
-            this.categoryCheckBox.Location = new System.Drawing.Point(443, 234);
-            this.categoryCheckBox.Name = "categoryCheckBox";
-            this.categoryCheckBox.Size = new System.Drawing.Size(99, 24);
-            this.categoryCheckBox.TabIndex = 9;
-            this.categoryCheckBox.Text = "En todos";
-            this.componentsToolTip.SetToolTip(this.categoryCheckBox, "Editar esta categoría en todos los artículos que la tengan.");
-            this.categoryCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // brandCheckBox
-            // 
-            this.brandCheckBox.AutoSize = true;
-            this.brandCheckBox.Location = new System.Drawing.Point(443, 185);
-            this.brandCheckBox.Name = "brandCheckBox";
-            this.brandCheckBox.Size = new System.Drawing.Size(99, 24);
-            this.brandCheckBox.TabIndex = 8;
-            this.brandCheckBox.Text = "En todos";
-            this.componentsToolTip.SetToolTip(this.brandCheckBox, "Editar esta marca en todos los artículos que la tengan.");
-            this.brandCheckBox.UseVisualStyleBackColor = true;
             // 
             // imageTextBox
             // 

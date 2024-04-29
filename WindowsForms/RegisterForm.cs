@@ -474,5 +474,33 @@ namespace WindowsForms
                 }
             }
         }
+
+        private void deleteImgButton_Click(object sender, EventArgs e)
+        {
+            if (_imageIndex == _article.Images.Count)
+            {
+                return;
+            }
+
+            string msg = "Esta acción no puede deshacerse. ¿Está seguro que desea continuar?";
+
+
+            DialogResult answer = MessageBox.Show(
+                msg,
+                "Eliminar registro",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (answer == DialogResult.Yes)
+            {
+                _imagesManager.Delete(_article.Images[_imageIndex]);
+                _images.RemoveAt(_imageIndex);
+                _article.Images.RemoveAt(_imageIndex);
+                _imageIndex = 0;
+                MapImage();
+                Functions.LoadImage(pictureBox, imageTextBox.Text);
+            }
+        }
     }
 }

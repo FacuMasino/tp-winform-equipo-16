@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Reflection;
 using System.Windows.Forms;
 using BusinessLogicLayer;
 using Domain;
@@ -54,11 +53,6 @@ namespace WindowsForms
 
         private bool ValidateRegister()
         {
-            /*if (!Validations.IsNumber(priceTextBox.Text))
-            {
-                Validations.Error("El campo de precio solo admite caracteres numéricos.");
-                return false;
-            }*/
             if (!Validations.CheckAllInputs(_inputsValidation))
             {
                 Validations.Error("Por favor verifique que los campos ingresados sean correctos.");
@@ -92,15 +86,27 @@ namespace WindowsForms
 
         private void TextBoxToArray()
         {
-            _images[_imageIndex].Id = _article.Images[_imageIndex].Id;
-            _images[_imageIndex].Url = imageTextBox.Text;
+            if (0 < _article.Images.Count)
+            {
+                _images[_imageIndex].Id = _article.Images[_imageIndex].Id;
+                _images[_imageIndex].Url = imageTextBox.Text;
+            }
         }
 
         private void setImages()
         {
-            for (int i = 0; i < _images.Count; i++)
+            if (_article.Images.Count > 0)
             {
-                _article.Images[i].Url = _images[i].Url;
+                for (int i = 0; i < _images.Count; i++)
+                {
+                    _article.Images[i].Url = _images[i].Url;
+                }
+            }
+            else
+            {
+                Image auxImg = new Image();
+                auxImg.Url = imageTextBox.Text;
+                _article.Images.Add(auxImg);
             }
         }
 

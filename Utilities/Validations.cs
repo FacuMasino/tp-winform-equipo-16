@@ -50,15 +50,15 @@ namespace Utilities
         public static bool IsDecimal(string text)
         {
             int commaCounter = 0;
-            if (text[0] == '.')
+            if (text[0] == '.' || text[0] == ',')
                 return false;
-            if (text[text.Length - 1] == '.')
+            if (text[text.Length - 1] == '.' || text[text.Length - 1] == ',')
                 return false;
             foreach (char c in text)
             {
-                if (c == '.')
+                if (c == '.' || c == ',')
                     commaCounter++;
-                if (!char.IsNumber(c) && c != '.')
+                if (!char.IsNumber(c) && (c != '.' && c != ','))
                     return false;
             }
             return (commaCounter <= 1);

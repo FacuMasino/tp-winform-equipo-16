@@ -27,7 +27,7 @@ namespace DataAccessLayer
         /// </summary>
         public DataAccess()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["maxi_mac"].ToString(); // Modificar en esta línea el argumento de ConnectionString["ana ó facu ó maxi"] para elegir la base de datos.
+            _connectionString = ConfigurationManager.ConnectionStrings["azure"].ToString(); // Modificar en esta línea el argumento de ConnectionString["ana ó facu ó maxi"] para elegir la base de datos.
             _connection = new SqlConnection(_connectionString);
             _command = new SqlCommand();
         }
